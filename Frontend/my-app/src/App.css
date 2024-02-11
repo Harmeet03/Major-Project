@@ -37,11 +37,43 @@
   }
 }
 
-.i{
-  font-size: 16px;
-  color: black;
-}
-
 body{
   font-family: "Oswald";
 }
+
+/* ------------- SIGN IN & SIGN UP ------------ */
+.si, .su{
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  width: 1535px;
+  background: linear-gradient(to right, rgb(122, 117, 117) 0%, rgb(122, 117, 117) 50%,rgb(46, 46, 185) 50%,rgb(46, 46, 185) 100%);
+}
+
+.si{
+  padding: 105px 0px 105px 0px;
+}
+
+.right{
+  margin: auto;
+  width: 50%;
+  text-align: center;
+  color: white;
+
+}
+
+.right > h1{
+  font-size: 60px;
+}
+
+.right > h3{
+  font-size: 30px;
+}
+
+.left{
+  margin: auto;
+  text-align: center;
+  width: 50%;
+  padding: 100px 0px 120px 0px;
+}
+/* -------------------------------------------- */

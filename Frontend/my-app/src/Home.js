@@ -7,7 +7,19 @@ import './App.css';
 const Home = () => {
     return(
         <>
-            <p className="i"> This is what this is </p>
+            {/* Sign In */}
+            <div>
+                <div>
+
+                </div>
+                <div>
+                    
+                </div>
+            </div>
+
+            {/* Sign Up */}
+
+
         </>
     )
 };

@@ -59,7 +59,7 @@ body{
   width: 50%;
   text-align: center;
   color: white;
-
+  background-image: url("https://assets-global.website-files.com/637f533d357967a5820f3f25/641f0e94ce09cd74bd3bd260_decoration-lines-quotes.svg");
 }
 
 .right > h1{
@@ -75,5 +75,6 @@ body{
   text-align: center;
   width: 50%;
   padding: 100px 0px 120px 0px;
+  background-image: url("https://assets-global.website-files.com/637f533d357967a5820f3f25/641f0e94ce09cd74bd3bd260_decoration-lines-quotes.svg");
 }
 /* -------------------------------------------- */

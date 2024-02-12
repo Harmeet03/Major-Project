@@ -39,26 +39,29 @@
 
 body{
   font-family: "Oswald";
+  margin: 0;
+  padding: 0;
+  background-color: black;
 }
-
+/* ------------------------------ ADMIN ------------------------------------------------------- */
 /* ------------- SIGN IN & SIGN UP ------------ */
 .si, .su{
   display: flex;
   flex-direction: row;
   margin: auto;
-  width: 1535px;
-  background: linear-gradient(to right, rgb(122, 117, 117) 0%, rgb(122, 117, 117) 50%,rgb(46, 46, 185) 50%,rgb(46, 46, 185) 100%);
+  width: 1500px;
+  background: linear-gradient(to right, black 0%, black 50%, blue 50%, blue 100%);
 }
 
 .si{
-  padding: 105px 0px 105px 0px;
+  padding: 85px 0px 105px 0px;
 }
 
 .right{
   margin: auto;
   width: 50%;
   text-align: center;
-  color: white;
+  color: black;
   background-image: url("https://assets-global.website-files.com/637f533d357967a5820f3f25/641f0e94ce09cd74bd3bd260_decoration-lines-quotes.svg");
 }
 
@@ -76,5 +79,54 @@ body{
   width: 50%;
   padding: 100px 0px 120px 0px;
   background-image: url("https://assets-global.website-files.com/637f533d357967a5820f3f25/641f0e94ce09cd74bd3bd260_decoration-lines-quotes.svg");
+  font-weight: 900;
+  color: blue;
+}
+
+.left input{
+  border: none;
+  border-radius: 6px;
+  padding: 10px;
+  width: 200px;
+  background-color: rgba(137, 137, 251, 0.185);
+  color: blue;
+  font-size: 16px;
+  font-weight: 00;
+}
+
+.left input::placeholder{
+  color: blue;
+}
+
+.left button{
+  border: none;
+  border-radius: 6px;
+  padding: 15px;
+  width: 200px;
+  font-size: 16px;
+  background-color: blue;
+  font-weight: 600;
 }
 /* -------------------------------------------- */
+/* ----- ABOVE ONE FOR SMALLER DEVICES ----- */
+
+/* ----------------------------------------- */
+/* ---------------------------------------------------------------------------------------------------------------- */
+
+/* -------------------------------------- TEACHERS ------------------------------------------------------------- */
+/* ------------- SIGN IN ------------ */
+/* ---------------------------------- */
+
+/* ----- ABOVE ONE FOR SMALLER DEVICES ----- */
+
+/* ----------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------- */
+
+/* -------------------------------------- STUDENTS ------------------------------------------------------------- */
+/* ------------- SIGN IN ------------ */
+/* ---------------------------------- */
+
+/* ----- ABOVE ONE FOR SMALLER DEVICES ----- */
+
+/* ----------------------------------------- */
+/* ------------------------------------------------------------------------------------------------------------- */

@@ -2,6 +2,7 @@ body{
   margin: 0%;
   padding: 0%;
   overflow-x: hidden;
+  color: white;
 }
 
 .parent{
@@ -146,7 +147,7 @@ top: 35%;
 
 #b{
   width: 150px;
-  padding-right: 300px;
+  padding-right: 600px;
   padding-left: 50px;
 }
 

@@ -1,12 +1,12 @@
 import React from 'react';
 import './index';
 import {Link} from 'react-router-dom';
-import NavigationBar from './navbar';
+import NavigationBar from './Navbar';
 
 const Home = () => {
 return(
 <div className='abc1'>
-<NavigationBar/>
+<NavBar/>
 <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Nothing+You+Could+Do" />
 <img id='i' src="//esmarts.qodeinteractive.com/wp-content/uploads/2017/10/h3-slide-1-img-2.png" alt='img'></img>
 <img id='i1' src='//esmarts.qodeinteractive.com/wp-content/uploads/2017/10/h3-slide-1-img-3.png' alt='img'></img>

@@ -1,13 +1,303 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+body{
+  margin: 0%;
+  padding: 0%;
+  overflow-x: hidden;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.parent{
+  display:flex;
+  padding-top: 40px;
+  gap: 40px;
+  background: rgb(69, 130, 255);
+  background-image: url("//esmarts.qodeinteractive.com/wp-content/uploads/2017/10/h3-slide-1-img-1.png");
+  background-position: 0px 115px;
+  position: relative;
+  padding-bottom: 37%;
+  background-repeat: no-repeat;
+  font-size:14px
+
+}
+
+#i{
+  position: absolute;
+  bottom: 25%;
+  width: 350px;
+padding-left: 3%;}
+
+#i1{
+  position: absolute;
+  padding-left: 50%;
+  bottom: 79%;
+  width: 4%;
+}
+
+#i2{
+padding-right: 0%;
+}
+
+#heading1{
+  position: absolute;
+  left: 34%;
+  bottom: 20%;
+  color: #ddd;
+  font-family:"Nothing You Could Do";
+  font-size: 120px
+}
+
+#i3{
+  position: absolute;
+  width: 120px;
+  left: 74%;
+  bottom: 70%;
+}
+
+#i4{
+  position: absolute;
+  left: 80%;
+  width: 13%;
+  bottom: 35%;
+}
+
+#i5{
+  position: absolute;
+  bottom: 80%;
+  top: 50%;
+  left:93%
+
+}
+
+#i6{
+position: absolute;
+bottom: 90%;
+left:85%;
+top: 15%;
+}
+
+#i7{
+  position: absolute;
+bottom: 90%;
+left:75%;
+top: 35%;
+}
+
+#i8{
+  position: absolute;
+  bottom: 90%;
+  left:65%;
+  top: 55%
+}
+
+#i9{
+  position: absolute;
+  bottom: 90%;
+  left:71%;
+  top: 15%
+}
+
+#i10{
+  position: absolute;
+  bottom: 90%;
+  left:39%;
+  top: 15%
+}
+
+#i11{
+  position: absolute;
+  bottom: 90%;
+  left:20%;
+  top: 15%
+}
+
+
+.dropbtn {
+  background-color: inherit;
+  font-size: 18px;
+  font-weight: bold;
+  border: none;
+}
+
+.dropdown1 {
+  position: relative;
+  display: inline-block;
+}
+
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  font-size: 17px;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.dropdown-content a:hover {background-color: #ddd;}
+
+.dropdown1:hover .dropdown-content {display: block;}
+
+.dropdown1:hover .dropbtn {background-color: darkorchid;}
+
+#b{
+  width: 150px;
+  padding-right: 300px;
+  padding-left: 50px;
+}
+
+#a1{
+  padding: 80px;
+  width: 150px;
+  margin-left: 210px;
+  height: 300px;
+  background-color:orange;
+
+}
+
+#a2{
+  padding: 80px;
+  width: 150px;
+  margin-left: 5px;
+  background-color:aqua;
+  height: 300px;
+}
+
+#a3{
+  padding: 80px;
+  width: 150px;
+  margin-right: 400px;
+  background-color: darkslategrey;
+  height: 300px;
+}
+
+.abc{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 10px;
+  padding-top:0%;
+  /* background:  rgb(69, 130, 255); */
+  position: absolute;
+  top: 65%;
+  bottom: 26%;
+  height: 250px;
+}
+
+#h1{
+  margin-left: 35px;
+}
+
+#pa{
+  margin-bottom: 140px;
+  margin-left: 20px;
+}
+/* #h2{
+  margin-left: 25px;
+  margin-bottom: 160px;
+} */
+
+#img{
+  width: 100px;
+  padding-left: 30px;
+}
+
+#img2{
+  height: 100px;
+  width: 120px;
+  padding-left: 30px;
+}
+
+#link{
+  padding-left: 40px;
+}
+
+.Cont1{
+  margin-top:23%;
+  padding-bottom:2%;
+  padding-top: 1%;
+  padding-left: 2%;
+}
+
+.Cont2{
+  display: flex;
+  gap: 40px;
+  margin-right: 2%;
+}
+
+#p1{
+  text-align:justify;
+  font-size: 25px;
+  padding-bottom: 0%
+}
+
+#i99{
+  width: 45%;
+}
+
+.cont3{
+  padding-top: 13px;
+  gap: 10%;
+  display: flex;
+  padding-left: 3%;
+  padding-right: 3%;
+}
+
+#p12{
+  text-align: justify;
+  font-size: 20px;
+}
+
+.cont4{
+  padding-left: 5%;
+  padding-right: 10%;
+  padding-top: 2%;
+}
+
+#i89{
+  width: 94%;
+}
+
+.cont5{
+padding-left: 3%;
+padding-top: 3%;
+}
+
+.cont51{
+  gap: 5%;
+  display: flex;
+  padding-right: 3%;
+  padding-left: 1%;
+}
+
+.cont6{
+  padding-left: 3%;
+  padding-top: 3%;
+}
+
+.cont61{
+  gap: 10%;
+  display: flex;
+  padding-right: 3%;
+  padding-left: 1%;
+}
+
+#headi{
+  margin-top: 5%;
+  text-align: center;
+}
+
+.cont7{
+  padding-left: 1%;
+  padding-top: 1%;
+}
+
+.cont71{
+  gap: 2%;
+  display: flex;
+  padding-right: 3%;
+  padding-left: 1%;
 }

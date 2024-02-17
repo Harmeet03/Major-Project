@@ -178,10 +178,8 @@ body{
 
 /* --------------------------------------------- HEADER OR NAVBAR ------------------------------------------------- */
 nav{
-  background-color: white;
   display: flex;
   flex-direction: row;
-  border: 1px solid white;
   gap: 20px;
   font-size: 14px;
   padding: 20px 0px; 
@@ -196,7 +194,7 @@ nav span{
 
 nav span:hover{
   cursor: pointer;
-  background-color: rgba(0, 0, 0, 0.289);
+  background-color: rgba(105, 105, 105, 0.289);
   transition: 0.5s;
 }
 /* ---------------------------------------------------------------------------------------------------------------- */
@@ -239,6 +237,37 @@ header > h1{
 
 .overviewS > div > i{
   font-size: 30px;
+}
+
+#noticeS{
+  width: 1000px;
+  margin: auto;
+  border: 1px solid black;
+  background-color: rgba(255, 255, 255, 0.164);
+  border-radius: 6px;
+  padding: 20px 0px;
+}
+
+.noNoticeS{
+  text-align: center;
+}
+
+.noticeS tr .date{
+  padding: 10px 100px;
+  border-bottom: 1px solid white;
+  font-weight: bold;
+}
+
+.noticeS tr .title{
+  padding: 10px 337px;
+  border-bottom: 1px solid white;
+  font-weight: bold;
+}
+
+.noticeS tbody tr td{
+  border-bottom: 1px solid white;
+  padding: 10px 0px;
+  text-align: center;
 }
 
 /* ----------------- */

@@ -11,6 +11,7 @@ import Register from './Register/Register';
 import HomeA from './Admin/Home';
 import HomeT from './Teacher/Home';
 import HomeS from './Student/Home';
+import Marks from './Student/Marks';
 
 
 function App() {
@@ -37,6 +38,7 @@ function App() {
         
         {/* Home Page of Student */}
         <Route path="/Student/Home" element={<HomeS/>} />
+        <Route path="/Student/Marks" element={<Marks/>} />
       </Routes>
     </BrowserRouter>
   );

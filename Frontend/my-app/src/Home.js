@@ -245,10 +245,10 @@ return(
     </div>
 </div>
 
-<div style={{ display: 'flex', justifyContent: 'center' , height: '60vh',padding:'0 0 30px 0'}}>
+<div style={{ display: 'flex', justifyContent: 'center' , height: '60vh',padding:'100px 0px'}}>
     
      <table style={{borderCollapse: 'collapse'}} >
-      <tr style={{ backgroundColor: 'white',fontSize: '25px',border:'none',borderBottom: '0.1px solid rgba(0, 0, 0, 0.2)'}}>
+      <tr style={{ backgroundColor: 'black', color: 'white', fontSize: '25px',border:'none',borderBottom: '0.1px solid white'}}>
         <th style={{width:'150px',border:'none'}}>Courses Name</th>
         <th style={{border:'none'}}>Category</th>
         <th style={{border:'none'}}>Instructor</th>
@@ -256,7 +256,7 @@ return(
         <th style={{border:'none'}}></th>
       </tr>
       
-      <tr style={{ backgroundColor: 'white', color: '#697788',fontSize:'15px',border:'none',borderBottom: '0.1px solid rgba(0, 0, 0, 0.2)'}}>
+      <tr style={{ backgroundColor: 'black', color: 'white',fontSize:'15px',border:'none',borderBottom: '0.1px solid white'}}>
         <td style={{ padding: '10px',border:'none' }}>Academic English</td>
         <td style={{ padding: '10px',border:'none' }}>Web Technology</td>
         <td style={{ padding: '10px',border:'none' }}>fsdfds</td>
@@ -266,7 +266,7 @@ return(
       </button></td>
         
       </tr>
-      <tr style={{ backgroundColor: 'white', color: '#697788',fontSize:'15px',border:'none',borderBottom: '0.1px solid rgba(0, 0, 0, 0.2)' }}>
+      <tr style={{ backgroundColor: 'black', color: 'white',fontSize:'15px',border:'none',borderBottom: '0.1px solid white' }}>
         <td style={{ padding: '10px',border:'none' }}>Row 2, Column 1</td>
         <td style={{ padding: '10px',border:'none' }}>Row 2, Column 2</td>
         <td style={{ padding: '10px',border:'none' }}>Row 2, Column 3</td>
@@ -276,7 +276,7 @@ return(
       </button></td>
        
       </tr>
-      <tr style={{ backgroundColor: 'white', color: '#697788' ,border:'none',borderBottom: '0.1px solid rgba(0, 0, 0, 0.2)'}}>
+      <tr style={{ backgroundColor: 'black', color: 'white' ,border:'none',borderBottom: '0.1px solid white'}}>
         <td style={{ padding: '10px',border:'none' }}>Row 3, Column 1</td>
         <td style={{ padding: '10px',border:'none' }}>Row 3, Column 2</td>
         <td style={{ padding: '10px',border:'none' }}>Row 3, Column 3</td>
@@ -286,7 +286,7 @@ return(
       </button></td>
        
       </tr>
-      <tr style={{ backgroundColor: 'white', color: '#697788',border:'none',borderBottom: '0.1px solid rgba(0, 0, 0, 0.2)' }}>
+      <tr style={{ backgroundColor: 'black', color: 'white',border:'none',borderBottom: '0.1px solid white' }}>
         <td style={{ padding: '10px',border:'none' }}>Row 4, Column 1</td>
         <td style={{ padding: '10px',border:'none' }}>Row 4, Column 2</td>
         <td style={{ padding: '10px',border:'none' }}>Row 4, Column 3</td>
@@ -296,7 +296,7 @@ return(
       </button></td>
         
       </tr>
-      <tr style={{ backgroundColor: 'white', color: '#697788',border:'none',borderBottom: '0.1px solid rgba(0, 0, 0, 0.2)' }}>
+      <tr style={{ backgroundColor: 'black', color: 'white',border:'none',borderBottom: '0.1px solid white' }}>
         <td style={{ padding: '10px',border:'none' }}>Row 5, Column 1</td>
         <td style={{ padding: '10px',border:'none' }}>Row 5, Column 2</td>
         <td style={{ padding: '10px',border:'none' }}>Row 5, Column 3</td>

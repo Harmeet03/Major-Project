@@ -2,6 +2,8 @@ import React from 'react';
 import './index.css';
 import {Link} from 'react-router-dom';
 import Navbar from './Navbar';
+import  '../App.css'
+import Footer from '../components/Footer';
 
 const Home = () => {
 return(
@@ -242,6 +244,71 @@ return(
         </div>
     </div>
 </div>
+
+<div style={{ display: 'flex', justifyContent: 'center' , height: '60vh',padding:'0 0 30px 0'}}>
+    
+     <table style={{borderCollapse: 'collapse'}} >
+      <tr style={{ backgroundColor: 'white',fontSize: '25px',border:'none',borderBottom: '0.1px solid rgba(0, 0, 0, 0.2)'}}>
+        <th style={{width:'150px',border:'none'}}>Courses Name</th>
+        <th style={{border:'none'}}>Category</th>
+        <th style={{border:'none'}}>Instructor</th>
+        <th style={{border:'none'}}>Price</th>
+        <th style={{border:'none'}}></th>
+      </tr>
+      
+      <tr style={{ backgroundColor: 'white', color: '#697788',fontSize:'15px',border:'none',borderBottom: '0.1px solid rgba(0, 0, 0, 0.2)'}}>
+        <td style={{ padding: '10px',border:'none' }}>Academic English</td>
+        <td style={{ padding: '10px',border:'none' }}>Web Technology</td>
+        <td style={{ padding: '10px',border:'none' }}>fsdfds</td>
+        <td style={{ padding: '10px',border:'none' }}>Row 1, Column 4</td>
+        <td style={{ padding: '10px',border:'none' }}><button style={{ backgroundColor: '#36dff8', borderRadius: '20px', color: 'white', padding: '10px 20px', border: 'none', cursor: 'pointer' }}>
+        My Button
+      </button></td>
+        
+      </tr>
+      <tr style={{ backgroundColor: 'white', color: '#697788',fontSize:'15px',border:'none',borderBottom: '0.1px solid rgba(0, 0, 0, 0.2)' }}>
+        <td style={{ padding: '10px',border:'none' }}>Row 2, Column 1</td>
+        <td style={{ padding: '10px',border:'none' }}>Row 2, Column 2</td>
+        <td style={{ padding: '10px',border:'none' }}>Row 2, Column 3</td>
+        <td style={{ padding: '10px',border:'none' }}>Row 2, Column 4</td>
+        <td style={{ padding: '10px',border:'none' }}><button style={{ backgroundColor: '#36dff8', borderRadius: '20px', color: 'white', padding: '10px 20px', border: 'none', cursor: 'pointer' }}>
+        My Button
+      </button></td>
+       
+      </tr>
+      <tr style={{ backgroundColor: 'white', color: '#697788' ,border:'none',borderBottom: '0.1px solid rgba(0, 0, 0, 0.2)'}}>
+        <td style={{ padding: '10px',border:'none' }}>Row 3, Column 1</td>
+        <td style={{ padding: '10px',border:'none' }}>Row 3, Column 2</td>
+        <td style={{ padding: '10px',border:'none' }}>Row 3, Column 3</td>
+        <td style={{ padding: '10px',border:'none' }}>Row 3, Column 4</td>
+        <td style={{ padding: '10px',border:'none' }}><button style={{ backgroundColor: '#36dff8', borderRadius: '20px', color: 'white', padding: '10px 20px', border: 'none', cursor: 'pointer' }}>
+        My Button
+      </button></td>
+       
+      </tr>
+      <tr style={{ backgroundColor: 'white', color: '#697788',border:'none',borderBottom: '0.1px solid rgba(0, 0, 0, 0.2)' }}>
+        <td style={{ padding: '10px',border:'none' }}>Row 4, Column 1</td>
+        <td style={{ padding: '10px',border:'none' }}>Row 4, Column 2</td>
+        <td style={{ padding: '10px',border:'none' }}>Row 4, Column 3</td>
+        <td style={{ padding: '10px',border:'none' }}>Row 4, Column 4</td>
+        <td style={{ padding: '10px',border:'none'}}><button style={{ backgroundColor: '#36dff8', borderRadius: '20px', color: 'white', padding: '10px 20px', border: 'none', cursor: 'pointer' }}>
+        My Button
+      </button></td>
+        
+      </tr>
+      <tr style={{ backgroundColor: 'white', color: '#697788',border:'none',borderBottom: '0.1px solid rgba(0, 0, 0, 0.2)' }}>
+        <td style={{ padding: '10px',border:'none' }}>Row 5, Column 1</td>
+        <td style={{ padding: '10px',border:'none' }}>Row 5, Column 2</td>
+        <td style={{ padding: '10px',border:'none' }}>Row 5, Column 3</td>
+        <td style={{ padding: '10px',border:'none' }}>Row 5, Column 4</td>
+        <td style={{ padding: '10px',border:'none' }}><button style={{ backgroundColor: '#36dff8', borderRadius: '20px', color: 'white', padding: '10px 20px', border: 'none', cursor: 'pointer' }}>
+        My Button
+      </button></td>
+       
+      </tr>
+    </table>
+   </div>
+    <Footer/>
 </>
 )
 }

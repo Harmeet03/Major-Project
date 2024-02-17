@@ -3,7 +3,7 @@ import Navbar from "./Header";
 import '../App.css';
 import { useNavigate } from "react-router-dom";
 
-const Marks = () => {
+const Assignment = () => {
     const navigate = useNavigate()
     return(
         <>
@@ -24,33 +24,20 @@ const Marks = () => {
         <div style={{padding: "40px 0px"}}>
             <div id="noticeS">
                 <div className="noNoticeS">
-                    <h3> No Marks available for you right now. </h3>
+                    <h3> No Assignment available for you right now. </h3>
                 </div>
-                <div className="noticeS">
-                    {/* FOR BACKEND */}
-                    <table>
-                        <thead>
-                            <tr>
-                                {/* <td className="date"> SUBJECTS </td>
-                                <td className="title"> MARKS </td> */}
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                {/* <td>Maths</td>
-                                <td>44</td> */}
-                            </tr>
-                            <tr>
-                                {/* <td>English</td>
-                                <td>40</td> */}
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+            </div>
+            
+            {/* FOR BACKEND */}
+            <div className="overviewS">
+                {/* <div>
+                    <h2> MATHS </h2>
+                    <h4><a href=""> Click here </a></h4>
+                </div> */}
             </div>
         </div>
         </>
     )
 };
 
-export default Marks;
+export default Assignment;

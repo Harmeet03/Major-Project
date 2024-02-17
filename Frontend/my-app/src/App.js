@@ -12,6 +12,7 @@ import HomeA from './Admin/Home';
 import HomeT from './Teacher/Home';
 import HomeS from './Student/Home';
 import Marks from './Student/Marks';
+import Assignment from './Student/Assignment';
 
 
 function App() {
@@ -39,6 +40,7 @@ function App() {
         {/* Home Page of Student */}
         <Route path="/Student/Home" element={<HomeS/>} />
         <Route path="/Student/Marks" element={<Marks/>} />
+        <Route path="/Student/Assignment" element={<Assignment/>} />
       </Routes>
     </BrowserRouter>
   );

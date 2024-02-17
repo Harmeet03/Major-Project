@@ -8,11 +8,9 @@ import {
     Twitter,
   } from "@material-ui/icons";
   import styled from "styled-components";
-  import { mobile } from "./responsive";
   
   const Container = styled.div`
     display: flex;
-    ${mobile({ flexDirection: "column" })}
   `;
   
   const Left = styled.div`
@@ -71,8 +69,6 @@ import {
   const Right = styled.div`
     flex: 1;
     padding: 30px;
-    ${mobile({ backgroundColor: "#fff8f8" })}
-  
   `;
   
   const ContactItem = styled.div`

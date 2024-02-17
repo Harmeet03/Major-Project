@@ -2,8 +2,8 @@ import React from 'react';
 import './index.css';
 import {Link} from 'react-router-dom';
 import Navbar from './Navbar';
-import  '../App.css'
-import Footer from '../components/Footer';
+import  './App.css'
+import Footer from './Footer';
 
 const Home = () => {
 return(

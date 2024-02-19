@@ -13,6 +13,9 @@ import HomeT from './Teacher/Home';
 import HomeS from './Student/Home';
 import Marks from './Student/Marks';
 import Assignment from './Student/Assignment';
+import Notes from './Student/Notes';
+import Test from './Student/Test';
+import ProfileS from './Student/Profile';
 
 
 function App() {
@@ -41,6 +44,10 @@ function App() {
         <Route path="/Student/Home" element={<HomeS/>} />
         <Route path="/Student/Marks" element={<Marks/>} />
         <Route path="/Student/Assignment" element={<Assignment/>} />
+        <Route path="/Student/Notes" element={<Notes/>} />
+        <Route path="/Student/Test" element={<Test/>} />
+        <Route path="/Student/Test" element={<Test/>} />
+        <Route path="/Student/Profile" element={<ProfileS/>} />
       </Routes>
     </BrowserRouter>
   );

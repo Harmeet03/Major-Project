@@ -3,7 +3,7 @@ import Navbar from "./Header";
 import '../App.css';
 import { useNavigate } from "react-router-dom";
 
-const Assignment = () => {
+const Test = () => {
     const navigate = useNavigate()
     return(
         <>
@@ -19,12 +19,12 @@ const Assignment = () => {
         </head>
         <Navbar/>
         <header>
-            <h1> Student Assignment </h1>
+            <h1> Student Test </h1>
         </header>
         <div style={{padding: "40px 0px"}}>
             <div id="noticeS">
                 <div className="noNoticeS">
-                    <h3> No Assignment available for you right now. </h3>
+                    <h3> No Test available for you right now. </h3>
                 </div>
             </div>
             
@@ -40,4 +40,4 @@ const Assignment = () => {
     )
 };
 
-export default Assignment;
+export default Test;

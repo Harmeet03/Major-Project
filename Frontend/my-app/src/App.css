@@ -270,5 +270,18 @@ header > h1{
   text-align: center;
 }
 
+#SProfileImg{
+  width: 160px;
+  height: 160px;
+  border-radius: 80px;
+}
+
+.infoS{
+  text-align: left;
+  padding: 0px 40px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
 /* ----------------- */
 /* ---------------------------------------------------------------------------------------------------------------- */

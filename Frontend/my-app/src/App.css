@@ -285,3 +285,48 @@ header > h1{
 
 /* ----------------- */
 /* ---------------------------------------------------------------------------------------------------------------- */
+/* ------------------------------------------------- TEACHER MAIN PAGE -------------------------------------------- */
+
+#noticeS .form{
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 40px 0px 20px;
+}
+
+#noticeS .form .date{
+  padding: 10px;
+  border-radius: 6px;
+  border: none;
+  background-color: #05000055;
+  color: rgb(98, 98, 250);
+  font-weight: bolder;
+  font-size: 16px;
+}
+
+#noticeS .form .text{
+  padding: 10px;
+  width: 600px;
+  border-radius: 6px;
+  border: none;
+  background-color: #05000055;
+  color: rgb(98, 98, 250);
+  padding: 20px;
+  font-weight: bolder;
+  font-size: 16px;
+
+}
+
+#noticeS .form button{
+  padding: 10px;
+  border-radius: 6px;
+  width: 100px;
+  border: none;
+  background-color: #05000055;
+  color: rgb(98, 98, 250);
+  cursor: pointer;
+  font-weight: bolder;
+  font-size: 20px;
+}
+
+/* ---------------------------------------------------------------------------------------------------------------- */

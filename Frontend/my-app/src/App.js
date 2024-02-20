@@ -8,14 +8,20 @@ import SignUp from './Register/Admin/SignUp';
 import SignInT from './Register/Teacher/SignIn';
 import SignInS from './Register/Student/SignIn';
 import Register from './Register/Register';
+
+// Admin
 import HomeA from './Admin/Home';
-import HomeT from './Teacher/Home';
+
+// Student
 import HomeS from './Student/Home';
 import Marks from './Student/Marks';
 import Assignment from './Student/Assignment';
 import Notes from './Student/Notes';
 import Test from './Student/Test';
 import ProfileS from './Student/Profile';
+
+// Teacher
+import HomeT from './Teacher/Home';
 
 
 function App() {

@@ -17,16 +17,16 @@ const Navbar = () => {
             <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
         </head>
         <nav>
-            <span onClick={ () => { navigate("/Student/Home") }}><i className="fa fa-home"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Home</span>
-            <span onClick={ () => { navigate("/Student/Subject") }}><i className="fa fa-book"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Subject</span>
-            <span onClick={ () => { navigate("/Student/Marks") }}><i className="fa fa-percent"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Marks</span>
-            <span onClick={ () => { navigate("/Student/Assignment") }}><i className="fa fa-bookmark"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Assignment</span>
-            <span onClick={ () => { navigate("/Student/Attendence") }}><i className="fa fa-address-book"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Attendance</span>
-            <span onClick={ () => { navigate("/Student/Performance") }}><i className="fa fa-play"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Performance</span>
-            <span onClick={ () => { navigate("/Student/Notes") }}><i className="fa fa-sticky-note"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Notes</span>
-            <span onClick={ () => { navigate("/Student/Test") }}><i className="fa fa-book"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Test</span>
-            <span onClick={ () => { navigate("/Student/Profile") }}><i className="fa fa-address-card"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Profile</span>
-            <span><i className="fa fa-step-forward"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Logout</span>
+            <span onClick={ () => { navigate("/Student/Home") }}><i className="fa fa-home"></i>&nbsp; Home</span>
+            <span onClick={ () => { navigate("/Student/Subject") }}><i className="fa fa-book"></i>&nbsp; Subject</span>
+            <span onClick={ () => { navigate("/Student/Marks") }}><i className="fa fa-percent"></i>&nbsp; Marks</span>
+            <span onClick={ () => { navigate("/Student/Assignment") }}><i className="fa fa-bookmark"></i>&nbsp; Assignment</span>
+            <span onClick={ () => { navigate("/Student/Attendence") }}><i className="fa fa-address-book"></i>&nbsp; Attendance</span>
+            <span onClick={ () => { navigate("/Student/Performance") }}><i className="fa fa-play"></i>&nbsp; Performance</span>
+            <span onClick={ () => { navigate("/Student/Notes") }}><i className="fa fa-sticky-note"></i>&nbsp; Notes</span>
+            <span onClick={ () => { navigate("/Student/Test") }}><i className="fa fa-book"></i>&nbsp; Test</span>
+            <span onClick={ () => { navigate("/Student/Profile") }}><i className="fa fa-address-card"></i>&nbsp; Profile</span>
+            <span><i className="fa fa-step-forward"></i>&nbsp; Logout</span>
         </nav>
         </>
     )

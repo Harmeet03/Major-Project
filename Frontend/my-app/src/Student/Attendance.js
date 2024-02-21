@@ -52,9 +52,7 @@ const Attendance = () => {
                             </tr> */}
                         </tbody>
                     </table>
-                    <header>
-                      <h1> ATTENDANCE DETAILS </h1>
-                    </header>
+                      <h3> ATTENDANCE DETAILS </h3>
                     <table>
                         <thead>
                             <tr>

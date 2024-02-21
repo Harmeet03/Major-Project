@@ -1,6 +1,6 @@
 import React from "react";
 import Navbar from "./Header";
-import './index';
+import '../index.css';
 import { useNavigate } from "react-router-dom";
 
 const Subjects = () => {
@@ -19,7 +19,7 @@ const Subjects = () => {
         </head>
         <Navbar/>
         <header>
-            <h1> Subjects </h1>
+            <h1> Student Subjects </h1>
         </header>
         <div style={{padding: "40px 0px"}}>
             <div id="noticeS">

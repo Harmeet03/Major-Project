@@ -1,15 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import '../App.css';
 import { useNavigate } from "react-router-dom";
 import Navbar from "./Header";
 
 const Home = () => {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+
+    // function DisplayNotice(){
+    //     // If LocalStorage is NULL
+    //     if(localStorage.getItem("Notice") == null){
+    //         document.querySelector('#noNoticeS > h3').style.display =  'content';
+    //         document.querySelector('#NoticeS').style.display = 'none';
+    //     }
+    //     // If LocalStorage is not NULL
+    //     else{
+    //         document.querySelector('#noNoticeS > h3').style.display =  'none';
+    //         document.querySelector('#NoticeS').style.display = 'flex';
+    //     }
+    // }
+
     return(
         <>
         <head>
-            <link rel="preconnect" href="https://fonts.googleapis.com"></link>
-            <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin></link>
+            <link rel="prec<onnect" href="https://fonts.googleapis.com"></link>
+            <link rel="preconne>ct" href="https://fonts.gstatic.com" crossorigin></link>
             <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet"></link>
             <link rel="preconnect" href="https://fonts.googleapis.com"></link>
             <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin></link>
@@ -59,28 +73,33 @@ const Home = () => {
                 <p> 0 </p>
             </div>
         </div>
-
         <div id="noticeS">
-            <div className="noNoticeS">
-                <h3> No Notice for you right now. </h3>
-            </div>
-            <div className="noticeS">
-                {/* FOR BACKEND */}
-                <table>
-                    <thead>
-                        <tr>
-                            <td className="date"> DATE </td>
-                            <td className="title"> TITLE / NOTICE </td>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td>{localStorage.getItem("Date")}</td>
-                            <td>{localStorage.getItem("Notice")}</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+            {localStorage.length > 0 ? (
+                <div className="noticeS" id="NoticeS">
+                    {/* FOR BACKEND */}
+                    <table>
+                        <thead>
+                            <tr>
+                                <td className="date"> DATE </td>
+                                <td className="title"> TITLE / NOTICE </td>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>{localStorage.getItem("Date")}</td>
+                                <td>{localStorage.getItem("Notice")}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            ) 
+            : (
+                <div className="noNoticeS" id="noNoticeS">
+                    <h3> No Notice for you right now. </h3>
+                </div>
+            )}
+            
+            
         </div>
         </>
     )

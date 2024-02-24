@@ -1,10 +1,8 @@
-// const main = () => {
-//     let date = document.getElementById("date");
-//     let text = document.getElementById("text");
-//     let d = date.innerText
-//     let t = text.innerText
-//     localStorage.setItem("Date", JSON.stringify(d));
-//     localStorage.setItem("Notice", JSON.stringify(t));
-// }
+const main = () => {
+    let date = document.getElementById("date").value;
+    let text = document.getElementById("text").value;
+    localStorage.setItem("Date", date);
+    localStorage.setItem("Notice", text);
+}
 
-// export default main;
+export default main;

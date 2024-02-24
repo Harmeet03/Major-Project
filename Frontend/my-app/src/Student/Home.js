@@ -69,18 +69,14 @@ const Home = () => {
                 <table>
                     <thead>
                         <tr>
-                            {/* <td className="date"> DATE </td>
-                            <td className="title"> TITLE / NOTICE </td> */}
+                            <td className="date"> DATE </td>
+                            <td className="title"> TITLE / NOTICE </td>
                         </tr>
                     </thead>
                     <tbody>
                         <tr>
-                            {/* <td>12</td>
-                            <td>fddfdf</td> */}
-                        </tr>
-                        <tr>
-                            {/* <td>12</td>
-                            <td>fddfdf</td> */}
+                            <td>{localStorage.getItem("Date")}</td>
+                            <td>{localStorage.getItem("Notice")}</td>
                         </tr>
                     </tbody>
                 </table>

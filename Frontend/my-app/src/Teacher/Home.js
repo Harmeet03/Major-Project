@@ -2,18 +2,10 @@ import React from "react";
 import '../App.css';
 import { useNavigate } from "react-router-dom";
 import Navbar from "./Header";
-// import main from "./LocalStorage/Notice"
+import main from "./LocalStorage/Notice"
 
 const Home = () => {
     const navigate = useNavigate()
-    const main = () => {
-        let date = document.getElementById("date");
-        let text = document.getElementById("text");
-        let d = date.innerText
-        let t = text.innerText
-        localStorage.setItem("Date", JSON.stringify(d));
-        localStorage.setItem("Notice", JSON.stringify(t));
-    }
     return(
         <>
         <head>

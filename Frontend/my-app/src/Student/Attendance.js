@@ -19,23 +19,23 @@ const Attendance = () => {
         </head>
         <Navbar/>
         <header>
-            <h1> Student Attendance </h1>
+            <h1 style={{textAlign:'center'}}> Student Attendance </h1>
         </header>
         <div style={{padding: "40px 0px"}}>
             <div id="noticeS">
                 <div className="noNoticeS">
-                    <h3> No Attendance available for you right now. </h3>
+                    <h3 style={{textAlign:'center'}}> No Attendance available for you right now. </h3>
                 </div>
                 <div className="noticeS">
                     {/* FOR BACKEND */}
-                    <table>
+                    <table style={{marginLeft: 'auto',marginRight: 'auto',textAlign: 'center',borderCollapse: 'collapse'}}>
                         <thead>
                             <tr>
-                                <td className="date" style={{padding: '0 0 0 20px'}}> SUBJECTS </td>
-                                <td className="title" style={{padding: '0 20px 0 20px'}}> PRESENT </td>
-                                <td className="title" style={{padding: '0 20px 0 20px'}}> TOTAL SESSIONS </td>
-                                <td className="title" style={{padding: '0 20px 0 20px'}}> ATTENDANCE PERCENTAGE </td>
-                                <td className="title" style={{padding: '0 0 0 60px'}}> ACTIONS </td>
+                                <td className="date" style={{padding: '0 0 0 20px',verticalAlign: 'middle'}}> SUBJECTS </td>
+                                <td className="title" style={{padding: '0 20px 0 20px',verticalAlign: 'middle'}}> PRESENT </td>
+                                <td className="title" style={{padding: '0 20px 0 20px',verticalAlign: 'middle'}}> TOTAL SESSIONS </td>
+                                <td className="title" style={{padding: '0 20px 0 20px',verticalAlign: 'middle'}}> ATTENDANCE PERCENTAGE </td>
+                                <td className="title" style={{padding: '0 0 0 60px',verticalAlign: 'middle'}}> ACTIONS </td>
                             </tr>
                         </thead>
                         <tbody>
@@ -52,12 +52,14 @@ const Attendance = () => {
                             </tr> */}
                         </tbody>
                     </table>
-                      <h3> ATTENDANCE DETAILS </h3>
-                    <table>
+                    <header>
+                      <h1 style={{textAlign:'center'}}> ATTENDANCE DETAILS </h1>
+                    </header>
+                    <table style={{marginLeft: 'auto',marginRight: 'auto',textAlign: 'center',borderCollapse: 'collapse'}}>
                         <thead>
                             <tr>
-                                <td className="date" style={{padding: '0 0 0 20px'}}> DATE </td>
-                                <td className="title" style={{padding: '0 0 0 100px'}}> STATUS </td>
+                                <td className="date" style={{padding: '0 0 0 20px',verticalAlign: 'middle'}}> DATE </td>
+                                <td className="title" style={{padding: '0 0 0 100px',verticalAlign: 'middle'}}> STATUS </td>
                             </tr>
                         </thead>
                         <tbody>
@@ -83,14 +85,14 @@ const Attendance = () => {
                             </tr>
                         </tbody>
                     </table>
-                    <table>
+                    <table style={{marginLeft: 'auto',marginRight: 'auto',textAlign: 'center',borderCollapse: 'collapse'}}>
                         <thead>
                             <tr>
-                              <td style={{padding: '0 0 0 20px'}}>Mathematics</td>
-                              <td  style={{padding: '0 0 0 100px'}}>2</td>
-                              <td  style={{padding: '0 0 0 100px'}}>30</td>
-                              <td  style={{padding: '0 0 0 100px'}}>88.88%</td>
-                              <td  style={{padding: '0 0 0 100px'}}><button style={{ backgroundColor: '#36dff8', borderRadius: '20px', color: 'white', padding: '10px 20px', border: 'none', cursor: 'pointer' }}>DEATAILS</button></td>
+                              <td style={{padding: '0 0 0 20px',verticalAlign: 'middle'}}>Mathematics</td>
+                              <td  style={{padding: '0 0 0 100px',verticalAlign: 'middle'}}>2</td>
+                              <td  style={{padding: '0 0 0 100px',verticalAlign: 'middle'}}>30</td>
+                              <td  style={{padding: '0 0 0 100px',verticalAlign: 'middle'}}>88.88%</td>
+                              <td  style={{padding: '0 0 0 100px',verticalAlign: 'middle'}}><button style={{ backgroundColor: '#36dff8', borderRadius: '20px', color: 'white', padding: '10px 20px', border: 'none', cursor: 'pointer' }}>DEATAILS</button></td>
                             </tr>
                             </thead>
                         </table>
@@ -103,3 +105,4 @@ const Attendance = () => {
 };
 
 export default Attendance;
+

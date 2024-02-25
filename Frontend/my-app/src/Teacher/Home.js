@@ -2,7 +2,7 @@ import React from "react";
 import '../App.css';
 import { useNavigate } from "react-router-dom";
 import Navbar from "./Header";
-import main from "./LocalStorage/Notice"
+import setNotice from "./LocalStorage/setNotice"
 
 const Home = () => {
     const navigate = useNavigate()
@@ -54,7 +54,7 @@ const Home = () => {
         {/* NOTICE TO STUDENTS */}
         <div style={{marginTop: "40px", textAlign: "center"}} id="noticeS">
             <h2> Send Notice to STUDENTS </h2>
-            <form className="form" onSubmit={main}>
+            <form className="form" onSubmit={setNotice}>
                 <input className="date" id="date" type="date" required></input>
                 <input className="text" id="text" type="text" placeholder="Write your message here...." required></input>
                 <button type="submit"> Publish </button>

@@ -2,22 +2,10 @@ import React, { useState } from "react";
 import '../App.css';
 import { useNavigate } from "react-router-dom";
 import Navbar from "./Header";
+import getNotice from "./LocalStorage/getNotice";
 
 const Home = () => {
     const navigate = useNavigate();
-
-    // function DisplayNotice(){
-    //     // If LocalStorage is NULL
-    //     if(localStorage.getItem("Notice") == null){
-    //         document.querySelector('#noNoticeS > h3').style.display =  'content';
-    //         document.querySelector('#NoticeS').style.display = 'none';
-    //     }
-    //     // If LocalStorage is not NULL
-    //     else{
-    //         document.querySelector('#noNoticeS > h3').style.display =  'none';
-    //         document.querySelector('#NoticeS').style.display = 'flex';
-    //     }
-    // }
 
     return(
         <>
@@ -84,11 +72,8 @@ const Home = () => {
                                 <td className="title"> TITLE / NOTICE </td>
                             </tr>
                         </thead>
-                        <tbody>
-                            <tr>
-                                <td>{localStorage.getItem("Date")}</td>
-                                <td>{localStorage.getItem("Notice")}</td>
-                            </tr>
+                        <tbody id="tbody">
+                            {getNotice()}
                         </tbody>
                     </table>
                 </div>
@@ -104,5 +89,6 @@ const Home = () => {
         </>
     )
 };
+
 
 export default Home;

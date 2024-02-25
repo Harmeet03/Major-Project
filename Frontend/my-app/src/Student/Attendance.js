@@ -52,7 +52,7 @@ const Attendance = () => {
                             </tr> */}
                         </tbody>
                     </table>
-                    <h1 style={{textAlign:'center'}}> ATTENDANCE DETAILS </h1>
+                    <h3 style={{textAlign:'center'}}> ATTENDANCE DETAILS </h3>
                     <table style={{marginLeft: 'auto',marginRight: 'auto',textAlign: 'center',borderCollapse: 'collapse'}}>
                         <thead>
                             <tr>
@@ -86,11 +86,11 @@ const Attendance = () => {
                     <table style={{marginLeft: 'auto',marginRight: 'auto',textAlign: 'center',borderCollapse: 'collapse'}}>
                         <thead>
                             <tr>
-                              <td style={{padding: '0 0 0 20px',verticalAlign: 'middle'}}>Mathematics</td>
-                              <td  style={{padding: '0 0 0 100px',verticalAlign: 'middle'}}>2</td>
-                              <td  style={{padding: '0 0 0 100px',verticalAlign: 'middle'}}>30</td>
-                              <td  style={{padding: '0 0 0 100px',verticalAlign: 'middle'}}>88.88%</td>
-                              <td  style={{padding: '0 0 0 100px',verticalAlign: 'middle'}}><button style={{ backgroundColor: '#36dff8', borderRadius: '20px', color: 'white', padding: '10px 20px', border: 'none', cursor: 'pointer' }}>DEATAILS</button></td>
+                              <td style={{padding: '0 0 0 20px'}}>Mathematics</td>
+                              <td  style={{padding: '0 0 0 100px'}}>2</td>
+                              <td  style={{padding: '0 0 0 100px'}}>30</td>
+                              <td  style={{padding: '0 0 0 100px'}}>88.88%</td>
+                              <td  style={{padding: '0 0 0 100px'}}><button style={{ backgroundColor: '#36dff8', borderRadius: '20px', color: 'white', padding: '10px 20px', border: 'none', cursor: 'pointer' }}>DEATAILS</button></td>
                             </tr>
                             </thead>
                         </table>

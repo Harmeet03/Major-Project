@@ -19,7 +19,7 @@ const Attendance = () => {
         </head>
         <Navbar/>
         <header>
-            <h1 style={{textAlign:'center'}}> Student Attendance </h1>
+            <h1> Student Attendance </h1>
         </header>
         <div style={{padding: "40px 0px"}}>
             <div id="noticeS">
@@ -52,9 +52,7 @@ const Attendance = () => {
                             </tr> */}
                         </tbody>
                     </table>
-                    <header>
-                      <h1 style={{textAlign:'center'}}> ATTENDANCE DETAILS </h1>
-                    </header>
+                    <h1 style={{textAlign:'center'}}> ATTENDANCE DETAILS </h1>
                     <table style={{marginLeft: 'auto',marginRight: 'auto',textAlign: 'center',borderCollapse: 'collapse'}}>
                         <thead>
                             <tr>

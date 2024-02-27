@@ -28,7 +28,7 @@ const Attendance = () => {
                 </div>
                 <div className="noticeS">
                     {/* FOR BACKEND */}
-                    <table style={{marginLeft: 'auto',marginRight: 'auto',textAlign: 'center',borderCollapse: 'collapse'}}>
+                    {/* <table style={{marginLeft: 'auto',marginRight: 'auto',textAlign: 'center',borderCollapse: 'collapse'}}>
                         <thead>
                             <tr>
                                 <td className="date" style={{padding: '0 0 0 20px',verticalAlign: 'middle'}}> SUBJECTS </td>
@@ -44,15 +44,16 @@ const Attendance = () => {
                                 <td>4</td>
                                 <td>30</td>
                                 <td>88.88%</td>
-                                <td style={{padding: '0 0 0 60px'}}><button style={{ backgroundColor: '#36dff8', borderRadius: '20px', color: 'white', padding: '10px 20px', border: 'none', cursor: 'pointer' }}>DEATAILS</button></td>
+                                <td style={{padding: '0 0 0 60px'}}><button style={{ backgroundColor: '#36dff8', borderRadius: '20px', color: 'white', padding: '10px 20px', border: 'none', cursor: 'pointer' }}>DETAILS</button></td>
                             </tr>
-                            {/* <tr>
+                            <tr>
                                 <td>English</td>
                                 <td>40</td>
-                            </tr> */}
+                            </tr>
                         </tbody>
-                    </table>
-                    <h3 style={{textAlign:'center'}}> ATTENDANCE DETAILS </h3>
+                    </table> */}
+                    
+                    {/* <h3 style={{textAlign:'center'}}> ATTENDANCE DETAILS </h3>
                     <table style={{marginLeft: 'auto',marginRight: 'auto',textAlign: 'center',borderCollapse: 'collapse'}}>
                         <thead>
                             <tr>
@@ -82,19 +83,20 @@ const Attendance = () => {
                                 <td  style={{padding: '0 0 0 100px'}}>PRESENT</td>
                             </tr>
                         </tbody>
-                    </table>
-                    <table style={{marginLeft: 'auto',marginRight: 'auto',textAlign: 'center',borderCollapse: 'collapse'}}>
+                    </table> */}
+
+                    {/* <table style={{marginLeft: 'auto',marginRight: 'auto',textAlign: 'center',borderCollapse: 'collapse'}}>
                         <thead>
                             <tr>
                               <td style={{padding: '0 0 0 20px'}}>Mathematics</td>
                               <td  style={{padding: '0 0 0 100px'}}>2</td>
                               <td  style={{padding: '0 0 0 100px'}}>30</td>
                               <td  style={{padding: '0 0 0 100px'}}>88.88%</td>
-                              <td  style={{padding: '0 0 0 100px'}}><button style={{ backgroundColor: '#36dff8', borderRadius: '20px', color: 'white', padding: '10px 20px', border: 'none', cursor: 'pointer' }}>DEATAILS</button></td>
+                              <td  style={{padding: '0 0 0 100px'}}><button style={{ backgroundColor: '#36dff8', borderRadius: '20px', color: 'white', padding: '10px 20px', border: 'none', cursor: 'pointer' }}>DETAILS</button></td>
                             </tr>
-                            </thead>
-                        </table>
-                        <div>Overall Attendance Percentage:88.88%</div>         
+                        </thead>
+                    </table>
+                    <div>Overall Attendance Percentage:88.88%</div>          */}
                 </div>
             </div>
         </div>

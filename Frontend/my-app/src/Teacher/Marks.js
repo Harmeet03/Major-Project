@@ -1,7 +1,7 @@
 import React from "react";
-import Navbar from "./Header";
 import '../App.css';
 import { useNavigate } from "react-router-dom";
+import Navbar from "./Header";
 
 const Marks = () => {
     const navigate = useNavigate()
@@ -19,34 +19,31 @@ const Marks = () => {
         </head>
         <Navbar/>
         <header>
-            <h1> Student Marks </h1>
+            <h1> Marks to Students </h1>
         </header>
-        <div style={{padding: "40px 0px"}}>
-            <div id="noticeS">
-                <div className="noNoticeS">
-                    <h3> No Marks available for you right now. </h3>
-                </div>
-                <div className="noticeS">
-                    {/* FOR BACKEND */}
-                    <table>
-                        <thead>
-                            <tr>
-                                {/* <td className="title"> SUBJECTS </td>
-                                <td className="date"> MARKS </td> */}
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                {/* <td>Maths</td>
-                                <td>44</td> */}
-                            </tr>
-                            <tr>
-                                {/* <td>English</td>
-                                <td>40</td> */}
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+
+        {/* NOTICE FROM ADMIN */}
+        <div style={{marginTop: "40px"}} id="noticeS">
+            {/* <div className="noNoticeS">
+                <h3> No List available for you right now. </h3>
+            </div> */}
+            <div className="noticeS">
+                {/* FOR BACKEND */}
+                <table>
+                    <thead>
+                        <tr>
+                            
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            
+                        </tr>
+                        <tr>
+                            
+                        </tr>
+                    </tbody>
+                </table>
             </div>
         </div>
         </>

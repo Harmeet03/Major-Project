@@ -12,6 +12,16 @@ import Register from './Register/Register';
 // Admin
 import HomeA from './Admin/Home';
 
+// Teacher
+import HomeT from './Teacher/Home';
+import List from './Teacher/List';
+import Classes from './Teacher/Classes';
+import MarksT from './Teacher/Marks';
+import AssignmentT from './Teacher/Assignment';
+import NotesT from './Teacher/Notes';
+import TestT from './Teacher/Test';
+import ProfileT from './Teacher/Profile';
+
 // Student
 import HomeS from './Student/Home';
 import Marks from './Student/Marks';
@@ -22,8 +32,6 @@ import Test from './Student/Test';
 import Subject from './Student/Subject';
 import ProfileS from './Student/Profile';
 
-// Teacher
-import HomeT from './Teacher/Home';
 
 
 function App() {
@@ -47,6 +55,13 @@ function App() {
 
         {/* Home Page of Teacher */}
         <Route path="/Teacher/Home" element={<HomeT/>} />
+        <Route path="/Teacher/List" element={<List/>} />
+        <Route path="/Teacher/Classes" element={<Classes/>} />
+        <Route path="/Teacher/Marks" element={<MarksT/>} />
+        <Route path="/Teacher/Assignment" element={<AssignmentT/>} />
+        <Route path="/Teacher/Notes" element={<NotesT/>} />
+        <Route path="/Teacher/Test" element={<TestT/>} />
+        <Route path="/Teacher/Profile" element={<ProfileT/>} />
         
         {/* Home Page of Student */}
         <Route path="/Student/Home" element={<HomeS/>} />

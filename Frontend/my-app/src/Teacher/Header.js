@@ -23,7 +23,6 @@ const Navbar = () => {
             <span onClick={ () => { navigate("/Teacher/Marks") }}><i className="fa fa-percent"></i>&nbsp; Marks</span>
             <span onClick={ () => { navigate("/Teacher/Assignment") }}><i className="fa fa-bookmark"></i>&nbsp; Assignment</span>
             <span onClick={ () => { navigate("/Teacher/Attendence") }}><i className="fa fa-address-book"></i>&nbsp; Attendance</span>
-            <span onClick={ () => { navigate("/Teacher/Performance") }}><i className="fa fa-play"></i>&nbsp; Performance</span>
             <span onClick={ () => { navigate("/Teacher/Notes") }}><i className="fa fa-sticky-note"></i>&nbsp; Notes</span>
             <span onClick={ () => { navigate("/Teacher/Test") }}><i className="fa fa-book"></i>&nbsp; Test</span>
             <span onClick={ () => { navigate("/Teacher/Profile") }}><i className="fa fa-address-card"></i>&nbsp; Profile</span>

@@ -50,7 +50,7 @@ body{
   flex-direction: row;
   margin: auto;
   width: 1500px;
-  background: linear-gradient(to right, black 0%, black 50%, blue 50%, blue 100%);
+  background: linear-gradient(to right, black 0%, black 50%, rgb(98, 98, 250) 50%, rgb(98, 98, 250) 100%);
 }
 
 .si{
@@ -80,7 +80,7 @@ body{
   padding: 100px 0px 120px 0px;
   background-image: url("https://assets-global.website-files.com/637f533d357967a5820f3f25/641f0e94ce09cd74bd3bd260_decoration-lines-quotes.svg");
   font-weight: 900;
-  color: blue;
+  color: rgb(98, 98, 250);
 }
 
 .left input{
@@ -89,13 +89,13 @@ body{
   padding: 10px;
   width: 200px;
   background-color: rgba(137, 137, 251, 0.185);
-  color: blue;
+  color: rgb(98, 98, 250);
   font-size: 16px;
   font-weight: 00;
 }
 
 .left input::placeholder{
-  color: blue;
+  color: rgb(98, 98, 250);
 }
 
 .left button{
@@ -104,13 +104,13 @@ body{
   padding: 15px;
   width: 200px;
   font-size: 16px;
-  background-color: blue;
+  background-color: rgb(98, 98, 250);
   font-weight: 600;
   cursor: pointer;
 }
 
 .left button:hover{
-  background-color: rgb(91, 91, 255);
+  background-color: blue;
   transition: 0.5s;
 }
 /* -------------------------------------------- */
@@ -136,12 +136,12 @@ body{
   padding: 40px 10px;
   border-radius: 4px;
   width: 33%;
-  background-color: blue;
+  background-color: rgb(98, 98, 250);
   cursor: pointer;
 }
 
 .container .admin:hover{
-  background-color: rgb(91, 91, 255);
+  background-color: blue;
   transition: 0.5s;
 }
 
@@ -149,12 +149,12 @@ body{
   padding: 40px 10px;
   border-radius: 4px;
   width: 33%;
-  background-color: blue;
+  background-color: rgb(98, 98, 250);
   cursor: pointer;
 }
 
 .container .teacher:hover{
-  background-color: rgb(91, 91, 255);
+  background-color: blue;
   transition: 0.5s;
 }
 
@@ -162,12 +162,12 @@ body{
   padding: 40px 10px;
   border-radius: 4px;
   width: 34%;
-  background-color: blue;
+  background-color: rgb(98, 98, 250);
   cursor: pointer;
 }
 
 .container .student:hover{
-  background-color: rgb(91, 91, 255);
+  background-color: blue;
   transition: 0.5s;
 }
 
@@ -253,6 +253,10 @@ header > h1{
   text-align: center;
 }
 
+.noticeS > table{
+  margin: auto;
+}
+
 .noticeS tr .date{
   padding: 10px 100px;
   border-bottom: 1px solid white;
@@ -328,6 +332,42 @@ header > h1{
   cursor: pointer;
   font-weight: bolder;
   font-size: 20px;
+}
+
+.noticeS tr .sno{
+  padding: 10px 10px;
+  border-bottom: 1px solid white;
+  font-weight: bold;
+}
+
+.noticeS tr .name{
+  padding: 10px 100px;
+  border-bottom: 1px solid white;
+  font-weight: bold;
+}
+
+.noticeS tr .rno{
+  padding: 10px 10px;
+  border-bottom: 1px solid white;
+  font-weight: bold;
+}
+
+.noticeS tr .mno{
+  padding: 10px 50px;
+  border-bottom: 1px solid white;
+  font-weight: bold;
+}
+
+.noticeS tr .add{
+  padding: 10px 100px;
+  border-bottom: 1px solid white;
+  font-weight: bold;
+}
+
+.noticeS tr .admn{
+  padding: 10px 30px;
+  border-bottom: 1px solid white;
+  font-weight: bold;
 }
 
 /* ---------------------------------------------------------------------------------------------------------------- */

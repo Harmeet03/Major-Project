@@ -190,6 +190,10 @@ nav{
   justify-content: center;
 }
 
+nav > #dropdown{
+  display: none;
+}
+
 nav span{
   list-style-type: none;
   text-align: left;
@@ -207,6 +211,21 @@ nav span:hover{
 @media only screen and (max-width: 1000px){
   nav{
     gap: 0px;
+  }
+}
+
+@media only screen and (max-width: 750px){
+  nav{
+    flex-direction: column;
+    font-size: 24px;
+  }
+
+  nav > span{
+    display: none;
+  }
+
+  nav > #dropdown{
+    display: block;
   }
 }
 
@@ -328,6 +347,26 @@ header > h1{
 
   .noticeS tr .date, .noticeS tr .title{
     font-size: 16px;
+  }
+}
+
+@media only screen and (max-width: 750px){
+  .overviewS{
+    grid-template-columns: repeat(1, 1fr);
+    width: 400px;
+    margin: auto;
+  }
+
+  #noticeS{
+    width: 400px;
+  }
+
+  .noticeS tr .date{
+    padding: 10px 28px;
+  }
+
+  .noticeS tr .title{
+    padding: 10px 120px;
   }
 }
 

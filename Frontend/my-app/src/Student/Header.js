@@ -17,6 +17,17 @@ const Navbar = () => {
             <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
         </head>
         <nav>
+            <i id="dropdown" onClick={ () => {
+                let spans = document.querySelectorAll("nav > span");
+                spans.forEach(span => {
+                    if(span.style.display === "block"){
+                        span.style.display = "none";
+                    }
+                    else{
+                        span.style.display = "block";
+                    }
+                });
+            } }><span className="fa fa-list" ></span></i>
             <span onClick={ () => { navigate("/Student/Home") }}><i className="fa fa-home"></i>&nbsp; Home</span>
             <span onClick={ () => { navigate("/Student/Subject") }}><i className="fa fa-book"></i>&nbsp; Subject</span>
             <span onClick={ () => { navigate("/Student/Marks") }}><i className="fa fa-percent"></i>&nbsp; Marks</span>

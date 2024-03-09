@@ -3,6 +3,7 @@ import '../App.css';
 import { useNavigate } from "react-router-dom";
 import Navbar from "./Header";
 import setNotice from "./LocalStorage/setNotice"
+import getNotice from "./LocalStorage/getNotice"
 
 const Home = () => {
     const navigate = useNavigate()
@@ -25,29 +26,27 @@ const Home = () => {
 
         {/* NOTICE FROM ADMIN */}
         <div style={{marginTop: "40px"}} id="noticeS">
-            <div className="noNoticeS">
-                <h3> No Notice from ADMIN for you right now. </h3>
-            </div>
             <div className="noticeS">
-                {/* FOR BACKEND */}
-                <table>
-                    <thead>
-                        <tr>
-                            {/* <td className="date"> DATE </td>
-                            <td className="title"> TITLE / NOTICE </td> */}
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            {/* <td>12</td>
-                            <td>fddfdf</td> */}
-                        </tr>
-                        <tr>
-                            {/* <td>12</td>
-                            <td>fddfdf</td> */}
-                        </tr>
-                    </tbody>
-                </table>
+                {localStorage.getItem("noticeA") !== null ? (
+                    <div className="noticeS" id="NoticeS">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <td className="date"> DATE </td>
+                                    <td className="title"> TITLE / NOTICE </td>
+                                </tr>
+                            </thead>
+                            <tbody id="tbody">
+                                {getNotice()}
+                            </tbody>
+                        </table>
+                    </div>
+                ) 
+                : (
+                    <div className="noNoticeS">
+                        <h3> No Notice from ADMIN for you right now. </h3>
+                    </div>
+                )}
             </div>
         </div>
 

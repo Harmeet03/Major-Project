@@ -9,29 +9,19 @@ return(
     <img id='b' src="https://esmarts.qodeinteractive.com/wp-content/uploads/2017/11/logo.png" alt='brandlogo'></img>
 
     <div className="dropdown1">
-        <button className="dropbtn">Home <i className="fa fa-caret-down"></i></button>
-        <div className="dropdown-content">
-            <Link to="/Rumala">Rumala Sahib</Link>
-            <Link href="">Chattar Sahib</Link>
-            <Link href="">Chaur Sahib</Link>
-        </div>
+        <button className="dropbtn"> Home </button>
     </div>
 
     <div className="dropdown1">
-        <button className="dropbtn">Courses <i className="fa fa-caret-down"></i></button>
-        <div className="dropdown-content">
-            <Link to="/Rumala">Rumala Sahib</Link>
-            <Link href="">Chattar Sahib</Link>
-            <Link href="">Chaur Sahib</Link>
-        </div>
+        <button className="dropbtn"> About </button>
     </div>
 
     <div className="dropdown1">
-        <button className="dropbtn">Instructors <i className="fa fa-caret-down"></i></button>
+        <Link to="/Register"><button className="dropbtn"> Register <i className="fa fa-caret-down"></i></button></Link>
         <div className="dropdown-content">
-            <Link to="/Rumala">Rumala Sahib</Link>
-            <Link href="">Chattar Sahib</Link>
-            <Link href="">Chaur Sahib</Link>
+            <Link to="/Admin/SignUp"> ADMIN </Link>
+            <Link to="/Teacher/SignIn"> TEACHER </Link>
+            <Link to="/Student/SignIn"> STUDENT </Link>
         </div>
     </div>
 </nav>

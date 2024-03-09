@@ -8,7 +8,7 @@ import Footer from './Footer';
 const Home = () => {
 return(
     <>
-    <div className='abc1'>
+    <div className='abc1' style={{width: "1200px", margin: "auto"}}>
         <Navbar/>
         <link rel="preconnect" href="https://fonts.googleapis.com"></link>
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin></link>
@@ -21,7 +21,7 @@ return(
         <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Nothing+You+Could+Do" />
         <img id='i' src="//esmarts.qodeinteractive.com/wp-content/uploads/2017/10/h3-slide-1-img-2.png" alt='img'></img>
         <img id='i1' src='//esmarts.qodeinteractive.com/wp-content/uploads/2017/10/h3-slide-1-img-3.png' alt='img'></img>
-        <h1 id='heading1'>Creat<img id='i2' src='//esmarts.qodeinteractive.com/wp-content/uploads/2017/10/h3-slide-1-img-7.png' alt='img'></img>ng Dreams</h1>
+        <h1 style={{fontSize: "130px", margin: "auto", width: "600px"}} id='heading1'>Creat<img id='i2' src='//esmarts.qodeinteractive.com/wp-content/uploads/2017/10/h3-slide-1-img-7.png' alt='img'></img>ng Dreams</h1>
         <img id='i3' src='//esmarts.qodeinteractive.com/wp-content/uploads/2017/10/h3-slide-1-img-4.png' alt='img'></img>
         <img id='i4' src='//esmarts.qodeinteractive.com/wp-content/uploads/2017/10/h3-slide-1-img-5.png' alt='img'></img>
         <img id='i5' src='//esmarts.qodeinteractive.com/wp-content/uploads/2017/10/h3-slide-1-img-6.png' alt='abcd'></img>
@@ -31,31 +31,7 @@ return(
         <img id='i9' src='//esmarts.qodeinteractive.com/wp-content/uploads/2017/10/h3-slide-1-img-6.png' alt='img'></img>
         <img id='i10' src='//esmarts.qodeinteractive.com/wp-content/uploads/2017/10/h3-slide-1-img-6.png' alt='img'></img>
         <img id='i11' src='//esmarts.qodeinteractive.com/wp-content/uploads/2017/10/h3-slide-1-img-6.png' alt='img'></img>
-
-        <div className='abc'>
-            <div id='a1'>
-            <img id='img' src='https://i.pinimg.com/originals/e5/7b/98/e57b987df5b29f59db3eb669499154ee.jpg' alt='img'></img>
-            <h1 id='h1'>Admin</h1>
-            <p id='pa'>i am student hello</p>
-            <Link id='link'>Learn More</Link>
-        </div>
-
-        <div id='a2'>
-            <img id='img2' src='https://www.nicepng.com/png/detail/129-1290978_teacher-teacher-icon-png.png' alt='img'></img>
-            <h1 id='h1'>Teachers</h1>
-            <p id='pa'>i am student hello</p>
-            <Link id='link'>Learn More</Link>
-        </div>
-
-        <div id='a3'>
-            <img id='img' src='https://cdn3.iconfinder.com/data/icons/user-avatars-4/100/graduate_srudent_user_userprofile_avatar_person_account_-512.png' alt='img'></img>
-            <h1 id='h1'>Student</h1>
-            <p id='pa'>i am student hello</p>
-            <Link id='link'>Learn More</Link>
-        </div>
-    </div>
-
-    <div className='Cont1'>
+    <div className='Cont1' style={{width: "1200px", margin: "auto"}}>
         <h1>About Us</h1>
 
         <div className='Cont2'>
@@ -74,7 +50,7 @@ return(
         </div>
     </div>
 
-    <div className='cont3'>
+    <div className='cont3' style={{width: "1200px", margin: "auto"}}>
         <div className='cont31'>
             <h1>Our Mission</h1>
             <p id='p12'>As a software company, our mission is to empower organizations and individuals through innovative and

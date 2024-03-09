@@ -62,14 +62,13 @@ const Home = () => {
             </div>
         </div>
         <div id="noticeS">
-            {localStorage.length > 0 ? (
+            {localStorage.getItem("noticeT") !== null ? (
                 <div className="noticeS" id="NoticeS">
-                    {/* FOR BACKEND */}
                     <table>
                         <thead>
                             <tr>
                                 <td className="date"> DATE </td>
-                                <td className="title"> TITLE / NOTICE </td>
+                                <td className="title"> NOTICE </td>
                             </tr>
                         </thead>
                         <tbody id="tbody">
@@ -83,8 +82,6 @@ const Home = () => {
                     <h3> No Notice for you right now. </h3>
                 </div>
             )}
-            
-            
         </div>
         </>
     )

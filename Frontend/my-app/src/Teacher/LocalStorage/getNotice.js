@@ -1,5 +1,5 @@
 const getNotice = () =>{
-    let notice = JSON.parse(localStorage.getItem("noticeT")) || [];
+    let notice = JSON.parse(localStorage.getItem("noticeA")) || [];
 
     return notice.map((el, index) => (
         <tr key={index}>

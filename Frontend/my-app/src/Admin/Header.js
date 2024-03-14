@@ -17,15 +17,12 @@ const Navbar = () => {
             <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
         </head>
         <nav>
-            <span onClick={ () => { navigate("/Admin/Home") }}><i className="fa fa-home"></i>&nbsp; Home</span>
-            <span onClick={ () => { navigate("/Admin/List") }}><i className="fa fa-list"></i>&nbsp; List </span>
-            <span onClick={ () => { navigate("/Admin/Classes") }}><i className="fa fa-child"></i>&nbsp; Classes </span>
-            <span onClick={ () => { navigate("/Admin/Marks") }}><i className="fa fa-percent"></i>&nbsp; Marks</span>
-            <span onClick={ () => { navigate("/Admin/Assignment") }}><i className="fa fa-bookmark"></i>&nbsp; Assignment</span>
-            <span onClick={ () => { navigate("/Admin/Attendence") }}><i className="fa fa-address-book"></i>&nbsp; Attendance</span>
-            <span onClick={ () => { navigate("/Admin/Notes") }}><i className="fa fa-sticky-note"></i>&nbsp; Notes</span>
-            <span onClick={ () => { navigate("/Admin/Test") }}><i className="fa fa-book"></i>&nbsp; Test</span>
-            <span onClick={ () => { navigate("/Admin/Profile") }}><i className="fa fa-address-card"></i>&nbsp; Profile</span>
+            <span onClick={ () => { navigate("/Admin/Home") }}><i className="fa fa-home"></i>&nbsp; Home </span>
+            <span onClick={ () => { navigate("/Admin/Teachers") }}><i className="fa fa-female"></i>&nbsp; Teachers </span>
+            <span onClick={ () => { navigate("/Admin/Students") }}><i className="fa fa-child"></i>&nbsp; Students </span>
+            <span onClick={ () => { navigate("/Admin/Entry") }}><i className="fa fa-address-book"></i>&nbsp; Entry </span>
+            <span onClick={ () => { navigate("/Admin/Classes") }}><i className="fa fa-group"></i>&nbsp; Classes </span>
+            <span onClick={ () => { navigate("/Admin/Profile") }}><i className="fa fa-address-card"></i>&nbsp; Profile </span>
             <span><i className="fa fa-step-forward"></i>&nbsp; Logout</span>
         </nav>
         </>

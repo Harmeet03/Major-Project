@@ -2,7 +2,47 @@ import React from "react";
 import '../../App.css';
 import { useNavigate } from "react-router-dom";
 
+
+
 const SignUp = () => {
+
+    
+    const Form = () => {
+        document.getElementById('AdminSignUp').addEventListener('submit', async function (event) {
+            event.preventDefault();
+
+            const formData = new FormData(this);
+            const formDataObject = {};
+            formData.forEach((value, key) => {
+                formDataObject[key] = value;
+            });
+            try {
+                const response = await fetch('', {
+                    method: 'POST',
+                    mode: "cors",
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Accept': 'application/json'
+                    },
+                    body: JSON.stringify(formDataObject)
+                });
+        
+                if (response.ok) {
+                    console.log("Form Submitted");
+                } 
+                else {
+                    console.log("Form failed");
+                    event.preventDefault();
+                }
+            } catch (error) {
+                console.log(`Error while submitting form ${error}`);
+                let nError = document.getElementById("nError");
+                nError.style.display = "block";
+            }
+        });
+    }
+
+
     const navigate = useNavigate()
     return(
         <>
@@ -18,18 +58,21 @@ const SignUp = () => {
         </head>
         <div className="su">
             <div className="left">
-                <form action="#">
+                <form onSubmit={Form}>
                     <h2> NAME: </h2>
-                    <input type="text" placeholder="Enter Username" required></input>
+                    <input name="fname" type="text" placeholder="Enter Username" required></input>
                     <h2> USERNAME: </h2>
-                    <input type="text" placeholder="Enter Username" required></input>
+                    <input name="uname" type="text" placeholder="Enter Username" required></input>
                     <h2> EMAIL: </h2>
-                    <input type="email" placeholder="example@example.com" required></input>
+                    <input name="email" type="email" placeholder="example@example.com" required></input>
                     <h2> PASSWORD: </h2>
-                    <input type="password" placeholder="Password" required></input>
+                    <input name="password" type="password" placeholder="Password" required></input>
                     <p> Haven't Sign In yet?<span style={{cursor: "pointer"}} onClick={ () => { navigate("/Admin/SignIn") }}> Click Here! </span></p>
-                    <button type="submit"> Proceed </button>
+                    <button name="submit" type="submit" id="AdminSignUp"> Proceed </button>
                 </form>
+                <div id="nError" style={{display: "none"}}>
+                    <h4> Failed to connect to server! Pease try later.</h4>
+                </div>
             </div>
             <div className="right">
                 <h1> SIGN UP </h1>

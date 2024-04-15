@@ -5,10 +5,7 @@ import { useNavigate } from "react-router-dom";
 
 
 const SignUp = () => {
-
-    
-    const Form = () => {
-        document.getElementById('AdminSignUp').addEventListener('submit', async function (event) {
+    const Form = async(event) => {
             event.preventDefault();
 
             const formData = new FormData(this);
@@ -16,8 +13,9 @@ const SignUp = () => {
             formData.forEach((value, key) => {
                 formDataObject[key] = value;
             });
+            
             try {
-                const response = await fetch('', {
+                const response = await fetch('http://localhost:4040/', {
                     method: 'POST',
                     mode: "cors",
                     headers: {
@@ -34,14 +32,13 @@ const SignUp = () => {
                     console.log("Form failed");
                     event.preventDefault();
                 }
-            } catch (error) {
+            } 
+            catch (error) {
                 console.log(`Error while submitting form ${error}`);
                 let nError = document.getElementById("nError");
                 nError.style.display = "block";
             }
-        });
-    }
-
+        };
 
     const navigate = useNavigate()
     return(

@@ -8,14 +8,14 @@ const SignUp = () => {
     const Form = async(event) => {
             event.preventDefault();
 
-            const formData = new FormData(this);
+            const formData = new FormData(event.target);
             const formDataObject = {};
             formData.forEach((value, key) => {
                 formDataObject[key] = value;
             });
             
             try {
-                const response = await fetch('http://localhost:4040/', {
+                const response = await fetch('http://localhost:4040/userinfo', {
                     method: 'POST',
                     mode: "cors",
                     headers: {

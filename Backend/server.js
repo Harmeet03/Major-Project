@@ -46,6 +46,8 @@ app.get("/", (req, res) => {
     res.send("App is Working");
 });
 
+// -------------THIS IS BACKEND FOR SIGN UP ---------------
+
 // NOW THIS CODE WILL GET THE DATA FROM BUY FORM (BACKEND OF BUY FORM)
 app.post("/userinfo", async function (req, res) {
     try{
@@ -70,3 +72,34 @@ const PORT = process.env.PORT || 4040;
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
 });
+
+// --------------------------------------------------------
+
+// -------------THIS IS BACKEND FOR SIGN IN ---------------
+
+const userInfo = require("./users");
+const bodyParser = require("body-parser");
+
+app.post('/login', async(req, res) => {
+  const { uname, password } = req.body;
+  try{
+    const user = await userInfo.findOne({uname});
+    if(user){
+      const match = await bcrypt.compare(password, user.password);
+      if(match){
+        res.json({ message: "Login Successful", user });
+      }
+      else{
+        res.status(401).json({ message: "Incorrect Password!" });
+      }
+    }
+    else{
+      res.status(401).json({ message: "Invalid Username" });
+    }
+  }
+  catch(error){
+    res.status(500).json({error: "ERROR:500. SERVER IS OFFLINE. KINDLY TRY LATER"});
+  }
+});
+
+// --------------------------------------------------------

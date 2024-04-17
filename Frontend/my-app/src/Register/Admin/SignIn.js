@@ -1,9 +1,44 @@
 import React from "react";
 import '../../App.css';
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 const SignIn = () => {
     const navigate = useNavigate()
+
+    const [uname, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const handleLogin = async (event) => {
+        event.preventDefault();
+        try {
+          const response = await fetch('http://localhost:4040/login', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ uname, password }),
+          });
+      
+          if (response.ok) {
+            const data = await response.json();
+    
+            // Check the response status or data for successful login
+            if (data.message === "Login Successful") {
+              console.log('Login Successful');
+            //   links('/Home')
+            } 
+          } 
+          else {
+            console.error('Invalid Username or Password');
+            alert("Invalid Username or Password");
+          }
+        } 
+        catch (error) {
+          console.error('Error fetching the user data: ', error);
+        //   links('/Error');
+        }
+    };
+
     return(
         <>
         <head>
@@ -18,11 +53,11 @@ const SignIn = () => {
         </head>
         <div className="si">
             <div className="left">
-                <form action="#">
+                <form onSubmit={handleLogin}>
                     <h2> USERNAME: </h2>
-                    <input type="text" placeholder="Enter Username"></input>
+                    <input name="uname" type="text" placeholder="Enter Username" onChange={(event) => setUsername(event.target.value)}></input>
                     <h2> PASSWORD: </h2>
-                    <input type="password" placeholder="Password"></input>
+                    <input name="password" type="password" placeholder="Password" onChange={(event) => setPassword(event.target.value)}></input>
                     <p> Haven't Sign Up yet?<span style={{cursor: "pointer"}} onClick={ () => { navigate("/Admin/SignUp") }}> Click Here! </span></p>
                     <button type="submit"> Proceed </button>
                 </form>

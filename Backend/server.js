@@ -49,6 +49,7 @@ app.get("/", (req, res) => {
 // -------------THIS IS BACKEND FOR SIGN UP ---------------
 
 // NOW THIS CODE WILL GET THE DATA FROM BUY FORM (BACKEND OF BUY FORM)
+const otpMap = {};
 app.post("/userinfo", async function (req, res) {
     try{
         const hashPassword = await bcrypt.hash(req.body.password, 10);
@@ -58,14 +59,43 @@ app.post("/userinfo", async function (req, res) {
             uname: req.body.uname,
             password: hashPassword
         });
+
+        // ---- BELOW CODE IS FOR GENERATING OTP ----
+        const nodemailer = require('nodemailer');
+        const { v4: uuidv4 } = require('uuid');
+        const transporter = nodemailer.createTransport({
+          service: 'Gmail',
+            auth: {
+              user: 'harmeet131003@gmail.com',
+              pass: 'Harmeet123'
+            }
+        });
+
+        const { email } = req.body;
+        const otp = Math.floor(100000 + Math.random() * 900000);
+        const otpId = uuidv4();
+        
+        otpMap[otpId] = { email, otp };
+
+        await transporter.sendMail({
+          from: 'harmeet131003@gmail.com',
+          to: email,
+          subject: 'Your OTP for Signup',
+          text: `Your OTP for signup is: ${otp}`
+        });
+        // ------------------------------------------
         
         console.log("Data sent");
         // Send a success response
+        res.status(200).json({ message: 'OTP sent successfully' });
         res.status(201).json({ message: "Form submitted successfully", user });
     }
     catch(error){
         console.log(`Error while sending data to form's backend (MongoDB): ${error}`);
+        console.error('Error sending OTP:', error);
+        res.status(500).json({ error: 'Internal server error' });
     }
+
 });
 
 const PORT = process.env.PORT || 4040;

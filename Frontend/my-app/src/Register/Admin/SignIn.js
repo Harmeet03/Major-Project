@@ -25,12 +25,13 @@ const SignIn = () => {
             // Check the response status or data for successful login
             if (data.message === "Login Successful") {
               console.log('Login Successful');
-            //   links('/Home')
+              navigate('/Admin/Home');
             } 
           } 
           else {
             console.error('Invalid Username or Password');
-            alert("Invalid Username or Password");
+            let user_error = document.getElementById("user_error");
+            user_error.style.display = "block"
           }
         } 
         catch (error) {
@@ -59,6 +60,7 @@ const SignIn = () => {
                     <h2> PASSWORD: </h2>
                     <input name="password" type="password" placeholder="Password" onChange={(event) => setPassword(event.target.value)}></input>
                     <p> Haven't Sign Up yet?<span style={{cursor: "pointer"}} onClick={ () => { navigate("/Admin/SignUp") }}> Click Here! </span></p>
+                    <p id="user_error" style={{display: "none"}}> Invalid Password or Username. </p>
                     <button type="submit"> Proceed </button>
                 </form>
             </div>

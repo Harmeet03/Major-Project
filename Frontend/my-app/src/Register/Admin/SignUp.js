@@ -1,10 +1,10 @@
-import React from "react";
+import React, { useState } from "react";
 import '../../App.css';
 import { useNavigate } from "react-router-dom";
 
-
-
 const SignUp = () => {
+    const navigate = useNavigate();
+
     const Form = async(event) => {
             event.preventDefault();
 
@@ -22,15 +22,15 @@ const SignUp = () => {
                         'Content-Type': 'application/json',
                         'Accept': 'application/json'
                     },
-                    body: JSON.stringify(formDataObject)
+                    body: JSON.stringify(formDataObject),
                 });
         
                 if (response.ok) {
                     console.log("Form Submitted");
+                    navigate('/Admin/SignIn');
                 } 
                 else {
                     console.log("Form failed");
-                    event.preventDefault();
                 }
             } 
             catch (error) {
@@ -40,7 +40,6 @@ const SignUp = () => {
             }
         };
 
-    const navigate = useNavigate()
     return(
         <>
         <head>

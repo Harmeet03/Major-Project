@@ -58,8 +58,8 @@ const SignIn = () => {
                     <h2> USERNAME: </h2>
                     <input name="uname" type="text" placeholder="Enter Username" onChange={(event) => setUsername(event.target.value)}></input>
                     <h2> PASSWORD: </h2>
-                    <input name="password" type="password" placeholder="Password" onChange={(event) => setPassword(event.target.value)}></input>
-                    <p> Haven't Sign Up yet?<span style={{cursor: "pointer"}} onClick={ () => { navigate("/Admin/SignUp") }}> Click Here! </span></p>
+                    <input name="password" type="password" placeholder="Password" onChange={(event) => setPassword(event.target.value)}></input><br></br><br></br>
+                    {/* <p> Haven't Sign Up yet?<span style={{cursor: "pointer"}} onClick={ () => { navigate("/Admin/SignUp") }}> Click Here! </span></p> */}
                     <p id="user_error" style={{display: "none"}}> Invalid Password or Username. </p>
                     <button type="submit"> Proceed </button>
                 </form>

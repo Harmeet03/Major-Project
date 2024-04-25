@@ -2,7 +2,7 @@ import React from "react";
 import '../App.css';
 import Navbar from "./Header";
 
-const Teachers = () => {
+const Student = () => {
     return(
         <>
         <head>
@@ -17,30 +17,25 @@ const Teachers = () => {
         </head>
         <Navbar/>
         <header>
-            <h1> Admin Dashboard </h1>
+            <h1> List of students </h1>
         </header>
 
-        {/* NOTICE TO TEACHERS */}
         <div style={{marginTop: "40px", textAlign: "center"}} id="noticeS">
-            <h2> Send Username and Password to TEACHERS </h2>
-            <form className="form">
-                <input className="text" id="text" type="text" placeholder="Write your message here...." required></input>
-                <button type="submit"> Send </button>
-            </form>
-        </div>
-
-        <div style={{marginTop: "40px", textAlign: "center"}} id="noticeS">
-            <h2> Table related to teachers username and password data </h2>
+            <h2> List of students </h2>
             <table id="customers">
   <tr>
-    <th>Teacher name</th>
-    <th>Teacher username</th>
-    <th>Teacher password</th>
+    <th>Student name</th>
+    <th>Student Admission no.</th>
+    <th>Date</th>
+    <th>Fees</th>
+    <th>Student Class</th>
   </tr>
 
   <tr>
     <td>Nazukali</td>
     <td>abc123</td>
+    <td>gmn</td>
+    <td>gmn</td>
     <td>gmn</td>
   </tr>
 
@@ -51,4 +46,4 @@ const Teachers = () => {
     )
 };
 
-export default Teachers;
+export default Student;

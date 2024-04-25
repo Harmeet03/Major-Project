@@ -1,5 +1,6 @@
 import React from 'react';
 import './index';
+import './index.css';
 import {Link} from 'react-router-dom';
 
 const Navbar = () => {
@@ -9,20 +10,15 @@ return(
     <img id='b' src="https://esmarts.qodeinteractive.com/wp-content/uploads/2017/11/logo.png" alt='brandlogo'></img>
 
     <div className="dropdown1">
-        <button className="dropbtn"> Home </button>
+        <button className="dropbtn" style={{color: "black"}}> Home </button>
     </div>
 
     <div className="dropdown1">
-        <button className="dropbtn"> About </button>
+        <button className="dropbtn" style={{color: "black"}}> About </button>
     </div>
 
     <div className="dropdown1">
-        <Link to="/Register"><button className="dropbtn"> Register <i className="fa fa-caret-down"></i></button></Link>
-        <div className="dropdown-content">
-            <Link to="/Admin/SignUp"> ADMIN </Link>
-            <Link to="/Teacher/SignIn"> TEACHER </Link>
-            <Link to="/Student/SignIn"> STUDENT </Link>
-        </div>
+        <Link to="/Register" style={{color: "black"}}><button className="dropbtn"> Register <i className="fa fa-caret-down"></i></button></Link>
     </div>
 </nav>
 )

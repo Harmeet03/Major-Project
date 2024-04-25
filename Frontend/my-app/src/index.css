@@ -19,94 +19,54 @@ body{
 
 }
 
-#i{
-  position: absolute;
-  bottom: 25%;
-  width: 350px;
-padding-left: 3%;}
-
-#i1{
-  position: absolute;
-  padding-left: 50%;
-  bottom: 79%;
-  width: 4%;
+/* ----------- SLIDER FOR SHOWING PRODUCTS IMAGES ----------- */
+/* Slideshow container */
+.slideshow-container {
+  max-width: 1000px;
+  position: relative;
+  margin: auto;
 }
 
-#i2{
-padding-right: 0%;
+.slideshow-container > .mySlides {
+    display: none;   
 }
 
-#heading1{
-  position: absolute;
-  left: 34%;
-  bottom: 20%;
-  color: #ddd;
-  font-family:"Nothing You Could Do";
-  font-size: 120px
+.slideshow-container > .mySlides > img {
+    width: 600px;
+    height: 755px;
 }
 
-#i3{
-  position: absolute;
-  width: 120px;
-  left: 74%;
-  bottom: 70%;
+/* The dots/bullets/indicators */
+.dot {
+  height: 15px;
+  width: 15px;
+  margin: 0px 2px;
+  background-color: #bbb;
+  border-radius: 50%;
+  display: inline-block;
+  transition: background-color 0.6s ease;
 }
 
-#i4{
-  position: absolute;
-  left: 80%;
-  width: 13%;
-  bottom: 35%;
+.active {
+  background-color: #717171;
 }
 
-#i5{
-  position: absolute;
-  bottom: 80%;
-  top: 50%;
-  left:93%
-
+/* Fading animation */
+.fade {
+  animation-name: fade;
+  animation-duration: 1.5s;
 }
 
-#i6{
-position: absolute;
-bottom: 90%;
-left:85%;
-top: 15%;
+@keyframes fade {
+  from {opacity: .4} 
+  to {opacity: 1}
 }
 
-#i7{
-  position: absolute;
-bottom: 90%;
-left:75%;
-top: 35%;
-}
-
-#i8{
-  position: absolute;
-  bottom: 90%;
-  left:65%;
-  top: 55%
-}
-
-#i9{
-  position: absolute;
-  bottom: 90%;
-  left:71%;
-  top: 15%
-}
-
-#i10{
-  position: absolute;
-  bottom: 90%;
-  left:39%;
-  top: 15%
-}
-
-#i11{
-  position: absolute;
-  bottom: 90%;
-  left:20%;
-  top: 15%
+@media only screen and (max-width: 450px){
+  .slideshow-container > .mySlides > img {
+    width: 400px;
+    height: 600px;
+  }
 }
 
 

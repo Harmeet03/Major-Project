@@ -115,7 +115,17 @@ body{
 }
 /* -------------------------------------------- */
 /* ----- ABOVE ONE FOR SMALLER DEVICES ----- */
+@media only screen and (max-width: 450px){
+  .si{
+    flex-direction: column-reverse;
+    width: 99%;
+    background: none;
+  }
 
+  .right{
+    color: white;
+  }
+}
 
 
 /* ----------------------------------------- */
@@ -174,7 +184,24 @@ body{
 }
 
 /* ----- ABOVE ONE FOR SMALLER DEVICES ----- */
+@media only screen and (max-width: 450px){
+  .container{
+    display: flex;
+    flex-direction: column;
+    font-size: 20px;
+    width: 100%;
+  }
 
+  .container .admin{
+    width: 96%;
+  }
+  .container .teacher{
+    width: 96%;
+  }
+  .container .student{
+    width: 96%;
+  }
+}
 
 
 /* ----------------------------------------- */

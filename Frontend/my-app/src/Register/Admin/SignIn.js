@@ -25,7 +25,9 @@ const SignIn = () => {
             // Check the response status or data for successful login
             if (data.message === "Login Successful") {
               console.log('Login Successful');
-              navigate('/Admin/Home');
+              setTimeout(() => {
+                navigate('/Admin/Home');
+              }, 1000);
             } 
           } 
           else {

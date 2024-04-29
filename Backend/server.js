@@ -74,39 +74,39 @@ app.post("/userinfo", async function (req, res) {
 
 // --------------------------------------------------------
 
-const userInfo = require("./users");
-const bodyParser = require("body-parser");
-
 // ---- BELOW CODE IS FOR GENERATING OTP ----
-const nodemailer = require('nodemailer');
-const { v4: uuidv4 } = require('uuid');
-const otpMap = {};
+// const nodemailer = require('nodemailer');
+// const { v4: uuidv4 } = require('uuid');
+// const otpMap = {};
 
 
-function generateOTP(){
-  return Math.floor(100000 + Math.random() * 900000);
-}
-
-async function sendOTP(email, otp){
-  const transporter = nodemailer.createTransport({
-    service: 'Outlook',
-    auth: {
-      user: 'hsdhanjal2003@outlook.com',
-      pass: 'Dhanjal2003'
-    }
-  });
+// function generateOTP(){
+  //   return Math.floor(100000 + Math.random() * 900000);
+  // }
   
-  await transporter.sendMail({
-    from: 'hsdhanjal2003@outlook.com',
-    to: email,
-    subject: 'Your OTP for SignIn',
-    text: `Your OTP for SignIn is: ${otp}`
-  });
-}
+  // async function sendOTP(email, otp){
+    //   const transporter = nodemailer.createTransport({
+      //     service: 'Outlook',
+      //     auth: {
+        //       user: 'hsdhanjal2003@outlook.com',
+        //       pass: 'Dhanjal2003'
+        //     }
+        //   });
+        
+        //   await transporter.sendMail({
+          //     from: 'hsdhanjal2003@outlook.com',
+//     to: email,
+//     subject: 'Your OTP for SignIn',
+//     text: `Your OTP for SignIn is: ${otp}`
+//   });
+// }
 
 // ------------------------------------------
 
 // -------------THIS IS BACKEND FOR ADMIN SIGN IN ---------------
+
+const userInfo = require("./users");
+const bodyParser = require("body-parser");
 
 app.post('/login', async(req, res) => {
   const { uname, password } = req.body;
@@ -137,17 +137,17 @@ app.post('/login', async(req, res) => {
 // ------------- THIS IS BACKEND FOR TEACHER SIGN IN --------------
 
 app.post('/tlogin', async(req, res) => {
-  const otp = generateOTP();
+  // const otp = generateOTP();
   const { uname, password, email } = req.body;
-  otpMap[email] = otp;
+  // otpMap[email] = otp;
   
   try{
     const user = await userInfo.findOne({uname});
     if(user){
       const match = await bcrypt.compare(password, user.password);
       if(match){
-        otpMap[user.email] = otp;
-        await sendOTP(email, otp);
+        // otpMap[user.email] = otp;
+        // await sendOTP(email, otp);
         res.status(200).json({ message: "Login Successful", user });
       }
       else{
@@ -159,7 +159,7 @@ app.post('/tlogin', async(req, res) => {
     }
   }
   catch(error){
-    console.error('Error sending OTP:', error);
+    // console.error('Error sending OTP:', error);
     res.status(500).json({error: "ERROR:500. SERVER IS OFFLINE. KINDLY TRY LATER"});
   }
 });
@@ -169,17 +169,17 @@ app.post('/tlogin', async(req, res) => {
 // ------------- THIS IS BACKEND FOR STUDENT SIGN IN --------------
 
 app.post('/slogin', async(req, res) => {
-  const otp = generateOTP();
-  const { uname, password, email } = req.body;
-  otpMap[email] = otp;
+  // const otp = generateOTP();
+  const { uname, password } = req.body;
+  // otpMap[email] = otp;
   
   try{
     const user = await userInfo.findOne({uname});
     if(user){
       const match = await bcrypt.compare(password, user.password);
       if(match){
-        otpMap[user.email] = otp;
-        await sendOTP(email, otp);
+        // otpMap[user.email] = otp;
+        // await sendOTP(email, otp);
         res.status(200).json({ message: "Login Successful", user });
       }
       else{
@@ -191,26 +191,55 @@ app.post('/slogin', async(req, res) => {
     }
   }
   catch(error){
-    console.error('Error sending OTP:', error);
+    // console.error('Error sending OTP:', error);
     res.status(500).json({error: "ERROR:500. SERVER IS OFFLINE. KINDLY TRY LATER"});
   }
 });
 
 // ----------------------------------------------------------------
 
-app.post('/verify', async (req, res) => {
-  const { email, otp } = req.body;
+// app.post('/verify', async (req, res) => {
+//   const { email, otp } = req.body;
   
-  const storedOTP = otpMap[email];
+//   const storedOTP = otpMap[email];
   
-  if(storedOTP && otp === storedOTP){
-    res.status(200).json({ message: 'Sign in successful' });
-  } 
-  else {
-    // If OTP does not match or expired, deny sign in
-    res.status(401).json({ error: 'Invalid OTP' });
+//   if(storedOTP && otp === storedOTP){
+//     res.status(200).json({ message: 'Sign in successful' });
+//   } 
+//   else {
+//     // If OTP does not match or expired, deny sign in
+//     res.status(401).json({ error: 'Invalid OTP' });
+//   }
+// });
+
+// --------------------- THIS PART IS FOR NOTICE'S BACKEND ---------------------
+
+// ------- This will post admin's notice (JUST LIKE SIGN UP) -------
+
+const noticeDetail = require("./notice");
+app.post("/anotice", async function (req, res) {
+  try{
+      const user = await noticeDetail.create({
+          date: req.body.date,
+          message: req.body.message,
+      });
+
+      
+      
+      console.log("Notice sent");
+      // Send a success response
+      res.status(201).json({ message: "Notice posted successfully", user });
   }
+  catch(error){
+      console.log(`Error while posting data to notice's backend (MongoDB): ${error}`);
+      res.status(500).json({ error: 'Internal server error' });
+  }
+
 });
+
+// -----------------------------------------------------------------
+
+// -----------------------------------------------------------------------------
 
 const PORT = process.env.PORT || 4040;
 app.listen(PORT, () => {

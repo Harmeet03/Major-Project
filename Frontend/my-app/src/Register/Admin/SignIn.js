@@ -31,11 +31,13 @@ const SignIn = () => {
           else {
             console.error('Invalid Username or Password');
             let user_error = document.getElementById("user_error");
-            user_error.style.display = "block"
+            user_error.style.display = "block";
           }
         } 
         catch (error) {
           console.error('Error fetching the user data: ', error);
+          let server_error = document.getElementById("server_error");
+          server_error.style.display = "block";
         //   links('/Error');
         }
     };
@@ -61,6 +63,7 @@ const SignIn = () => {
                     <input name="password" type="password" placeholder="Password" onChange={(event) => setPassword(event.target.value)}></input><br></br><br></br>
                     {/* <p> Haven't Sign Up yet?<span style={{cursor: "pointer"}} onClick={ () => { navigate("/Admin/SignUp") }}> Click Here! </span></p> */}
                     <p id="user_error" style={{display: "none"}}> Invalid Password or Username. </p>
+                    <p id="server_error" style={{display: "none"}}> Server Error. </p>
                     <button type="submit"> Proceed </button>
                 </form>
             </div>

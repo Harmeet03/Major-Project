@@ -39,6 +39,8 @@ const Home = () => {
         } 
         catch (error) {
             console.log(`Error while posting notice ${error}`);
+            let failed = document.getElementById("failed");
+            failed.style.display = 'block'
             // let nError = document.getElementById("nError");
             // nError.style.display = "block";
         }

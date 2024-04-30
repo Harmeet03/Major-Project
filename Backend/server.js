@@ -46,7 +46,7 @@ app.get("/", (req, res) => {
     res.send("App is Working");
 });
 
-// -------------THIS IS BACKEND FOR SIGN UP ---------------
+// -------------THIS IS BACKEND FOR ADMIN SIGN UP ---------------
 
 // NOW THIS CODE WILL GET THE DATA FROM BUY FORM (BACKEND OF BUY FORM)
 app.post("/userinfo", async function (req, res) {
@@ -134,6 +134,30 @@ app.post('/login', async(req, res) => {
 
 // --------------------------------------------------------
 
+// ------------- THIS IS BACKEND FOR TEACHER SIGN UP --------------
+
+app.post("/teacherinfo", async function (req, res) {
+  try{
+      // const hashPassword = await bcrypt.hash(req.body.password, 10);
+      const teacher = await teacherDetail.create({
+          name: req.body.name,
+          username: req.body.username,
+          password: req.body.password
+      });
+      
+      console.log("Teacher Info Sent");
+      // Send a success response
+      res.status(201).json({ message: "Form submitted successfully", teacher });
+  }
+  catch(error){
+      console.log(`Error while sending data to form's backend (MongoDB): ${error}`);
+      res.status(500).json({ error: 'Internal server error' });
+  }
+
+});
+
+// ----------------------------------------------------------------
+
 // ------------- THIS IS BACKEND FOR TEACHER SIGN IN --------------
 
 app.post('/tlogin', async(req, res) => {
@@ -217,6 +241,7 @@ app.post('/slogin', async(req, res) => {
 // ------- This will post admin's notice (JUST LIKE SIGN UP) -------
 
 const noticeDetail = require("./notice");
+const teacherDetail = require("./teachers");
 app.post("/anotice", async function (req, res) {
   try{
       const user = await noticeDetail.create({

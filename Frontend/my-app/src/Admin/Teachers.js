@@ -1,8 +1,28 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import '../App.css';
 import Navbar from "./Header";
 
 const Teachers = () => {
+
+    const [teachers, setTeachers] = useState([]);
+
+    useEffect(() => {
+        fetchTeacherData();
+    }, []);
+
+    const fetchTeacherData = async () => {
+        try {
+            const response = await fetch('http://localhost:4040/teacherinfo');
+            if (response.ok) {
+                const data = await response.json();
+                setTeachers(data);
+            } else {
+                console.log("Failed to fetch teacher data");
+            }
+        } catch (error) {
+            console.error("Error fetching teacher data:", error);
+        }
+    };
 
     const Teacher_Detail = async(event) => {
         event.preventDefault();
@@ -27,7 +47,7 @@ const Teachers = () => {
             if (response.ok) {
                 console.log("Teacher Created");
                 let success = document.getElementById("success");
-                success.style.display = 'block'
+                success.style.display = 'block';
                 } 
             else {
                 let failed = document.getElementById("failed");
@@ -58,7 +78,7 @@ const Teachers = () => {
         </head>
         <Navbar/>
         <header>
-            <h1> Admin Dashboard </h1>
+            <h1> List of teachers </h1>
         </header>
 
         {/* NOTICE TO TEACHERS */}
@@ -83,11 +103,15 @@ const Teachers = () => {
                     <th>Teacher password</th>
                 </tr>
 
-                <tr>
-                    <td>Nazukali</td>
-                    <td>abc123</td>
-                    <td>gmn</td>
-                </tr>
+                {
+                    teachers.map((teacher, index) => (
+                        <tr key={index}>
+                            <td>{teacher.name}</td>
+                            <td>{teacher.username}</td>
+                            <td>{teacher.password}</td>
+                        </tr>
+                    ))
+                }
             </table>
         </div>
         </>

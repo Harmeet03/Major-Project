@@ -402,6 +402,10 @@ header > h1{
 
 /* ------------------------------------------------- TEACHER MAIN PAGE -------------------------------------------- */
 
+#form div input{
+  margin-right: 20px;
+}
+
 #noticeS .form{
   display: flex;
   justify-content: center;

@@ -156,6 +156,20 @@ app.post("/teacherinfo", async function (req, res) {
 
 });
 
+// Endpoint to retrieve teacher data
+app.get("/teacherinfo", async (req, res) => {
+  try {
+    // Query MongoDB to fetch all teacher documents
+    const teachers = await teacherDetail.find({});
+    // Send the fetched data as JSON response
+    res.json(teachers);
+  } catch (error) {
+    console.error(`Error while fetching teacher data: ${error}`);
+    // Send an error response if something goes wrong
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 // ----------------------------------------------------------------
 
 // ------------- THIS IS BACKEND FOR TEACHER SIGN IN --------------
@@ -185,6 +199,48 @@ app.post('/tlogin', async(req, res) => {
   catch(error){
     // console.error('Error sending OTP:', error);
     res.status(500).json({error: "ERROR:500. SERVER IS OFFLINE. KINDLY TRY LATER"});
+  }
+});
+
+// ----------------------------------------------------------------
+
+// ------------- THIS IS BACKEND FOR TEACHER SIGN UP --------------
+let studentDetail = require('./students');
+
+app.post("/studentinfo", async function (req, res) {
+  try{
+      // const hashPassword = await bcrypt.hash(req.body.password, 10);
+      const student = await studentDetail.create({
+          name: req.body.name,
+          username: req.body.username,
+          password: req.body.password,
+          ano: req.body.ano,
+          fees: req.body.fees,
+          class: req.body.class
+      });
+      
+      console.log("Student Info Sent");
+      // Send a success response
+      res.status(201).json({ message: "Form submitted successfully", student });
+  }
+  catch(error){
+      console.log(`Error while sending data to form's backend (MongoDB): ${error}`);
+      res.status(500).json({ error: 'Internal server error' });
+  }
+
+});
+
+// Endpoint to retrieve teacher data
+app.get("/studentinfo", async (req, res) => {
+  try {
+    // Query MongoDB to fetch all teacher documents
+    const students = await studentDetail.find({});
+    // Send the fetched data as JSON response
+    res.json(students);
+  } catch (error) {
+    console.error(`Error while fetching student data: ${error}`);
+    // Send an error response if something goes wrong
+    res.status(500).json({ error: 'Internal server error' });
   }
 });
 

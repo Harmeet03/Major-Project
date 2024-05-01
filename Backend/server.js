@@ -131,6 +131,21 @@ app.post('/login', async(req, res) => {
   }
 });
 
+// Endpoint to retrieve admin data
+app.get("/login", async (req, res) => {
+  try {
+    // Query MongoDB to fetch all teacher documents
+    const admins = await userInfo.find({});
+    // Send the fetched data as JSON response
+    res.json(admins);
+  } catch (error) {
+    console.error(`Error while fetching admin data: ${error}`);
+    // Send an error response if something goes wrong
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// ----------------------------------------------------------------
 
 // --------------------------------------------------------
 
@@ -142,7 +157,8 @@ app.post("/teacherinfo", async function (req, res) {
       const teacher = await teacherDetail.create({
           name: req.body.name,
           username: req.body.username,
-          password: req.body.password
+          password: req.body.password,
+          class: req.body.class
       });
       
       console.log("Teacher Info Sent");
@@ -230,7 +246,7 @@ app.post("/studentinfo", async function (req, res) {
 
 });
 
-// Endpoint to retrieve teacher data
+// Endpoint to retrieve student data
 app.get("/studentinfo", async (req, res) => {
   try {
     // Query MongoDB to fetch all teacher documents

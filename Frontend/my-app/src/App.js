@@ -13,6 +13,8 @@ import Register from './Register/Register';
 import HomeA from './Admin/Home';
 import TeacherA from './Admin/Teachers';
 import StudentA from './Admin/Student';
+import TimeTableA from './Admin/TimeTable';
+import ProfileA from './Admin/Profile';
 
 // Teacher
 import HomeT from './Teacher/Home';
@@ -56,6 +58,8 @@ function App() {
         <Route path="/Admin/Home" element={<HomeA/>} />
         <Route path="/Admin/Teachers" element={<TeacherA/>} />
         <Route path="/Admin/Students" element={<StudentA/>} />
+        <Route path="/Admin/TimeTable" element={<TimeTableA/>} />
+        <Route path="/Admin/Profile" element={<ProfileA/>} />
 
         {/* Home Page of Teacher */}
         <Route path="/Teacher/Home" element={<HomeT/>} />

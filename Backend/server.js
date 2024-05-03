@@ -336,6 +336,92 @@ app.post("/anotice", async function (req, res) {
 
 // -----------------------------------------------------------------
 
+// ----------------- THIS IS FOR CREATING TIME TABLE -----------------
+
+// ----- FOR CLASS I-X -------
+const timetable = require("./timetable");
+
+app.post("/timetable", async function (req, res) {
+  try{
+      // const hashPassword = await bcrypt.hash(req.body.password, 10);
+      const timetable1 = await timetable.create({
+          day: req.body.day,
+          first: req.body.first,
+          second: req.body.second,
+          third: req.body.third,
+          fourth: req.body.fourth,
+          fifth: req.body.fifth
+      });
+      
+      console.log("TimeTable Sent");
+      // Send a success response
+      res.status(201).json({ message: "Form submitted successfully", timetable1 });
+  }
+  catch(error){
+      console.log(`Error while sending data to form's backend (MongoDB): ${error}`);
+      res.status(500).json({ error: 'Internal server error' });
+  }
+
+});
+
+// Endpoint to retrieve student data
+app.get("/timetable", async (req, res) => {
+  try {
+    // Query MongoDB to fetch all teacher documents
+    const timetables = await timetable.find({});
+    // Send the fetched data as JSON response
+    res.json(timetables);
+  } catch (error) {
+    console.error(`Error while fetching Time Table data: ${error}`);
+    // Send an error response if something goes wrong
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+// ---------------------
+
+// ----- FOR CLASS XI-XII -------
+const timetable2 = require("./timetable2");
+
+app.post("/timetable2", async function (req, res) {
+  try{
+      // const hashPassword = await bcrypt.hash(req.body.password, 10);
+      const timetable = await timetable2.create({
+          day: req.body.day,
+          first: req.body.first,
+          second: req.body.second,
+          third: req.body.third,
+          fourth: req.body.fourth,
+          fifth: req.body.fifth
+      });
+      
+      console.log("TimeTable Sent");
+      // Send a success response
+      res.status(201).json({ message: "Form submitted successfully", timetable });
+  }
+  catch(error){
+      console.log(`Error while sending data to form's backend (MongoDB): ${error}`);
+      res.status(500).json({ error: 'Internal server error' });
+  }
+
+});
+
+// Endpoint to retrieve student data
+app.get("/timetable2", async (req, res) => {
+  try {
+    // Query MongoDB to fetch all teacher documents
+    const timetables = await timetable2.find({});
+    // Send the fetched data as JSON response
+    res.json(timetables);
+  } catch (error) {
+    console.error(`Error while fetching Time Table data: ${error}`);
+    // Send an error response if something goes wrong
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+// ------------------------------
+
+// -------------------------------------------------------------------
+
 // -----------------------------------------------------------------------------
 
 const PORT = process.env.PORT || 4040;

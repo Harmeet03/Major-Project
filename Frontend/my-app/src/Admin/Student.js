@@ -59,8 +59,6 @@ const Student = () => {
             console.log(`Error while creating ${error}`);
             let failed = document.getElementById("failed");
             failed.style.display = 'block'
-            // let nError = document.getElementById("nError");
-            // nError.style.display = "block";
         }
     }
 

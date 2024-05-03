@@ -1,10 +1,31 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "./Header";
 import '../App.css';
 import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+
+    const [teachers, setTeachers] = useState([]);
+
+    useEffect(() => {
+        fetchTeacherData();
+    }, []);
+
+    const fetchTeacherData = async () => {
+        try {
+            const response = await fetch('http://localhost:4040/teacherinfo');
+            if (response.ok) {
+                const data = await response.json();
+                setTeachers(data);
+            } else {
+                console.log("Failed to fetch admin data");
+            }
+        } catch (error) {
+            console.error("Error fetching admin data:", error);
+        }
+    };
+
     return(
         <>
         <head>
@@ -23,25 +44,30 @@ const Profile = () => {
         </header>
         <div style={{padding: "40px 0px"}}>
             <div id="noticeS">
-                <div className="noNoticeS">
-                    <img id="SProfileImg" src="https://antlovebaba.com/school_management_api/assets/images/urtzsevs_smsDemo/14012023050654784512.png"></img>
-                    <h2> Teacher Name: <span style={{color: "rgb(98, 98, 250)"}}> {/* Harmeet */} </span> </h2>
-                    <h4> Teacher ID:  <span style={{color: "rgb(98, 98, 250)"}}> {/* 18 */} </span> </h4>
-                    <h4> Class Assign:  <span style={{color: "rgb(98, 98, 250)"}}> {/* Eleventh */} </span> </h4>
-                </div>
+            {
+                teachers.map((teacher, index) => (
+                    <div className="noNoticeS" key={index}>
+                            <img id="SProfileImg" src="https://antlovebaba.com/school_management_api/assets/images/urtzsevs_smsDemo/14012023050654784512.png"></img>
+                            <h2> Teacher Name: <span style={{color: "rgb(98, 98, 250)"}}> {teacher.name} </span> </h2>
+                            <h4> Teacher Username:  <span style={{color: "rgb(98, 98, 250)"}}> {teacher.username} </span> </h4>
+                            <h4> Class Assign:  <span style={{color: "rgb(98, 98, 250)"}}> {teacher.class} </span> </h4>
+                        </div>
+                    ))
+                }
             </div>
             <br></br>
             <div id="noticeS">
-                <div className="noNoticeS">
-                    <h2> Personal Information</h2>
-                    <div className="infoS">
-                        <h3> Date of Birth: <span style={{color: "rgb(98, 98, 250)"}}> {/* 13/10/2003 */} </span> </h3>
-                        <h3> Email: <span style={{color: "rgb(98, 98, 250)"}}> {/* hsinghwhatever2003@gmail.com */} </span> </h3>
-                        <h3> Address: <span style={{color: "rgb(98, 98, 250)"}}> {/* D Block */} </span> </h3>
-                        <h3> Gender: <span style={{color: "rgb(98, 98, 250)"}}> {/* Male */} </span> </h3>
-                        <h3> Phone: <span style={{color: "rgb(98, 98, 250)"}}> {/* 9971391713 */} </span> </h3>
+            {
+                teachers.map((teacher, index) => (
+                    <div className="noNoticeS" key={index}>
+                        <h2> Personal Information</h2>
+                        <div className="infoS" style={{textAlign: "center"}}>
+                            <h3> Password: <span style={{color: "rgb(98, 98, 250)"}}> {teacher.password} </span> </h3>
+                            <h3> Phone: <span style={{color: "rgb(98, 98, 250)"}}> 9971391713 </span> </h3>
+                        </div>
                     </div>
-                </div>
+                ))
+            }
             </div>
             
             {/* FOR BACKEND */}

@@ -192,14 +192,13 @@ app.get("/teacherinfo", async (req, res) => {
 
 app.post('/tlogin', async(req, res) => {
   // const otp = generateOTP();
-  const { uname, password, email } = req.body;
+  const { username, password } = req.body;
   // otpMap[email] = otp;
   
   try{
-    const user = await userInfo.findOne({uname});
+    const user = await teacherDetail.findOne({username});
     if(user){
-      const match = await bcrypt.compare(password, user.password);
-      if(match){
+      if(password == user.password){
         // otpMap[user.email] = otp;
         // await sendOTP(email, otp);
         res.status(200).json({ message: "Login Successful", user });

@@ -80,7 +80,7 @@ const Home = () => {
 
         {/* NOTICE TO notices */}
         <div style={{marginTop: "40px", textAlign: "center"}} id="noticeS">
-            <h2> Send Notice to notices </h2>
+            <h2> Send Notice to STUDENTS </h2>
             <form className="form" onSubmit={setNotice}>
                 <input className="date" id="date" type="date" required></input>
                 <input className="text" id="text" type="text" placeholder="Write your message here...." required></input>

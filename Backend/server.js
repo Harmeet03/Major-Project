@@ -8,7 +8,8 @@ mongoDB();
 const cors = require("cors");
 
 const connection = {
-    origin: 'http://localhost:3000'
+    origin: 'http://localhost:3000',
+    credentials: true
 };
 
 const app = express();
@@ -172,17 +173,43 @@ app.post("/teacherinfo", async function (req, res) {
 
 });
 
-// Endpoint to retrieve teacher data
 app.get("/teacherinfo", async (req, res) => {
   try {
-    // Query MongoDB to fetch all teacher documents
-    const teachers = await teacherDetail.find({});
-    // Send the fetched data as JSON response
-    res.json(teachers);
-  } catch (error) {
-    console.error(`Error while fetching teacher data: ${error}`);
-    // Send an error response if something goes wrong
-    res.status(500).json({ error: 'Internal server error' });
+    // Query MongoDB to fetch only sign in teacher document at a time
+      const teacher = await teacherDetail.find({});
+      // Send the fetched data as JSON response
+      if(teacher){
+        res.json(teacher);
+      }
+      else {
+        res.status(404).json({ error: "Teacher not found" });
+      }
+  } 
+  catch (error) {
+      console.error(`Error while fetching teacher data: ${error}`);
+      // Send an error response if something goes wrong
+      res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// Endpoint to retrieve teacher data
+app.get("/teacherinfo/:username", async (req, res) => {
+  try {
+    // Query MongoDB to fetch only sign in teacher document at a time
+      const username = req.params.username;
+      const teacher = await teacherDetail.findOne({ username });
+      // Send the fetched data as JSON response
+      if(teacher){
+        res.json(teacher);
+      }
+      else {
+        res.status(404).json({ error: "Teacher not found" });
+      }
+  } 
+  catch (error) {
+      console.error(`Error while fetching teacher data: ${error}`);
+      // Send an error response if something goes wrong
+      res.status(500).json({ error: 'Internal server error' });
   }
 });
 

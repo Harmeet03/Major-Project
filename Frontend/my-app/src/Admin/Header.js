@@ -20,10 +20,10 @@ const Navbar = () => {
             <span onClick={ () => { navigate("/Admin/Home") }}><i className="fa fa-home"></i>&nbsp; Home </span>
             <span onClick={ () => { navigate("/Admin/Teachers") }}><i className="fa fa-female"></i>&nbsp; Teachers </span>
             <span onClick={ () => { navigate("/Admin/Students") }}><i className="fa fa-child"></i>&nbsp; Students </span>
-            <span onClick={ () => { navigate("/Admin/Entry") }}><i className="fa fa-address-book"></i>&nbsp; Entry </span>
-            <span onClick={ () => { navigate("/Admin/Classes") }}><i className="fa fa-group"></i>&nbsp; Classes </span>
+            {/* <span onClick={ () => { navigate("/Admin/Entry") }}><i className="fa fa-address-book"></i>&nbsp; Entry </span> */}
+            <span onClick={ () => { navigate("/Admin/TimeTable") }}><i className="fa fa-group"></i>&nbsp; TimeTable </span>
             <span onClick={ () => { navigate("/Admin/Profile") }}><i className="fa fa-address-card"></i>&nbsp; Profile </span>
-            <span><i className="fa fa-step-forward"></i>&nbsp; Logout</span>
+            <span onClick={ () => { navigate("/Register") }}><i className="fa fa-step-forward" ></i>&nbsp; Logout</span>
         </nav>
         </>
     )

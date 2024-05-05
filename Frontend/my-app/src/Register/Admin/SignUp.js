@@ -27,7 +27,9 @@ const SignUp = () => {
         
                 if (response.ok) {
                     console.log("Form Submitted");
-                    navigate('/Admin/SignIn');
+                    setTimeout(() => {
+                        navigate('/Admin/SignIn');
+                    }, 2000);
                 } 
                 else {
                     console.log("Form failed");

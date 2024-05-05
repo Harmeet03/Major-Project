@@ -125,6 +125,10 @@ body{
   .right{
     color: white;
   }
+
+  .right > h1{
+    color: white;
+  }
 }
 
 
@@ -270,6 +274,7 @@ nav span:hover{
 
 header > h1{
   padding: 0px 20px;
+  color: white;
 }
 
 .overviewS{
@@ -519,7 +524,7 @@ header > h1{
 
 h1 {
   text-align: center;
-  color: white;
+  color: black;
 }
 
 table {

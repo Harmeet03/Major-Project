@@ -336,7 +336,7 @@ app.post('/slogin', async(req, res) => {
 
 // --------------------- THIS PART IS FOR NOTICE'S BACKEND ---------------------
 
-// ------- This will post admin's notice (JUST LIKE SIGN UP) -------
+// ------- This will post admin's notice to teacher (JUST LIKE SIGN UP) -------
 
 const noticeDetail = require("./notice");
 const teacherDetail = require("./teachers");
@@ -361,6 +361,23 @@ app.post("/anotice", async function (req, res) {
 });
 
 // -----------------------------------------------------------------
+
+// ----- This will get admin's notice to teacher (JUST LIKE SIGN IN) -----
+
+app.get("/anotice", async (req, res) => {
+  try {
+    // Query MongoDB to fetch all teacher documents
+    const details = await noticeDetail.find({});
+    // Send the fetched data as JSON response
+    res.json(details);
+  } catch (error) {
+    console.error(`Error while fetching student data: ${error}`);
+    // Send an error response if something goes wrong
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// -----------------------------------------------------------------------
 
 // ----------------- THIS IS FOR CREATING TIME TABLE -----------------
 

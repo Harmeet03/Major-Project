@@ -6,7 +6,7 @@ const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT || 8080;
 
-mongoose.connect('mongodb+srv://jacktheripper0029:aman1234@cluster0.xhj3det.mongodb.net/schoolDB', {
+mongoose.connect('mongodb+srv://Harmeet:Dhanjal2003@cluster0.mob0vls.mongodb.net/schoolDB', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 }).then(() => console.log('MongoDB Connected'))

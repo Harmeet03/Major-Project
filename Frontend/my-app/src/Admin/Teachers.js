@@ -85,10 +85,11 @@ const Teachers = () => {
         <div style={{marginTop: "40px", textAlign: "center"}} id="noticeS">
             <h2> Create Username and Password for TEACHERS </h2>
             <form className="form" onSubmit={Teacher_Detail}>
-                <input style={{width: "150px"}} className="text" id="text" name="name" type="text" placeholder="Teacher Name" required></input>
-                <input style={{width: "150px"}} className="text" id="text" name="username" type="text" placeholder="Create Username" required></input>
-                <input style={{width: "150px"}} className="text" id="text" name="password" type="text" placeholder="Create Password" required></input>
-                <input style={{width: "150px"}} className="text" id="text" name="class" type="text" placeholder="Assign Class" required></input>
+                <input style={{width: "120px"}} className="text" id="text" name="name" type="text" placeholder="Teacher Name" required></input>
+                <input style={{width: "120px"}} className="text" id="text" name="subject" type="text" placeholder="Subject" required></input>
+                <input style={{width: "120px"}} className="text" id="text" name="username" type="text" placeholder="Create Username" required></input>
+                <input style={{width: "120px"}} className="text" id="text" name="password" type="text" placeholder="Create Password" required></input>
+                <input style={{width: "120px"}} className="text" id="text" name="class" type="text" placeholder="Assign Class" required></input>
                 <button type="submit"> Create </button>
             </form>
             <p id="success" style={{color: "rgb(98, 98, 250)", display: "none"}}><b> Teacher created</b></p>
@@ -99,9 +100,10 @@ const Teachers = () => {
             <h2> Table related to teachers username and password data </h2>
             <table id="customers">
                 <tr>
-                    <th>Teacher name</th>
-                    <th>Teacher username</th>
-                    <th>Teacher password</th>
+                    <th>Teacher Name</th>
+                    <th>Teacher Username</th>
+                    <th>Teacher Password</th>
+                    <th>Teacher Subject</th>
                     <th>Teacher Class</th>
                 </tr>
 
@@ -111,6 +113,7 @@ const Teachers = () => {
                             <td>{teacher.name}</td>
                             <td>{teacher.username}</td>
                             <td>{teacher.password}</td>
+                            <td>{teacher.subject}</td>
                             <td>{teacher.class}</td>
                         </tr>
                     ))

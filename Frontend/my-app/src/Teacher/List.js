@@ -1,10 +1,31 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import '../App.css';
 import { useNavigate } from "react-router-dom";
 import Navbar from "./Header";
 
 const List = () => {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+
+    const [students, setStudents] = useState([]);
+
+    useEffect(() => {
+        fetchStudentData();
+    }, []);
+
+    const fetchStudentData = async () => {
+        try {
+            const response = await fetch('http://localhost:4040/studentinfo');
+            if (response.ok) {
+                const data = await response.json();
+                setStudents(data);
+            } else {
+                console.log("Failed to fetch student data");
+            }
+        } catch (error) {
+            console.error("Error fetching student data:", error);
+        }
+    };
+    
     return(
         <>
         <head>
@@ -24,38 +45,37 @@ const List = () => {
 
         {/* NOTICE FROM ADMIN */}
         <div style={{marginTop: "40px"}} id="noticeS">
-            <div className="noNoticeS">
-                <h3> No List available for you right now. </h3>
-            </div>
-            <div className="noticeS">
-                {/* FOR BACKEND */}
-                <table>
-                    <thead>
+            {students.length > 0 ? (
+                <div className="noticeS">
+                    <table id="customers">
                         <tr>
-                            {/* <td className="sno"> S. NO. </td>
-                            <td className="name"> NAME </td>
-                            <td className="rno"> ROLL NO. </td>
-                            <td className="mno"> MOBILE NUMBER </td>
-                            <td className="add"> ADDRESS </td>
-                            <td className="admn"> ADMISSION NO. </td> */}
+                            <th>Student name</th>
+                            <th>Student Username</th>
+                            <th>Student Password</th>
+                            <th>Student Admission no.</th>
+                            <th>Fees</th>
+                            <th>Student Class</th>
                         </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            {/* <td>12</td>
-                            <td>Harmeet Singh</td>
-                            <td>18</td>
-                            <td>9971391713</td>
-                            <td>D Block, Fateh Nagar, Delhi</td>
-                            <td>0248849598</td> */}
-                        </tr>
-                        <tr>
-                            {/* <td>12</td>
-                            <td>fddfdf</td> */}
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+                        {
+                            students.map((student, index) => (
+                                <tr key={index}>
+                                    <td>{student.name}</td>
+                                    <td>{student.username}</td>
+                                    <td>{student.password}</td>
+                                    <td>{student.ano}</td>
+                                    <td>{student.fees}</td>
+                                    <td>{student.class}</td>
+                                </tr>
+                            ))
+                        }
+                    </table>
+                </div>
+            ) 
+            : (
+                <div className="noNoticeS">
+                    <h3> No List available for you right now. </h3>
+                </div>   
+            )}
         </div>
         </>
     )

@@ -159,7 +159,8 @@ app.post("/teacherinfo", async function (req, res) {
           name: req.body.name,
           username: req.body.username,
           password: req.body.password,
-          class: req.body.class
+          class: req.body.class,
+          subject: req.body.subject
       });
       
       console.log("Teacher Info Sent");
@@ -246,7 +247,7 @@ app.post('/tlogin', async(req, res) => {
 
 // ----------------------------------------------------------------
 
-// ------------- THIS IS BACKEND FOR TEACHER SIGN UP --------------
+// ------------- THIS IS BACKEND FOR TEACHER'S STUDENT LIST --------------
 let studentDetail = require('./students');
 
 app.post("/studentinfo", async function (req, res) {

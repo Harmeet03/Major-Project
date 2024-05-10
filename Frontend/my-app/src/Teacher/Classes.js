@@ -1,10 +1,35 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import '../App.css';
 import { useNavigate } from "react-router-dom";
 import Navbar from "./Header";
 
 const Classes = () => {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+
+    const [students, setStudents] = useState([]);
+    const [teachers, setTeachers] = useState([]);
+
+    useEffect(() => {
+        fetchStudentData();
+    }, []);
+
+    const fetchStudentData = async () => {
+        try {
+            const response = await fetch('http://localhost:4040/studentinfo');
+            const response2 = await fetch('http://localhost:4040/teacherinfo');
+            if (response.ok && response2.ok) {
+                const data = await response.json();
+                const data2 = await response2.json();
+                setStudents(data);
+                setTeachers(data2);
+            } else {
+                console.log("Failed to fetch student data");
+            }
+        } catch (error) {
+            console.error("Error fetching student data:", error);
+        }
+    };
+    
     return(
         <>
         <head>
@@ -24,32 +49,31 @@ const Classes = () => {
 
         {/* NOTICE FROM ADMIN */}
         <div style={{marginTop: "40px"}} id="noticeS">
-            <div className="noNoticeS">
-                <h3> You don't have any Classes to teach right now. </h3>
-            </div>
-            <div className="noticeS">
-                {/* FOR BACKEND */}
-                <table>
-                    <thead>
+            {students.length > 0 ? (
+                <div className="noticeS">
+                    <table id="customers">
                         <tr>
-                            {/* <td className="sno"> S. NO. </td>
-                            <td className="add"> CLASS </td>
-                            <td className="admn"> TIMING </td> */}
+                            <th>Teacher Name</th>
+                            <th>Classes</th>
                         </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            {/* <td>12</td>
-                            <td>VIII - D</td>
-                            <td>10-11</td> */}
-                        </tr>
-                        <tr>
-                            {/* <td>12</td>
-                            <td>fddfdf</td> */}
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
+                        {
+                            students.map((student, index) => (
+                                teachers.map((teacher, index) => (
+                                    <tr key={index}>
+                                        <td>{teacher.name}</td>
+                                        <td>{student.class}</td>
+                                    </tr>
+                                ))
+                            ))
+                        }
+                    </table>
+                </div>
+            ) 
+            : (
+                <div className="noNoticeS">
+                    <h3> You don't have any Classes to teach right now. </h3>
+                </div>   
+            )}
         </div>
         </>
     )

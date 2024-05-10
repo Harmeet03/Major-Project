@@ -79,6 +79,7 @@ const Profile = () => {
                         <h2> Personal Information</h2>
                         <div className="infoS" style={{textAlign: "center"}}>
                             <h3> Password: <span style={{color: "rgb(98, 98, 250)"}}> {teacher.password} </span> </h3>
+                            <h3> Subject: <span style={{color: "rgb(98, 98, 250)"}}> {teacher.subject} </span> </h3>
                             <h3> Phone: <span style={{color: "rgb(98, 98, 250)"}}> 9971391713 </span> </h3>
                         </div>
                     </div>

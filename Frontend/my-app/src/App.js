@@ -25,6 +25,7 @@ import AssignmentT from './Teacher/Assignment';
 import NotesT from './Teacher/Notes';
 import TestT from './Teacher/Test';
 import ProfileT from './Teacher/Profile';
+import TimeTableT from './Teacher/TimeTable';
 
 // Student
 import HomeS from './Student/Home';
@@ -35,6 +36,7 @@ import Notes from './Student/Notes';
 import Test from './Student/Test';
 import Subject from './Student/Subject';
 import ProfileS from './Student/Profile';
+import TimeTableS from './Student/TimeTable';
 
 
 
@@ -70,6 +72,7 @@ function App() {
         <Route path="/Teacher/Notes" element={<NotesT/>} />
         <Route path="/Teacher/Test" element={<TestT/>} />
         <Route path="/Teacher/Profile" element={<ProfileT/>} />
+        <Route path="/Teacher/TimeTable" element={<TimeTableT/>} />
         
         {/* Home Page of Student */}
         <Route path="/Student/Home" element={<HomeS/>} />
@@ -80,6 +83,7 @@ function App() {
         <Route path="/Student/Test" element={<Test/>} />
         <Route path="/Student/Subject" element={<Subject/>} />
         <Route path="/Student/Profile" element={<ProfileS/>} />
+        <Route path="/Student/TimeTable" element={<TimeTableS/>} />
       </Routes>
     </BrowserRouter>
   );

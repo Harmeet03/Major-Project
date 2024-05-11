@@ -287,23 +287,42 @@ app.get("/studentinfo", async (req, res) => {
   }
 });
 
+app.get("/studentinfo/:username", async (req, res) => {
+  try {
+    // Query MongoDB to fetch only sign in teacher document at a time
+      const username = req.params.username;
+      const student = await studentDetail.findOne({ username });
+      // Send the fetched data as JSON response
+      if(student){
+        res.json(student);
+      }
+      else {
+        res.status(404).json({ error: "Student not found" });
+      }
+  } 
+  catch (error) {
+      console.error(`Error while fetching student data: ${error}`);
+      // Send an error response if something goes wrong
+      res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
 // ----------------------------------------------------------------
 
 // ------------- THIS IS BACKEND FOR STUDENT SIGN IN --------------
 
 app.post('/slogin', async(req, res) => {
   // const otp = generateOTP();
-  const { uname, password } = req.body;
+  const { username, password } = req.body;
   // otpMap[email] = otp;
   
   try{
-    const user = await userInfo.findOne({uname});
-    if(user){
-      const match = await bcrypt.compare(password, user.password);
-      if(match){
+    const student = await studentDetail.findOne({username});
+    if(student){
+      if(password == student.password){
         // otpMap[user.email] = otp;
         // await sendOTP(email, otp);
-        res.status(200).json({ message: "Login Successful", user });
+        res.status(200).json({ message: "Login Successful", student});
       }
       else{
         res.status(401).json({ message: "Incorrect Password!" });
@@ -382,7 +401,7 @@ app.get("/anotice", async (req, res) => {
 
 // ----------------- THIS IS FOR CREATING TIME TABLE -----------------
 
-// ----- FOR CLASS I-X -------
+// ----- FOR CLASS I-V -------
 const timetable = require("./timetable");
 
 app.post("/timetable", async function (req, res) {
@@ -423,7 +442,7 @@ app.get("/timetable", async (req, res) => {
 });
 // ---------------------
 
-// ----- FOR CLASS XI-XII -------
+// ----- FOR CLASS VI-X -------
 const timetable2 = require("./timetable2");
 
 app.post("/timetable2", async function (req, res) {
@@ -465,6 +484,123 @@ app.get("/timetable2", async (req, res) => {
 // ------------------------------
 
 // -------------------------------------------------------------------
+
+// -----------------------------------------------------------------------------
+
+// --------------------- THIS IS FOR POSTING ASSIGNMENT ------------------------
+// POSTING ASSIGNMENT (POST)
+const assignment = require("./assignment");
+
+app.post("/assignment", async function (req, res){
+  try{
+    const assignments = await assignment.create({
+      subject: req.body.subject,
+      class: req.body.class,
+      section: req.body.section,
+      link: req.body.link
+  });
+  
+  console.log("Assignment Sent");
+  // Send a success response
+  res.status(201).json({ message: "Assignment submitted successfully", assignments });
+}
+catch(error){
+  console.log(`Error while sending data to form's backend (MongoDB): ${error}`);
+  res.status(500).json({ error: 'Internal server error' });
+}
+})
+
+// PRINTING ASSIGNMENT (GET)
+app.get("/assignment", async (req, res) => {
+  try {
+    // Query MongoDB to fetch all teacher documents
+    const assignments = await assignment.find({});
+    // Send the fetched data as JSON response
+    res.json(assignments);
+  } catch (error) {
+    console.error(`Error while fetching Assignment data: ${error}`);
+    // Send an error response if something goes wrong
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// -----------------------------------------------------------------------------
+
+// --------------------- THIS IS FOR POSTING NOTES ------------------------
+// POSTING NOTES (POST)
+const note = require("./notes");
+
+app.post("/notes", async function (req, res){
+  try{
+    const notes = await note.create({
+      subject: req.body.subject,
+      class: req.body.class,
+      section: req.body.section,
+      link: req.body.link
+  });
+  
+  console.log("Notes Sent");
+  // Send a success response
+  res.status(201).json({ message: "Notes submitted successfully", notes });
+}
+catch(error){
+  console.log(`Error while sending data to form's backend (MongoDB): ${error}`);
+  res.status(500).json({ error: 'Internal server error' });
+}
+})
+
+// PRINTING NOTES (GET)
+app.get("/notes", async (req, res) => {
+  try {
+    // Query MongoDB to fetch all teacher documents
+    const notes = await note.find({});
+    // Send the fetched data as JSON response
+    res.json(notes);
+  } catch (error) {
+    console.error(`Error while fetching Notes data: ${error}`);
+    // Send an error response if something goes wrong
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// -----------------------------------------------------------------------------
+
+// --------------------- THIS IS FOR POSTING TEST ------------------------
+// POSTING TEST (POST)
+const test = require("./test");
+
+app.post("/test", async function (req, res){
+  try{
+    const tests = await test.create({
+      subject: req.body.subject,
+      class: req.body.class,
+      section: req.body.section,
+      link: req.body.link
+  });
+  
+  console.log("Test Sent");
+  // Send a success response
+  res.status(201).json({ message: "Test submitted successfully", tests });
+}
+catch(error){
+  console.log(`Error while sending data to form's backend (MongoDB): ${error}`);
+  res.status(500).json({ error: 'Internal server error' });
+}
+})
+
+// PRINTING TEST (GET)
+app.get("/test", async (req, res) => {
+  try {
+    // Query MongoDB to fetch all teacher documents
+    const tests = await test.find({});
+    // Send the fetched data as JSON response
+    res.json(tests);
+  } catch (error) {
+    console.error(`Error while fetching Test data: ${error}`);
+    // Send an error response if something goes wrong
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
 
 // -----------------------------------------------------------------------------
 

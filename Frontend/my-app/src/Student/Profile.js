@@ -1,10 +1,48 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "./Header";
 import '../App.css';
 import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+
+    const [student, setStudent] = useState();
+    
+
+    useEffect(() => {
+        fetchStudentName();
+    }, []);
+
+    const fetchStudentName = async () => {
+        try {
+            const response = await fetch(`http://localhost:4040/studentinfo`);
+            if (response.ok) {
+                const studentinfo = await response.json();
+                const username = studentinfo[0].username;
+                fetchStudentData(username);
+            } else {
+                console.log("Failed to fetch student username");
+            }
+        } catch (error) {
+            console.error("Server Error while fetching student username:", error);
+        }
+    };
+    
+    const fetchStudentData = async (username) => {
+        try {
+            const response = await fetch(`http://localhost:4040/studentinfo/${username}`);
+            if (response.ok) {
+                const data = await response.json();
+                setStudent(data);
+                console.log(username);
+            } else {
+                console.log("Failed to fetch student data", username);
+            }
+        } catch (error) {
+            console.error("Error fetching student data:", error);
+        }
+    };
+
     return(
         <>
         <head>
@@ -23,34 +61,33 @@ const Profile = () => {
         </header>
         <div style={{padding: "40px 0px"}}>
             <div id="noticeS">
-                <div className="noNoticeS">
-                    <img id="SProfileImg" src="https://antlovebaba.com/school_management_api/assets/images/urtzsevs_smsDemo/14012023050654784512.png"></img>
-                    <h2> Student Name: <span style={{color: "rgb(98, 98, 250)"}}> {/* Harmeet */} </span> </h2>
-                    <h4> Student Roll Number:  <span style={{color: "rgb(98, 98, 250)"}}> {/* 18 */} </span> </h4>
-                    <h4> Class:  <span style={{color: "rgb(98, 98, 250)"}}> {/* Eleventh */} </span> </h4>
-                </div>
+                {
+                    student && (
+                        <div className="noNoticeS">
+                            <img id="SProfileImg" src="https://antlovebaba.com/school_management_api/assets/images/urtzsevs_smsDemo/14012023050654784512.png"></img>
+                            <h2> Student Name: <span style={{color: "rgb(98, 98, 250)"}}> {student.name} </span> </h2>
+                            <h4> Admission No.:  <span style={{color: "rgb(98, 98, 250)"}}> {student.ano} </span> </h4>
+                            <h4> Class:  <span style={{color: "rgb(98, 98, 250)"}}> {student.class} </span> </h4>
+                        </div>
+                    )
+                }
             </div>
             <br></br>
             <div id="noticeS">
-                <div className="noNoticeS">
-                    <h2> Personal Information</h2>
-                    <div className="infoS">
-                        <h3> Date of Birth: <span style={{color: "rgb(98, 98, 250)"}}> {/* 13/10/2003 */} </span> </h3>
-                        <h3> Email: <span style={{color: "rgb(98, 98, 250)"}}> {/* hsinghwhatever2003@gmail.com */} </span> </h3>
-                        <h3> Address: <span style={{color: "rgb(98, 98, 250)"}}> {/* D Block */} </span> </h3>
-                        <h3> Gender: <span style={{color: "rgb(98, 98, 250)"}}> {/* Male */} </span> </h3>
-                        <h3> Phone: <span style={{color: "rgb(98, 98, 250)"}}> {/* 9971391713 */} </span> </h3>
-                        <h3> Emergency Contact: <span style={{color: "rgb(98, 98, 250)"}}> {/* 9971391713 */} </span> </h3>
-                    </div>
-                </div>
-            </div>
-            
-            {/* FOR BACKEND */}
-            <div className="overviewS">
-                {/* <div>
-                    <h2> MATHS </h2>
-                    <h4><a href=""> Click here </a></h4>
-                </div> */}
+                {
+                    student && (
+                        <div className="noNoticeS">
+                            <h2> Personal Information</h2>
+                            <div className="infoS" style={{textAlign: "center"}}>
+                                <h3> Username: <span style={{color: "rgb(98, 98, 250)"}}> {student.username} </span> </h3>
+                                <h3> Password: <span style={{color: "rgb(98, 98, 250)"}}> {student.password} </span> </h3>
+                                <h3> Fees: <span style={{color: "rgb(98, 98, 250)"}}> {student.fees} </span> </h3>
+                                <h3> Phone: <span style={{color: "rgb(98, 98, 250)"}}> 9971391713 </span> </h3>
+                                <h3> Emergency Contact: <span style={{color: "rgb(98, 98, 250)"}}> 9971391713 </span> </h3>
+                            </div>
+                        </div>
+                    )
+                }
             </div>
         </div>
         </>

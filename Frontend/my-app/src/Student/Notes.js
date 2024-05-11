@@ -1,10 +1,31 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "./Header";
 import '../App.css';
 import { useNavigate } from "react-router-dom";
 
 const Notes = () => {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+
+    const [notes, setNotes] = useState([]);
+
+    useEffect(() => {
+        fetchNotestData();
+    }, []);
+
+    const fetchNotestData = async () => {
+        try {
+            const response = await fetch('http://localhost:4040/notes');
+            if (response.ok) {
+                const data = await response.json();
+                setNotes(data);
+            } else {
+                console.log("Failed to fetch Notes data");
+            }
+        } catch (error) {
+            console.error("Error fetching Notes data:", error);
+        }
+    };
+
     return(
         <>
         <head>
@@ -22,18 +43,31 @@ const Notes = () => {
             <h1> Student Notes </h1>
         </header>
         <div style={{padding: "40px 0px"}}>
-            <div id="noticeS">
-                <div className="noNoticeS">
-                    <h3> No Notes available for you right now. </h3>
-                </div>
-            </div>
-            
-            {/* FOR BACKEND */}
-            <div className="overviewS">
-                {/* <div>
-                    <h2> MATHS </h2>
-                    <h4><a href=""> Click here </a></h4>
-                </div> */}
+            <div style={{marginTop: "40px", textAlign: "center"}} id="noticeS">
+                {notes.length > 0 ? (
+                    <table id="customers">
+                        <tr>
+                            <th>Subject</th>
+                            <th>Class</th>
+                            <th>Section</th>
+                            <th>Link</th>
+                        </tr>
+                        {notes.map((note, index) => (
+                                <tr key={index}>
+                                    <td>{note.subject}</td>
+                                    <td>{note.class}</td>
+                                    <td>{note.section}</td>
+                                    <td>{note.link}</td>
+                                </tr>
+                            ))
+                        }
+                    </table>
+                ) 
+                : (
+                    <div className="noNoticeS">
+                        <h3> No Assignment available for you right now. </h3>
+                    </div>
+                )}
             </div>
         </div>
         </>

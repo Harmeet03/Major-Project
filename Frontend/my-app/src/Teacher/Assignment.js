@@ -4,7 +4,46 @@ import { useNavigate } from "react-router-dom";
 import Navbar from "./Header";
 
 const Assignment = () => {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+
+    const Assignment_Detail = async(event) => {
+        event.preventDefault();
+
+        const formData = new FormData(event.target);
+        const formDataObject = {};
+        formData.forEach((value, key) => {
+            formDataObject[key] = value;
+        });
+        
+        try {
+            const response = await fetch('http://localhost:4040/assignment', {
+                method: 'POST',
+                mode: "cors",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(formDataObject),
+            });
+    
+            if (response.ok) {
+                console.log("Assignment Sent");
+                let success = document.getElementById("success");
+                success.style.display = 'block'
+                } 
+            else {
+                let failed = document.getElementById("failed");
+                failed.style.display = 'block'
+                console.log("Failed to create");
+            }
+        } 
+        catch (error) {
+            console.log(`Error while creating ${error}`);
+            let failed = document.getElementById("failed");
+            failed.style.display = 'block'
+        }
+    }
+
     return(
         <>
         <head>
@@ -25,15 +64,17 @@ const Assignment = () => {
         {/* ASSIGNMENT TO STUDENTS */}
         <div style={{marginTop: "40px", textAlign: "center"}} id="noticeS">
             <h2> Send Assignment to STUDENTS </h2>
-            <form className="form">
-                <select className="date">
-                    <option> MATHS </option>
-                    <option> ENGLISH </option>
-                    <option> SST </option>
-                    <option> SCIENCE </option>
-                    <option> GK </option>
+            <form className="form" onSubmit={Assignment_Detail}>
+                <select className="date" name="subject">
+                    <option> Maths </option>
+                    <option> English </option>
+                    <option> Hindi </option>
+                    <option> French </option>
+                    <option> Art and Craft </option>
+                    <option> EVS </option>
+                    <option> Politics </option>
                 </select>
-                <select className="date">
+                <select className="date" name="class">
                     <option> I </option>
                     <option> II </option>
                     <option> III </option>
@@ -45,15 +86,17 @@ const Assignment = () => {
                     <option> IX </option>
                     <option> X </option>
                 </select>
-                <select className="date">
+                <select className="date"  name="section">
                     <option> A </option>
                     <option> B </option>
                     <option> C </option>
                     <option> D </option>
                 </select>
-                <input style={{width: "300px"}} className="text" id="text" type="text" placeholder="Place assignment link here....." required></input>
+                <input style={{width: "300px"}} className="text" id="text" type="text" placeholder="Place assignment link here....." name="link" required></input>
                 <button type="submit"> Publish </button>
             </form>
+            <p id="success" style={{color: "rgb(98, 98, 250)", display: "none"}}><b> Assignment sent</b></p>
+            <p id="failed" style={{color: "rgb(98, 98, 250)", display: "none"}}><b> Failed to sent. Server Error</b></p>
         </div>
         </>
     )

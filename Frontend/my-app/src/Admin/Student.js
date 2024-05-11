@@ -101,30 +101,37 @@ const Student = () => {
         </div>
 
         <div style={{marginTop: "40px", textAlign: "center"}} id="noticeS">
-            <h2> List of students </h2>
-            <table id="customers">
-                <tr>
-                    <th>Student name</th>
-                    <th>Student Username</th>
-                    <th>Student Password</th>
-                    <th>Student Admission no.</th>
-                    <th>Fees</th>
-                    <th>Student Class</th>
-                </tr>
-                {
-                    students.map((student, index) => (
-                        <tr key={index}>
-                            <td>{student.name}</td>
-                            <td>{student.username}</td>
-                            <td>{student.password}</td>
-                            <td>{student.ano}</td>
-                            <td>{student.fees}</td>
-                            <td>{student.class}</td>
+            {students.length > 0 ? (
+                <table id="customers">
+                        <tr>
+                            <th>Student name</th>
+                            <th>Student Username</th>
+                            <th>Student Password</th>
+                            <th>Student Admission no.</th>
+                            <th>Fees</th>
+                            <th>Student Class</th>
                         </tr>
-                    ))
-                }
-            </table>
+                        {
+                            students.map((student, index) => (
+                                <tr key={index}>
+                                    <td>{student.name}</td>
+                                    <td>{student.username}</td>
+                                    <td>{student.password}</td>
+                                    <td>{student.ano}</td>
+                                    <td>{student.fees}</td>
+                                    <td>{student.class}</td>
+                                </tr>
+                            ))
+                        }
+                    </table>
+            ) 
+            : (
+                <div className="noNoticeS">
+                    <h3> No List available for you right now. </h3>
+                </div>
+            )}
         </div>
+        
         </>
     )
 };

@@ -140,7 +140,7 @@ const Timetable = () => {
         </header>
 
         <div style={{marginTop: "40px", textAlign: "center"}} id="noticeS">
-            <h2> Create Time Table for STUDENTS of class I-X </h2>
+            <h2> Create Time Table for STUDENTS of class I-V </h2>
             <form className="form" onSubmit={TimeTable1_Detail}>
                 <div id="form">
                     <div>
@@ -161,7 +161,7 @@ const Timetable = () => {
         </div>
 
         <div style={{marginTop: "40px", textAlign: "center"}} id="noticeS">
-            <h2> Create Time Table for STUDENTS of class XI-XII </h2>
+            <h2> Create Time Table for STUDENTS of class VI-X </h2>
             <form className="form"  onSubmit={TimeTable2_Detail}>
                 <div id="form">
                     <div>
@@ -182,7 +182,7 @@ const Timetable = () => {
         </div>
 
         <div style={{marginTop: "40px", textAlign: "center"}} id="noticeS">
-            <h2> CLASS I-X </h2>
+            <h2> CLASS I-V </h2>
             <table>
                 <tr>
                     <th>Day/Period</th>
@@ -205,7 +205,7 @@ const Timetable = () => {
                     ))}
             </table>
 
-            <h2> CLASS XI-XII </h2>
+            <h2> CLASS VI-X </h2>
             <table>
                 <tr>
                     <th>Day/Period</th>

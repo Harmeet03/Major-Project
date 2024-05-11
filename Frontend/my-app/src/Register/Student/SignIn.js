@@ -1,9 +1,48 @@
-import React from "react";
+import React, { useState } from "react";
 import '../../App.css';
 import { useNavigate } from "react-router-dom";
 
 const SignIn = () => {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const handleLogin = async (event) => {
+        event.preventDefault();
+        try {
+          const response = await fetch('http://localhost:4040/slogin', {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ username, password }),
+          });
+      
+          if (response.ok) {
+            const data = await response.json();
+    
+            // Check the response status or data for successful login
+            if (data.message === "Login Successful") {
+              console.log('Login Successful');
+              setTimeout(() => {
+                navigate('/Student/Home');
+              }, 1000);
+            } 
+          } 
+          else {
+            console.error('Invalid Username or Password');
+            let user_error = document.getElementById("user_error");
+            user_error.style.display = "block";
+          }
+        } 
+        catch (error) {
+          console.error('Error fetching the user data: ', error);
+          let server_error = document.getElementById("server_error");
+          server_error.style.display = "block";
+        //   links('/Error');
+        }
+    };
+
     return(
         <>
         <head>
@@ -18,11 +57,13 @@ const SignIn = () => {
         </head>
         <div className="si">
             <div className="left">
-                <form action="#">
+                <form onSubmit={handleLogin}>
                     <h2> USERNAME: </h2>
-                    <input type="text" placeholder="Enter Username"></input>
+                    <input type="text" name="username" placeholder="Enter Username" onChange={(event) => setUsername(event.target.value)}></input>
                     <h2> PASSWORD: </h2>
-                    <input type="password" placeholder="Password"></input><br></br><br></br>
+                    <input type="password" name="password" placeholder="Password" onChange={(event) => setPassword(event.target.value)}></input><br></br><br></br>
+                    <p id="user_error" style={{display: "none"}}> Invalid Password or Username. </p>
+                    <p id="server_error" style={{display: "none"}}> Server Error. </p>
                     <button type="submit"> Proceed </button>
                 </form>
             </div>

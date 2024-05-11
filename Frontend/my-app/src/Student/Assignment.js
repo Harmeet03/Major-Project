@@ -1,10 +1,31 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "./Header";
 import '../App.css';
 import { useNavigate } from "react-router-dom";
 
 const Assignment = () => {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+
+    const [assignments, setAssignments] = useState([]);
+
+    useEffect(() => {
+        fetchAssignmentData();
+    }, []);
+
+    const fetchAssignmentData = async () => {
+        try {
+            const response = await fetch('http://localhost:4040/assignment');
+            if (response.ok) {
+                const data = await response.json();
+                setAssignments(data);
+            } else {
+                console.log("Failed to fetch Assignment data");
+            }
+        } catch (error) {
+            console.error("Error fetching Assignment data:", error);
+        }
+    };
+
     return(
         <>
         <head>
@@ -22,18 +43,31 @@ const Assignment = () => {
             <h1> Student Assignment </h1>
         </header>
         <div style={{padding: "40px 0px"}}>
-            <div id="noticeS">
-                <div className="noNoticeS">
-                    <h3> No Assignment available for you right now. </h3>
-                </div>
-            </div>
-            
-            {/* FOR BACKEND */}
-            <div className="overviewS">
-                {/* <div>
-                    <h2> MATHS </h2>
-                    <h4><a href=""> Click here </a></h4>
-                </div> */}
+            <div style={{marginTop: "40px", textAlign: "center"}} id="noticeS">
+                {assignments.length > 0 ? (
+                    <table id="customers">
+                        <tr>
+                            <th>Subject</th>
+                            <th>Class</th>
+                            <th>Section</th>
+                            <th>Link</th>
+                        </tr>
+                        {assignments.map((assignment, index) => (
+                                <tr key={index}>
+                                    <td>{assignment.subject}</td>
+                                    <td>{assignment.class}</td>
+                                    <td>{assignment.section}</td>
+                                    <td>{assignment.link}</td>
+                                </tr>
+                            ))
+                        }
+                    </table>
+                ) 
+                : (
+                    <div className="noNoticeS">
+                        <h3> No Assignment available for you right now. </h3>
+                    </div>
+                )}
             </div>
         </div>
         </>

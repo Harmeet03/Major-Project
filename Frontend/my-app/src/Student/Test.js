@@ -1,10 +1,31 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Navbar from "./Header";
 import '../App.css';
 import { useNavigate } from "react-router-dom";
 
 const Test = () => {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
+
+    const [tests, setTests] = useState([]);
+
+    useEffect(() => {
+        fetchTestData();
+    }, []);
+
+    const fetchTestData = async () => {
+        try {
+            const response = await fetch('http://localhost:4040/test');
+            if (response.ok) {
+                const data = await response.json();
+                setTests(data);
+            } else {
+                console.log("Failed to fetch Test data");
+            }
+        } catch (error) {
+            console.error("Error fetching Test data:", error);
+        }
+    };
+
     return(
         <>
         <head>
@@ -22,18 +43,31 @@ const Test = () => {
             <h1> Student Test </h1>
         </header>
         <div style={{padding: "40px 0px"}}>
-            <div id="noticeS">
-                <div className="noNoticeS">
-                    <h3> No Test available for you right now. </h3>
-                </div>
-            </div>
-            
-            {/* FOR BACKEND */}
-            <div className="overviewS">
-                {/* <div>
-                    <h2> MATHS </h2>
-                    <h4><a href=""> Click here </a></h4>
-                </div> */}
+            <div style={{marginTop: "40px", textAlign: "center"}} id="noticeS">
+                {tests.length > 0 ? (
+                    <table id="customers">
+                        <tr>
+                            <th>Subject</th>
+                            <th>Class</th>
+                            <th>Section</th>
+                            <th>Link</th>
+                        </tr>
+                        {tests.map((test, index) => (
+                                <tr key={index}>
+                                    <td>{test.subject}</td>
+                                    <td>{test.class}</td>
+                                    <td>{test.section}</td>
+                                    <td>{test.link}</td>
+                                </tr>
+                            ))
+                        }
+                    </table>
+                ) 
+                : (
+                    <div className="noNoticeS">
+                        <h3> No Assignment available for you right now. </h3>
+                    </div>
+                )}
             </div>
         </div>
         </>

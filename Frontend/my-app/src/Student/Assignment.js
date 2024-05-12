@@ -17,7 +17,7 @@ const Assignment = () => {
             const response = await fetch('http://localhost:4040/assignment');
             if (response.ok) {
                 const data = await response.json();
-                setAssignments(data);
+                setAssignments(data.assignments);
             } else {
                 console.log("Failed to fetch Assignment data");
             }

@@ -1,11 +1,94 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import '../App.css';
 import { useNavigate } from "react-router-dom";
 import Navbar from "./Header";
-import getNotice from "./LocalStorage/getNotice";
 
 const Home = () => {
     const navigate = useNavigate();
+
+    // FOR PRINTING NOTICE FRO TEACHER
+    const [notices, setnotices] = useState([]);
+
+    useEffect(() => {
+        fetchNoticeData();
+    }, []);
+
+    const fetchNoticeData = async () => {
+        try {
+            const response = await fetch('http://localhost:4040/tnotice');
+            if (response.ok) {
+                const data = await response.json();
+                setnotices(data);
+            } else {
+                console.log("Failed to fetch notice");
+            }
+        } catch (error) {
+            console.error("Server Error while fetching notice:", error);
+        }
+    };
+
+    // FOR PRINTING NUMBER OF ASSIGNMENT
+    const [assignments, setassignments] = useState([]);
+
+    useEffect(() => {
+        countAssignmentData();
+    }, []);
+
+    const countAssignmentData = async () => {
+        try {
+            const response = await fetch('http://localhost:4040/assignment');
+            if (response.ok) {
+                const data = await response.json();
+                setassignments(data.count);
+            } else {
+                console.log("Failed to fetch notice");
+            }
+        } catch (error) {
+            console.error("Server Error while fetching notice:", error);
+        }
+    };
+
+    // FOR PRINTING NUMBER OF NOTES
+    const [notes, setnotes] = useState([]);
+
+    useEffect(() => {
+        countNotesData();
+    }, []);
+
+    const countNotesData = async () => {
+        try {
+            const response = await fetch('http://localhost:4040/notes');
+            if (response.ok) {
+                const data = await response.json();
+                setnotes(data.count);
+            } else {
+                console.log("Failed to fetch notice");
+            }
+        } catch (error) {
+            console.error("Server Error while fetching notice:", error);
+        }
+    };
+
+    // FOR PRINTING NUMBER OF TESTStest
+    const [tests, settests] = useState([]);
+
+    useEffect(() => {
+        countTestsData();
+    }, []);
+
+    const countTestsData = async () => {
+        try {
+            const response = await fetch('http://localhost:4040/test');
+            if (response.ok) {
+                const data = await response.json();
+                settests(data.count);
+            } else {
+                console.log("Failed to fetch notice");
+            }
+        } catch (error) {
+            console.error("Server Error while fetching notice:", error);
+        }
+    };
 
     return(
         <>
@@ -39,8 +122,7 @@ const Home = () => {
             <div className="ass">
                 <i className="fa fa-bookmark"></i>
                 <h2> Total Assignments </h2>
-                {/* FOR BACKEND */}
-                <p> 0 </p>
+                <p> {assignments} </p>
             </div>
             <div className="att">
                 <i className="fa fa-address-book"></i>
@@ -52,36 +134,47 @@ const Home = () => {
                 <i className="fa fa-sticky-note"></i>
                 <h2> Total Notes </h2>
                 {/* FOR BACKEND */}
-                <p> 0 </p>
+                <p> {notes} </p>
             </div>
             <div className="tests">
                 <i className="fa fa-book"></i>
                 <h2> Total Tests </h2>
                 {/* FOR BACKEND */}
-                <p> 0 </p>
+                <p> {tests} </p>
             </div>
         </div>
-        <div id="noticeS">
-            {localStorage.getItem("noticeT") !== null ? (
-                <div className="noticeS" id="NoticeS">
-                    <table>
-                        <thead>
-                            <tr>
-                                <td className="date"> DATE </td>
-                                <td className="title"> NOTICE </td>
-                            </tr>
-                        </thead>
-                        <tbody id="tbody">
-                            {getNotice()}
-                        </tbody>
-                    </table>
-                </div>
-            ) 
-            : (
-                <div className="noNoticeS" id="noNoticeS">
-                    <h3> No Notice for you right now. </h3>
-                </div>
-            )}
+
+        {/* NOTICE FROM ADMIN */}
+        <div style={{marginTop: "40px"}} id="noticeS">
+            <div className="noticeS">
+                {notices.length > 0 ? (
+                    <div className="noticeS" id="NoticeS">
+                        <table id="customers">
+                            <thead>
+                                <tr>
+                                    <th style={{textAlign: "center"}} className="date"> DATE </th>
+                                    <th style={{textAlign: "center"}} className="title"> TITLE / NOTICE </th>
+                                </tr>
+                            </thead>
+                            <tbody id="tbody">
+                                {
+                                    notices.map((notice, index) => (
+                                        <tr key={index}>
+                                            <td>{notice.date}</td>
+                                            <td>{notice.message}</td>
+                                        </tr>
+                                    ))
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                ) 
+                : (
+                    <div className="noNoticeS">
+                        <h3> No Notice from ADMIN for you right now. </h3>
+                    </div>
+                )}
+            </div>
         </div>
         </>
     )

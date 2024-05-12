@@ -2,8 +2,6 @@ import React, { useState, useEffect } from "react";
 import '../App.css';
 import { useNavigate } from "react-router-dom";
 import Navbar from "./Header";
-import setNotice from "./LocalStorage/setNotice"
-import getNotice from "./LocalStorage/getNotice"
 
 const Home = () => {
     const navigate = useNavigate();
@@ -25,6 +23,44 @@ const Home = () => {
             }
         } catch (error) {
             console.error("Server Error while fetching notice:", error);
+        }
+    };
+
+    const Notice = async(event) => {
+        event.preventDefault();
+
+        const formData = new FormData(event.target);
+        const formDataObject = {};
+        formData.forEach((value, key) => {
+            formDataObject[key] = value;
+        });
+        
+        try {
+            const response = await fetch('http://localhost:4040/tnotice', {
+                method: 'POST',
+                mode: "cors",
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(formDataObject),
+            });
+    
+            if (response.ok) {
+                console.log("Notice Posted");
+                let success = document.getElementById("success");
+                success.style.display = 'block'
+                } 
+            else {
+                let failed = document.getElementById("failed");
+                failed.style.display = 'block'
+                console.log("Notice failed");
+            }
+        } 
+        catch (error) {
+            console.log(`Error while posting notice ${error}`);
+            let failed = document.getElementById("failed");
+            failed.style.display = 'block'
         }
     };
 
@@ -78,14 +114,16 @@ const Home = () => {
             </div>
         </div>
 
-        {/* NOTICE TO notices */}
+        {/* NOTICE TO STUDENTS */}
         <div style={{marginTop: "40px", textAlign: "center"}} id="noticeS">
             <h2> Send Notice to STUDENTS </h2>
-            <form className="form" onSubmit={setNotice}>
-                <input className="date" id="date" type="date" required></input>
-                <input className="text" id="text" type="text" placeholder="Write your message here...." required></input>
+            <form className="form" onSubmit={Notice}>
+                <input className="date" id="date" type="date" name="date" required></input>
+                <input className="text" id="text" type="text" name="message" placeholder="Write your message here...." required></input>
                 <button type="submit"> Publish </button>
             </form>
+            <p id="success" style={{color: "rgb(98, 98, 250)", display: "none"}}><b> Notice Posted</b></p>
+            <p id="failed" style={{color: "rgb(98, 98, 250)", display: "none"}}><b> Notice Failed. Server Error</b></p>
         </div>
         </>
     )

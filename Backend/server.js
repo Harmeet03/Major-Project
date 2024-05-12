@@ -152,6 +152,7 @@ app.get("/login", async (req, res) => {
 
 // ------------- THIS IS BACKEND FOR TEACHER SIGN UP --------------
 
+const teacherDetail = require("./teachers");
 app.post("/teacherinfo", async function (req, res) {
   try{
       // const hashPassword = await bcrypt.hash(req.body.password, 10);
@@ -354,12 +355,11 @@ app.post('/slogin', async(req, res) => {
 //   }
 // });
 
-// --------------------- THIS PART IS FOR NOTICE'S BACKEND ---------------------
+// -------------------------------------------- THIS PART IS FOR NOTICE'S BACKEND --------------------------------------------
 
 // ------- This will post admin's notice to teacher (JUST LIKE SIGN UP) -------
 
 const noticeDetail = require("./notice");
-const teacherDetail = require("./teachers");
 app.post("/anotice", async function (req, res) {
   try{
       const user = await noticeDetail.create({
@@ -391,13 +391,58 @@ app.get("/anotice", async (req, res) => {
     // Send the fetched data as JSON response
     res.json(details);
   } catch (error) {
-    console.error(`Error while fetching student data: ${error}`);
+    console.error(`Error while fetching notice data: ${error}`);
     // Send an error response if something goes wrong
     res.status(500).json({ error: 'Internal server error' });
   }
 });
 
 // -----------------------------------------------------------------------
+
+// ------- This will post teacher's notice to students (JUST LIKE SIGN UP) -------
+
+const tnoticeDetail = require("./tnotice");
+app.post("/tnotice", async function (req, res) {
+  try{
+      const user = await tnoticeDetail.create({
+          date: req.body.date,
+          message: req.body.message,
+      });
+
+      
+      
+      console.log("Notice sent");
+      // Send a success response
+      res.status(201).json({ message: "Notice posted successfully", user });
+  }
+  catch(error){
+      console.log(`Error while posting data to notice's backend (MongoDB): ${error}`);
+      res.status(500).json({ error: 'Internal server error' });
+  }
+
+});
+
+// -----------------------------------------------------------------
+
+// ----- This will get teacher's notice to students (JUST LIKE SIGN IN) -----
+
+app.get("/tnotice", async (req, res) => {
+  try {
+    // Query MongoDB to fetch all teacher documents
+    const details = await tnoticeDetail.find({});
+    // Send the fetched data as JSON response
+    res.json(details);
+  } catch (error) {
+    console.error(`Error while fetching notice data: ${error}`);
+    // Send an error response if something goes wrong
+    res.status(500).json({ error: 'Internal server error' });
+  }
+});
+
+// -----------------------------------------------------------------------
+
+// ---------------------------------------------------------------------------------------------------------------------------
+
 
 // ----------------- THIS IS FOR CREATING TIME TABLE -----------------
 
@@ -515,8 +560,13 @@ app.get("/assignment", async (req, res) => {
   try {
     // Query MongoDB to fetch all teacher documents
     const assignments = await assignment.find({});
+    const count = await assignment.countDocuments();
     // Send the fetched data as JSON response
-    res.json(assignments);
+    const responseData = {
+      assignments: assignments,
+      count: count
+    }
+    res.json(responseData);
   } catch (error) {
     console.error(`Error while fetching Assignment data: ${error}`);
     // Send an error response if something goes wrong
@@ -554,8 +604,13 @@ app.get("/notes", async (req, res) => {
   try {
     // Query MongoDB to fetch all teacher documents
     const notes = await note.find({});
+    const count = await note.countDocuments();
     // Send the fetched data as JSON response
-    res.json(notes);
+    const responseData = {
+      notes: notes,
+      count: count
+    }
+    res.json(responseData);
   } catch (error) {
     console.error(`Error while fetching Notes data: ${error}`);
     // Send an error response if something goes wrong
@@ -593,8 +648,13 @@ app.get("/test", async (req, res) => {
   try {
     // Query MongoDB to fetch all teacher documents
     const tests = await test.find({});
+    const count = await test.countDocuments();
     // Send the fetched data as JSON response
-    res.json(tests);
+    const responseData = {
+      tests: tests,
+      count: count
+    }
+    res.json(responseData);
   } catch (error) {
     console.error(`Error while fetching Test data: ${error}`);
     // Send an error response if something goes wrong

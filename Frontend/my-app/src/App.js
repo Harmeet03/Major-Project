@@ -81,7 +81,7 @@ function App() {
         <Route path="/Student/Attendance" element={<Attendance/>} />
         <Route path="/Student/Notes" element={<Notes/>} />
         <Route path="/Student/Test" element={<Test/>} />
-        <Route path="/Student/Subject" element={<Subject/>} />
+        {/* <Route path="/Student/Subject" element={<Subject/>} /> */}
         <Route path="/Student/Profile" element={<ProfileS/>} />
         <Route path="/Student/TimeTable" element={<TimeTableS/>} />
       </Routes>

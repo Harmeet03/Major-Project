@@ -17,7 +17,7 @@ const Test = () => {
             const response = await fetch('http://localhost:4040/test');
             if (response.ok) {
                 const data = await response.json();
-                setTests(data);
+                setTests(data.tests);
             } else {
                 console.log("Failed to fetch Test data");
             }

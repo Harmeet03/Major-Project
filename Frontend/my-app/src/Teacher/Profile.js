@@ -1,31 +1,36 @@
 import React, { useState, useEffect } from "react";
 import Navbar from "./Header";
 import '../App.css';
-import { useNavigate } from "react-router-dom";
+import { useNavigate} from "react-router-dom";
 
 const Profile = () => {
     const navigate = useNavigate();
-    const [teacher, setTeacher] = useState();
+
+    // SETTING USERNAME FROM LOCALSTORAGE
+    let tusername = localStorage.getItem("usernameT");
+    console.log(tusername);
+    const username = tusername;
     
+    const [teacher, setTeacher] = useState();
 
     useEffect(() => {
-        fetchTeacherName();
-    }, []);
+        fetchTeacherData(username);
+    }, [username]);
 
-    const fetchTeacherName = async () => {
-        try {
-            const response = await fetch(`http://localhost:4040/teacherinfo`);
-            if (response.ok) {
-                const teacherinfo = await response.json();
-                const username = teacherinfo[0].username;
-                fetchTeacherData(username);
-            } else {
-                console.log("Failed to fetch teacher username");
-            }
-        } catch (error) {
-            console.error("Server Error while fetching teacher username:", error);
-        }
-    };
+    // const fetchTeacherName = async () => {
+    //     try {
+    //         const response = await fetch(`http://localhost:4040/teacherinfo`);
+    //         if (response.ok) {
+    //             const teacherinfo = await response.json();
+    //             const username = teacherinfo[0].username;
+    //             fetchTeacherData(username);
+    //         } else {
+    //             console.log("Failed to fetch teacher username");
+    //         }
+    //     } catch (error) {
+    //         console.error("Server Error while fetching teacher username:", error);
+    //     }
+    // };
     
     const fetchTeacherData = async (username) => {
         try {
@@ -54,7 +59,7 @@ const Profile = () => {
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
             <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
         </head>
-        <Navbar/>
+        <Navbar username = {username}/>
         <header>
             <h1> Teacher Profile </h1>
         </header>

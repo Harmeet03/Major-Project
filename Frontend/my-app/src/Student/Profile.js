@@ -6,27 +6,32 @@ import { useNavigate } from "react-router-dom";
 const Profile = () => {
     const navigate = useNavigate();
 
+    // SETTING USERNAME FROM LOCALSTORAGE
+    let susername = localStorage.getItem("usernameS");
+    console.log(susername);
+    const username = susername;
+
     const [student, setStudent] = useState();
     
 
     useEffect(() => {
-        fetchStudentName();
-    }, []);
+        fetchStudentData(username);
+    }, [username]);
 
-    const fetchStudentName = async () => {
-        try {
-            const response = await fetch(`http://localhost:4040/studentinfo`);
-            if (response.ok) {
-                const studentinfo = await response.json();
-                const username = studentinfo[0].username;
-                fetchStudentData(username);
-            } else {
-                console.log("Failed to fetch student username");
-            }
-        } catch (error) {
-            console.error("Server Error while fetching student username:", error);
-        }
-    };
+    // const fetchStudentName = async () => {
+    //     try {
+    //         const response = await fetch(`http://localhost:4040/studentinfo`);
+    //         if (response.ok) {
+    //             const studentinfo = await response.json();
+    //             const username = studentinfo[0].username;
+    //             fetchStudentData(username);
+    //         } else {
+    //             console.log("Failed to fetch student username");
+    //         }
+    //     } catch (error) {
+    //         console.error("Server Error while fetching student username:", error);
+    //     }
+    // };
     
     const fetchStudentData = async (username) => {
         try {
@@ -55,7 +60,7 @@ const Profile = () => {
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"></link>
             <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
         </head>
-        <Navbar/>
+        <Navbar username = {username}/>
         <header>
             <h1> Student Profile </h1>
         </header>

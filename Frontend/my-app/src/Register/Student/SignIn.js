@@ -41,6 +41,10 @@ const SignIn = () => {
           server_error.style.display = "block";
         //   links('/Error');
         }
+
+        // STORING USERNAME IN LOCALSTORAGE
+        let susername = document.getElementById("username").value;
+        localStorage.setItem("usernameS", susername);
     };
 
     return(
@@ -59,7 +63,7 @@ const SignIn = () => {
             <div className="left">
                 <form onSubmit={handleLogin}>
                     <h2> USERNAME: </h2>
-                    <input type="text" name="username" placeholder="Enter Username" onChange={(event) => setUsername(event.target.value)}></input>
+                    <input id="username" type="text" name="username" placeholder="Enter Username" onChange={(event) => setUsername(event.target.value)}></input>
                     <h2> PASSWORD: </h2>
                     <input type="password" name="password" placeholder="Password" onChange={(event) => setPassword(event.target.value)}></input><br></br><br></br>
                     <p id="user_error" style={{display: "none"}}> Invalid Password or Username. </p>

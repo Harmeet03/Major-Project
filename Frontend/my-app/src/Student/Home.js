@@ -111,7 +111,7 @@ const Home = () => {
                 <i className="fa fa-book"></i>
                 <h2> Total Subjects </h2>
                 {/* FOR BACKEND */}
-                <p> 0 </p>
+                <p> 5 </p>
             </div>
             <div className="marks">
                 <i className="fa fa-percent"></i>

@@ -2,7 +2,7 @@ import React from "react";
 import '../App.css';
 import { useNavigate } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({username}) => {
     const navigate = useNavigate();
     return(
         <>
@@ -32,11 +32,10 @@ const Navbar = () => {
             {/* <span onClick={ () => { navigate("/Student/Subject") }}><i className="fa fa-book"></i>&nbsp; Subject</span> */}
             <span onClick={ () => { navigate("/Student/Marks") }}><i className="fa fa-percent"></i>&nbsp; Marks</span>
             <span onClick={ () => { navigate("/Student/Assignment") }}><i className="fa fa-bookmark"></i>&nbsp; Assignment</span>
-            <span onClick={ () => { navigate("/Student/Attendance") }}><i className="fa fa-address-book"></i>&nbsp; Attendance</span>
             <span onClick={ () => { navigate("/Student/TimeTable") }}><i className="fa fa-list"></i>&nbsp; TimeTable</span>
             <span onClick={ () => { navigate("/Student/Notes") }}><i className="fa fa-sticky-note"></i>&nbsp; Notes</span>
             <span onClick={ () => { navigate("/Student/Test") }}><i className="fa fa-book"></i>&nbsp; Test</span>
-            <span onClick={ () => { navigate("/Student/Profile") }}><i className="fa fa-address-card"></i>&nbsp; Profile</span>
+            <span onClick={ () => { navigate(`/Student/Profile/${username}`)}}><i className="fa fa-address-card"></i>&nbsp; Profile</span>
             <span onClick={ () => { navigate("/Register") }}><i className="fa fa-step-forward"></i>&nbsp; Logout</span>
         </nav>
         </>

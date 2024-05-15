@@ -1,5 +1,5 @@
 import './App.css';
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes} from "react-router-dom";
 import React from "react";
 // import React, {useState} from "react";
 import Home from './Home';
@@ -71,7 +71,7 @@ function App() {
         <Route path="/Teacher/Assignment" element={<AssignmentT/>} />
         <Route path="/Teacher/Notes" element={<NotesT/>} />
         <Route path="/Teacher/Test" element={<TestT/>} />
-        <Route path="/Teacher/Profile" element={<ProfileT/>} />
+        <Route path="/Teacher/Profile/:username" element={<ProfileT/>} />
         <Route path="/Teacher/TimeTable" element={<TimeTableT/>} />
         
         {/* Home Page of Student */}
@@ -82,7 +82,7 @@ function App() {
         <Route path="/Student/Notes" element={<Notes/>} />
         <Route path="/Student/Test" element={<Test/>} />
         {/* <Route path="/Student/Subject" element={<Subject/>} /> */}
-        <Route path="/Student/Profile" element={<ProfileS/>} />
+        <Route path="/Student/Profile/:username" element={<ProfileS/>} />
         <Route path="/Student/TimeTable" element={<TimeTableS/>} />
       </Routes>
     </BrowserRouter>

@@ -65,35 +65,46 @@ const Profile = () => {
             <h1> Student Profile </h1>
         </header>
         <div style={{padding: "40px 0px"}}>
-            <div id="noticeS">
-                {
-                    student && (
-                        <div className="noNoticeS">
-                            <img id="SProfileImg" src="https://antlovebaba.com/school_management_api/assets/images/urtzsevs_smsDemo/14012023050654784512.png"></img>
-                            <h2> Student Name: <span style={{color: "rgb(98, 98, 250)"}}> {student.name} </span> </h2>
-                            <h4> Admission No.:  <span style={{color: "rgb(98, 98, 250)"}}> {student.ano} </span> </h4>
-                            <h4> Class:  <span style={{color: "rgb(98, 98, 250)"}}> {student.class} </span> </h4>
-                        </div>
-                    )
-                }
-            </div>
-            <br></br>
-            <div id="noticeS">
-                {
-                    student && (
-                        <div className="noNoticeS">
-                            <h2> Personal Information</h2>
-                            <div className="infoS" style={{textAlign: "center"}}>
-                                <h3> Username: <span style={{color: "rgb(98, 98, 250)"}}> {student.username} </span> </h3>
-                                <h3> Password: <span style={{color: "rgb(98, 98, 250)"}}> {student.password} </span> </h3>
-                                <h3> Fees: <span style={{color: "rgb(98, 98, 250)"}}> {student.fees} </span> </h3>
-                                <h3> Phone: <span style={{color: "rgb(98, 98, 250)"}}> 9971391713 </span> </h3>
-                                <h3> Emergency Contact: <span style={{color: "rgb(98, 98, 250)"}}> 9971391713 </span> </h3>
-                            </div>
-                        </div>
-                    )
-                }
-            </div>
+            {username != null ? (
+                <div>
+                    <div id="noticeS">
+                        {
+                            student && (
+                                <div className="noNoticeS">
+                                    <img id="SProfileImg" src="https://antlovebaba.com/school_management_api/assets/images/urtzsevs_smsDemo/14012023050654784512.png"></img>
+                                    <h2> Student Name: <span style={{color: "rgb(98, 98, 250)"}}> {student.name} </span> </h2>
+                                    <h4> Admission No.:  <span style={{color: "rgb(98, 98, 250)"}}> {student.ano} </span> </h4>
+                                    <h4> Class:  <span style={{color: "rgb(98, 98, 250)"}}> {student.class} </span> </h4>
+                                </div>
+                            )
+                        }
+                    </div>
+                    <br></br>
+                    <div id="noticeS">
+                        {
+                            student && (
+                                <div className="noNoticeS">
+                                    <h2> Personal Information</h2>
+                                    <div className="infoS" style={{textAlign: "center"}}>
+                                        <h3> Username: <span style={{color: "rgb(98, 98, 250)"}}> {student.username} </span> </h3>
+                                        <h3> Password: <span style={{color: "rgb(98, 98, 250)"}}> {student.password} </span> </h3>
+                                        <h3> Fees: <span style={{color: "rgb(98, 98, 250)"}}> {student.fees} </span> </h3>
+                                        <h3> Phone: <span style={{color: "rgb(98, 98, 250)"}}> 9971391713 </span> </h3>
+                                        <h3> Emergency Contact: <span style={{color: "rgb(98, 98, 250)"}}> 9971391713 </span> </h3>
+                                    </div>
+                                </div>
+                            )
+                        }
+                    </div>
+                </div>
+            ) 
+            : (
+                <div id="noticeS">
+                    <div className="noNoticeS">
+                        <h3> Please <span onClick={ () => { navigate("/Student/SignIn") }} style={{color: 'rgb(98, 98, 250)', cursor: 'pointer'}}> Sign In </span> first. </h3>
+                    </div>
+                </div>
+            )}
         </div>
         </>
     )

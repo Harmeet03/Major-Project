@@ -65,7 +65,7 @@ const Test = () => {
                 ) 
                 : (
                     <div className="noNoticeS">
-                        <h3> No Assignment available for you right now. </h3>
+                        <h3> No Test available for you right now. </h3>
                     </div>
                 )}
             </div>

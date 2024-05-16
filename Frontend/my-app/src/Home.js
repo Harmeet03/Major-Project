@@ -1,6 +1,5 @@
 import React from 'react';
 import './index.css';
-import {Link} from 'react-router-dom';
 import Navbar from './Navbar';
 import  './App.css'
 import Footer from './Footer';
@@ -21,13 +20,13 @@ return(
         <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Nothing+You+Could+Do" />
         <div class="slideshow-container">
             <div class="mySlides fade">
-                <img src="https://m.media-amazon.com/images/I/81ZYZa-tsjL._SY879_.jpg"></img>
+                <img src="https://m.media-amazon.com/images/I/81ZYZa-tsjL._SY879_.jpg" alt="sdsd"></img>
             </div>
             <div class="mySlides fade">
-                <img src="https://m.media-amazon.com/images/I/71auRIYMxAL._SY741_.jpg"></img>
+                <img src="https://m.media-amazon.com/images/I/71auRIYMxAL._SY741_.jpg" alt="sdsd"></img>
             </div>
             <div class="mySlides fade">
-                <img src="https://m.media-amazon.com/images/I/61eJA6vigNL._SY741_.jpg"></img>
+                <img src="https://m.media-amazon.com/images/I/61eJA6vigNL._SY741_.jpg" alt="sdsd"></img>
             </div>
             <div class="dots" style={{textAlign: "center"}}>
                 <span class="dot"></span> 
@@ -101,26 +100,26 @@ return(
             <h1>Our Achievements</h1>
             <div className='cont51'>
                 <div>
-                    <img id='i89' src='https://www.callcentrehelper.com/images/stories/2021/03/mountain-top-celebration-760.jpg'></img>
+                    <img id='i89' src='https://www.callcentrehelper.com/images/stories/2021/03/mountain-top-celebration-760.jpg' alt="sdsd"></img>
                     <h4>Industry Recognition</h4>
                     <p id='p12'> Received multiple awards and accolades for innovation and excellence in software development.</p>
                 </div>
 
                 <div>
-                    <img id='i89' src='https://img.freepik.com/premium-photo/customer-review-satisfaction-feedback-survey-concept_31965-6888.jpg'></img>
+                    <img id='i89' src='https://img.freepik.com/premium-photo/customer-review-satisfaction-feedback-survey-concept_31965-6888.jpg' alt="sdsd"></img>
                     <h4>Client Satisfaction</h4>
                     <p id='p12'>Maintained consistently high customer satisfaction scores, with positive feedback on the usability
                     and effectiveness of our software solutions.</p>
                 </div>
 
                 <div>
-                    <img id='i89' src='https://t3.ftcdn.net/jpg/06/03/43/86/360_F_603438646_lXIgmPU4Myc4UCkqihuhbaiVAhyl3Msr.jpg'></img>
+                    <img id='i89' src='https://t3.ftcdn.net/jpg/06/03/43/86/360_F_603438646_lXIgmPU4Myc4UCkqihuhbaiVAhyl3Msr.jpg' alt="sdsd"></img>
                     <h4>Global Reach</h4>
                     <p id='p12'>Expanded our presence globally, with a diverse clientele spanning various industries and geographical locations.</p>
                 </div>
 
                 <div>
-                    <img id='i89' src='https://cdn0.tnwcdn.com/wp-content/blogs.dir/1/files/2018/07/Philips-AI-e1530715287950.jpg'></img>
+                    <img id='i89' src='https://cdn0.tnwcdn.com/wp-content/blogs.dir/1/files/2018/07/Philips-AI-e1530715287950.jpg' alt="sdsd"></img>
                     <h4>Cutting-Edge Technology</h4>
                     <p id='p12'>Pioneered the integration of cutting-edge technologies, staying ahead of industry trends and providing clients
                     with state-of-the-art solutions.</p>
@@ -132,22 +131,22 @@ return(
             <h1>Our Experts</h1>
             <div className='cont61'>
                 <div>
-                    <img  src='https://antlovebaba.com/school_management_api/assets/images/urtzsevs_smsDemo/14012023050654784512.png'></img>
+                    <img  src='https://antlovebaba.com/school_management_api/assets/images/urtzsevs_smsDemo/14012023050654784512.png' alt="sdsd"></img>
                     <p> Office Assistant<br></br>M.Com,BBA</p>
                 </div>
 
                 <div>
-                    <img  src='https://antlovebaba.com/school_management_api/assets/images/urtzsevs_smsDemo/14012023050654784512.png'></img>
+                    <img  src='https://antlovebaba.com/school_management_api/assets/images/urtzsevs_smsDemo/14012023050654784512.png' alt="sdsd"></img>
                     <p> Office Assistant<br></br>M.Com,BBA</p>
                 </div>
 
                 <div>
-                    <img  src='https://antlovebaba.com/school_management_api/assets/images/urtzsevs_smsDemo/14012023050654784512.png'></img>
+                    <img  src='https://antlovebaba.com/school_management_api/assets/images/urtzsevs_smsDemo/14012023050654784512.png' alt="sdsd"></img>
                     <p> Office Assistant<br></br>M.Com,BBA</p>
                 </div>
 
                 <div>
-                    <img src='https://antlovebaba.com/school_management_api/assets/images/urtzsevs_smsDemo/14012023050654784512.png'></img>
+                    <img src='https://antlovebaba.com/school_management_api/assets/images/urtzsevs_smsDemo/14012023050654784512.png' alt="sdsd"></img>
                     <p> Office Assistant<br></br>M.Com,BBA</p>
                 </div>
             </div>
@@ -158,32 +157,32 @@ return(
             <h1>10th Results</h1>
             <div className='cont71'>
                 <div>
-                    <img  src='https://antlovebaba.com/school_management_api/assets/images/urtzsevs_smsDemo/14012023050624358004.png'></img>
+                    <img  src='https://antlovebaba.com/school_management_api/assets/images/urtzsevs_smsDemo/14012023050624358004.png' alt="sdsd"></img>
                     <p>Percentage 56</p>
                 </div>
 
                 <div>
-                    <img  src='https://antlovebaba.com/school_management_api/assets/images/urtzsevs_smsDemo/14012023050624358004.png'></img>
+                    <img  src='https://antlovebaba.com/school_management_api/assets/images/urtzsevs_smsDemo/14012023050624358004.png' alt="sdsd"></img>
                     <p>Percentage 60</p>
                 </div>
 
                 <div>
-                    <img  src='https://antlovebaba.com/school_management_api/assets/images/urtzsevs_smsDemo/14012023050654784512.png'></img>
+                    <img  src='https://antlovebaba.com/school_management_api/assets/images/urtzsevs_smsDemo/14012023050654784512.png' alt="sdsd"></img>
                     <p>Percentage 79</p>
                 </div>
 
                 <div>
-                    <img src='https://antlovebaba.com/school_management_api/assets/images/urtzsevs_smsDemo/14012023050654784512.png'></img>
+                    <img src='https://antlovebaba.com/school_management_api/assets/images/urtzsevs_smsDemo/14012023050654784512.png' alt="sdsd"></img>
                     <p>Percentage 90</p>
                 </div>
 
                 <div>
-                    <img src='https://antlovebaba.com/school_management_api/assets/images/urtzsevs_smsDemo/14012023050654784512.png'></img>
+                    <img src='https://antlovebaba.com/school_management_api/assets/images/urtzsevs_smsDemo/14012023050654784512.png' alt="sdsd"></img>
                     <p>Percentage 90</p>
                 </div>
 
                 <div>
-                    <img src='https://antlovebaba.com/school_management_api/assets/images/urtzsevs_smsDemo/14012023050654784512.png'></img>
+                    <img src='https://antlovebaba.com/school_management_api/assets/images/urtzsevs_smsDemo/14012023050654784512.png' alt="sdsd"></img>
                     <p>Percentage 90</p>
                 </div>
             </div>
@@ -193,101 +192,38 @@ return(
             <h1>12th Results</h1>
             <div className='cont71'>
                 <div>
-                    <img  src='https://antlovebaba.com/school_management_api/assets/images/urtzsevs_smsDemo/14012023050751722427.png'></img>
+                    <img  src='https://antlovebaba.com/school_management_api/assets/images/urtzsevs_smsDemo/14012023050751722427.png' alt="sdsd"></img>
                     <p>Percentage 56</p>
                 </div>
 
                 <div>
-                    <img  src='https://antlovebaba.com/school_management_api/assets/images/urtzsevs_smsDemo/14012023050624358004.png'></img>
+                    <img  src='https://antlovebaba.com/school_management_api/assets/images/urtzsevs_smsDemo/14012023050624358004.png' alt="sdsd"></img>
                     <p>Percentage 60</p>
                 </div>
 
                 <div>
-                    <img  src='https://antlovebaba.com/school_management_api/assets/images/urtzsevs_smsDemo/14012023050654784512.png'></img>
+                    <img  src='https://antlovebaba.com/school_management_api/assets/images/urtzsevs_smsDemo/14012023050654784512.png' alt="sdsd"></img>
                     <p>Percentage 79</p>
                 </div>
 
                 <div>
-                    <img src='https://antlovebaba.com/school_management_api/assets/images/urtzsevs_smsDemo/14012023050654784512.png'></img>
+                    <img src='https://antlovebaba.com/school_management_api/assets/images/urtzsevs_smsDemo/14012023050654784512.png' alt="sdsd"></img>
                     <p>Percentage 90</p>
                 </div>
 
                 <div>
-                    <img src='https://antlovebaba.com/school_management_api/assets/images/urtzsevs_smsDemo/14012023050654784512.png'></img>
+                    <img src='https://antlovebaba.com/school_management_api/assets/images/urtzsevs_smsDemo/14012023050654784512.png' alt="sdsd"></img>
                     <p>Percentage 90</p>
                 </div>
 
                 <div>
-                    <img src='https://antlovebaba.com/school_management_api/assets/images/urtzsevs_smsDemo/14012023050654784512.png'></img>
+                    <img src='https://antlovebaba.com/school_management_api/assets/images/urtzsevs_smsDemo/14012023050654784512.png' alt="sdsd"></img>
                     <p>Percentage 90</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <div style={{ display: 'flex', justifyContent: 'center' , height: '60vh',padding:'100px 0px'}}>
-        
-        <table style={{borderCollapse: 'collapse'}} >
-        <tr style={{ backgroundColor: 'black', color: 'white', fontSize: '25px',border:'none',borderBottom: '0.1px solid white'}}>
-            <th style={{width:'150px',border:'none'}}>Courses Name</th>
-            <th style={{border:'none'}}>Category</th>
-            <th style={{border:'none'}}>Instructor</th>
-            <th style={{border:'none'}}>Price</th>
-            <th style={{border:'none'}}></th>
-        </tr>
-        
-        <tr style={{ backgroundColor: 'black', color: 'white',fontSize:'15px',border:'none',borderBottom: '0.1px solid white'}}>
-            <td style={{ padding: '10px',border:'none' }}>Academic English</td>
-            <td style={{ padding: '10px',border:'none' }}>Web Technology</td>
-            <td style={{ padding: '10px',border:'none' }}>fsdfds</td>
-            <td style={{ padding: '10px',border:'none' }}>Row 1, Column 4</td>
-            <td style={{ padding: '10px',border:'none' }}><button style={{ backgroundColor: '#36dff8', borderRadius: '20px', color: 'white', padding: '10px 20px', border: 'none', cursor: 'pointer' }}>
-            My Button
-        </button></td>
-            
-        </tr>
-        <tr style={{ backgroundColor: 'black', color: 'white',fontSize:'15px',border:'none',borderBottom: '0.1px solid white' }}>
-            <td style={{ padding: '10px',border:'none' }}>Row 2, Column 1</td>
-            <td style={{ padding: '10px',border:'none' }}>Row 2, Column 2</td>
-            <td style={{ padding: '10px',border:'none' }}>Row 2, Column 3</td>
-            <td style={{ padding: '10px',border:'none' }}>Row 2, Column 4</td>
-            <td style={{ padding: '10px',border:'none' }}><button style={{ backgroundColor: '#36dff8', borderRadius: '20px', color: 'white', padding: '10px 20px', border: 'none', cursor: 'pointer' }}>
-            My Button
-        </button></td>
-        
-        </tr>
-        <tr style={{ backgroundColor: 'black', color: 'white' ,border:'none',borderBottom: '0.1px solid white'}}>
-            <td style={{ padding: '10px',border:'none' }}>Row 3, Column 1</td>
-            <td style={{ padding: '10px',border:'none' }}>Row 3, Column 2</td>
-            <td style={{ padding: '10px',border:'none' }}>Row 3, Column 3</td>
-            <td style={{ padding: '10px',border:'none' }}>Row 3, Column 4</td>
-            <td style={{ padding: '10px',border:'none' }}><button style={{ backgroundColor: '#36dff8', borderRadius: '20px', color: 'white', padding: '10px 20px', border: 'none', cursor: 'pointer' }}>
-            My Button
-        </button></td>
-        
-        </tr>
-        <tr style={{ backgroundColor: 'black', color: 'white',border:'none',borderBottom: '0.1px solid white' }}>
-            <td style={{ padding: '10px',border:'none' }}>Row 4, Column 1</td>
-            <td style={{ padding: '10px',border:'none' }}>Row 4, Column 2</td>
-            <td style={{ padding: '10px',border:'none' }}>Row 4, Column 3</td>
-            <td style={{ padding: '10px',border:'none' }}>Row 4, Column 4</td>
-            <td style={{ padding: '10px',border:'none'}}><button style={{ backgroundColor: '#36dff8', borderRadius: '20px', color: 'white', padding: '10px 20px', border: 'none', cursor: 'pointer' }}>
-            My Button
-        </button></td>
-            
-        </tr>
-        <tr style={{ backgroundColor: 'black', color: 'white',border:'none',borderBottom: '0.1px solid white' }}>
-            <td style={{ padding: '10px',border:'none' }}>Row 5, Column 1</td>
-            <td style={{ padding: '10px',border:'none' }}>Row 5, Column 2</td>
-            <td style={{ padding: '10px',border:'none' }}>Row 5, Column 3</td>
-            <td style={{ padding: '10px',border:'none' }}>Row 5, Column 4</td>
-            <td style={{ padding: '10px',border:'none' }}><button style={{ backgroundColor: '#36dff8', borderRadius: '20px', color: 'white', padding: '10px 20px', border: 'none', cursor: 'pointer' }}>
-            My Button
-        </button></td>
-        
-        </tr>
-        </table>
-   </div>
     <Footer/>
 </>
 )

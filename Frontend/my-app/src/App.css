@@ -42,6 +42,7 @@ body{
   margin: 0;
   padding: 0;
   background-color: black;
+  /* background-color: white; */
 }
 /* ------------------------------ ADMINS, TEACHERS, STUDENTS ------------------------------------------------------- */
 /* ------------- SIGN IN & SIGN UP ------------ */
@@ -280,7 +281,6 @@ header > h1{
 .overviewS{
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  border: 1px solid black;
   width: 1000px;
   margin: auto;
   color: white;
@@ -292,6 +292,7 @@ header > h1{
   border: 1px solid black;
   text-align: center;
   background-color: rgba(255, 255, 255, 0.164);
+  /* background-color: rgba(46, 42, 42, 0.349); */
   border-radius: 6px;
   padding: 20px 0px;
 }

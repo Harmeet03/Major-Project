@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import '../App.css';
 import { useNavigate } from "react-router-dom";
 
@@ -10,7 +10,6 @@ const Navbar = ({username}) => {
 
         let body = document.querySelector("body"); 
         let text = document.querySelector(".overviewS, #noticeS");
-
 
         if(lightMode === 'OFF'){
             localStorage.setItem('lightMode', 'ON');
@@ -25,13 +24,17 @@ const Navbar = ({username}) => {
         else{
             localStorage.setItem('lightMode', 'OFF');
             body.style.backgroundColor = 'black'; 
-            body.style.color = 'white'; 
+            body.style.color = 'white';
             
             text.style.backgroundColor = 'rgba(255, 255, 255, 0.164)';
             text.style.color = 'white';
             console.log(lightMode);
         }
     }
+
+    useEffect(() => {
+        currentTheme();
+    }, []);
 
     return(
         <>
@@ -66,7 +69,7 @@ const Navbar = ({username}) => {
             <span onClick={ () => { navigate("/Student/Test") }}><i className="fa fa-book"></i>&nbsp; Test</span>
             <span onClick={ () => { navigate(`/Student/Profile/${username}`)}}><i className="fa fa-address-card"></i>&nbsp; Profile</span>
             <span onClick={ () => { navigate("/Register") }}><i className="fa fa-step-forward"></i>&nbsp; Logout</span>
-            <span onClick={ () => { currentTheme() }}><i className="fa fa-"></i>&nbsp; Theme </span>
+            <span onClick={ () => { currentTheme() }}><i className="fa fa-toggle-up"></i>&nbsp; Theme </span>
         </nav>
         </>
     )

@@ -13,7 +13,6 @@ const Profile = () => {
 
     const [student, setStudent] = useState();
     
-
     useEffect(() => {
         fetchStudentData(username);
     }, [username]);

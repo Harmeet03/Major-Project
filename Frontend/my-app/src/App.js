@@ -38,6 +38,10 @@ import Subject from './Student/Subject';
 import ProfileS from './Student/Profile';
 import TimeTableS from './Student/TimeTable';
 
+// OTP
+import OTP from './OTP';
+
+
 
 
 function App() {
@@ -84,6 +88,9 @@ function App() {
         {/* <Route path="/Student/Subject" element={<Subject/>} /> */}
         <Route path="/Student/Profile/:username" element={<ProfileS/>} />
         <Route path="/Student/TimeTable" element={<TimeTableS/>} />
+
+        {/* OTP Practice */}
+        <Route path="/otp" element={<OTP/>} />
       </Routes>
     </BrowserRouter>
   );

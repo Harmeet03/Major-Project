@@ -75,31 +75,31 @@ app.post("/userinfo", async function (req, res) {
 // --------------------------------------------------------
 
 // ---- BELOW CODE IS FOR GENERATING OTP ----
-const nodemailer = require('nodemailer');
-const { v4: uuidv4 } = require('uuid');
-const otpMap = {};
+// const nodemailer = require('nodemailer');
+// const { v4: uuidv4 } = require('uuid');
+// const otpMap = {};
 
 
-function generateOTP(){
-  return Math.floor(100000 + Math.random() * 900000);
-}
+// function generateOTP(){
+//   return Math.floor(100000 + Math.random() * 900000);
+// }
   
-async function sendOTP(email, otp){
-  const transporter = nodemailer.createTransport({
-    service: 'Outlook',
-    auth: {
-      user: 'hsdhanjal2003@outlook.com',
-      pass: 'Dhanjal2003'
-    }
-  });
+// async function sendOTP(email, otp){
+//   const transporter = nodemailer.createTransport({
+//     service: 'Outlook',
+//     auth: {
+//       user: 'hsdhanjal2003@outlook.com',
+//       pass: 'Dhanjal2003'
+//     }
+//   });
     
-  await transporter.sendMail({
-    from: 'hsdhanjal2003@outlook.com',
-    to: email,
-    subject: 'Your OTP for SignIn',
-    text: `Your OTP for SignIn is: ${otp}`
-  });
-}
+//   await transporter.sendMail({
+//     from: 'hsdhanjal2003@outlook.com',
+//     to: email,
+//     subject: 'Your OTP for SignIn',
+//     text: `Your OTP for SignIn is: ${otp}`
+//   });
+// }
 
 // ------------------------------------------
 
@@ -338,48 +338,48 @@ app.post('/slogin', async(req, res) => {
   }
 });
 
-app.post('/otp', async(req, res) => {
-  const otp = generateOTP();
-  const { email } = req.body;
-  otpMap[email] = otp;
+// app.post('/otp', async(req, res) => {
+  // const otp = generateOTP();
+  // const { email } = req.body;
+  // otpMap[email] = otp;
   
-  try{
-    const student = await studentDetail.findOne({username});
-    if(student){
-      if(password == student.password){
-        otpMap[user.email] = otp;
-        await sendOTP(email, otp);
-        res.status(200).json({ message: "Login Successful", student});
-      }
-      else{
-        res.status(401).json({ message: "Incorrect Password!" });
-      }
-    }
-    else{
-      res.status(401).json({ message: "Invalid Username" });
-    }
-  }
-  catch(error){
-    console.error('Error sending OTP:', error);
-    res.status(500).json({error: "ERROR:500. SERVER IS OFFLINE. KINDLY TRY LATER"});
-  }
-});
+//   try{
+//     const student = await studentDetail.findOne({username});
+//     if(student){
+//       if(password == student.password){
+//         otpMap[user.email] = otp;
+//         await sendOTP(email, otp);
+//         res.status(200).json({ message: "Login Successful", student});
+//       }
+//       else{
+//         res.status(401).json({ message: "Incorrect Password!" });
+//       }
+//     }
+//     else{
+//       res.status(401).json({ message: "Invalid Username" });
+//     }
+//   }
+//   catch(error){
+//     console.error('Error sending OTP:', error);
+//     res.status(500).json({error: "ERROR:500. SERVER IS OFFLINE. KINDLY TRY LATER"});
+//   }
+// });
 
 // ----------------------------------------------------------------
 
-app.post('/verify', async (req, res) => {
-  const { email, otp } = req.body;
+// app.post('/verify', async (req, res) => {
+//   const { email, otp } = req.body;
   
-  const storedOTP = otpMap[email];
+//   const storedOTP = otpMap[email];
   
-  if(storedOTP && otp === storedOTP){
-    res.status(200).json({ message: 'Sign in successful' });
-  } 
-  else {
-    // If OTP does not match or expired, deny sign in
-    res.status(401).json({ error: 'Invalid OTP' });
-  }
-});
+//   if(storedOTP && otp === storedOTP){
+//     res.status(200).json({ message: 'Sign in successful' });
+//   } 
+//   else {
+//     // If OTP does not match or expired, deny sign in
+//     res.status(401).json({ error: 'Invalid OTP' });
+//   }
+// });
 
 // -------------------------------------------- THIS PART IS FOR NOTICE'S BACKEND --------------------------------------------
 

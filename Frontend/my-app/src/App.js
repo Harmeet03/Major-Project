@@ -39,7 +39,7 @@ import ProfileS from './Student/Profile';
 import TimeTableS from './Student/TimeTable';
 
 // OTP
-import OTP from './OTP';
+// import OTP from './OTP';
 
 
 
@@ -90,7 +90,7 @@ function App() {
         <Route path="/Student/TimeTable" element={<TimeTableS/>} />
 
         {/* OTP Practice */}
-        <Route path="/otp" element={<OTP/>} />
+        {/* <Route path="/otp" element={<OTP/>} /> */}
       </Routes>
     </BrowserRouter>
   );

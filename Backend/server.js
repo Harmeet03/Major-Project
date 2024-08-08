@@ -1,7 +1,7 @@
 const mongoDB = require("./dbConnection");
 const express = require("express");
 const userID = require("./users");
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 
 mongoDB();
 

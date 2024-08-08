@@ -72,41 +72,9 @@ app.post("/userinfo", async function (req, res) {
 
 });
 
-// --------------------------------------------------------
-
-// ---- BELOW CODE IS FOR GENERATING OTP ----
-// const nodemailer = require('nodemailer');
-// const { v4: uuidv4 } = require('uuid');
-// const otpMap = {};
-
-
-// function generateOTP(){
-//   return Math.floor(100000 + Math.random() * 900000);
-// }
-  
-// async function sendOTP(email, otp){
-//   const transporter = nodemailer.createTransport({
-//     service: 'Outlook',
-//     auth: {
-//       user: 'hsdhanjal2003@outlook.com',
-//       pass: 'Dhanjal2003'
-//     }
-//   });
-    
-//   await transporter.sendMail({
-//     from: 'hsdhanjal2003@outlook.com',
-//     to: email,
-//     subject: 'Your OTP for SignIn',
-//     text: `Your OTP for SignIn is: ${otp}`
-//   });
-// }
-
-// ------------------------------------------
-
 // -------------THIS IS BACKEND FOR ADMIN SIGN IN ---------------
 
 const userInfo = require("./users");
-const bodyParser = require("body-parser");
 
 app.post('/login', async(req, res) => {
   const { uname, password } = req.body;
@@ -689,6 +657,53 @@ app.get("/test", async (req, res) => {
 });
 
 // -----------------------------------------------------------------------------
+
+// --------------------- THIS IS FOR POSTING MARKS ------------------------
+
+const bodyParser = require('body-parser');
+app.use(bodyParser.json());
+const Marks = require('./marks');
+
+// Route to store record
+app.post('/marks', async (req, res) => {
+  try {
+    const { classValue, rollNumber, studentName, mathsMarks, englishMarks, scienceMarks, sstMarks, hindiMarks } = req.body;
+    const newMarks = new Marks({ classValue, rollNumber, studentName, mathsMarks, englishMarks, scienceMarks, sstMarks, hindiMarks });
+    await newMarks.save();
+    res.status(201).json({ message: 'Marks stored successfully' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+
+// Route to fetch record
+app.get('/marks', async (req, res) => {
+  try {
+    const marks = await Marks.find();
+    res.json(marks);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+
+// Route to delete marks
+app.delete('/marks', async (req, res) => {
+  try {
+    const { rollNumber, studentName } = req.body;
+    const deletedMark = await Marks.deleteOne({ rollNumber, studentName });
+    if (deletedMark.deletedCount === 0) {
+      return res.status(404).json({ message: 'Record not found' });
+    }
+    res.json({ message: 'Record deleted successfully' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+
+// -----------------------------------------------------------------------
 
 const PORT = process.env.PORT || 4040;
 app.listen(PORT, () => {

@@ -6,13 +6,12 @@ import { useNavigate } from "react-router-dom";
 
 const Marks = () => {
     const navigate = useNavigate();
-
     const [marks, setMarks] = useState([]);
 
     useEffect(() => {
       const fetchMarks = async () => {
         try {
-          const response = await axios.get('http://localhost:8080/api/marks');
+          const response = await axios.get('http://localhost:4040/marks');
           setMarks(response.data);
         } catch (error) {
           console.error('Error fetching marks:', error);
@@ -49,16 +48,16 @@ const Marks = () => {
                               <th>Class</th>
                               <th>Roll No.</th>
                               <th>Student Name</th>
-                              <th>Marks in Maths</th>
-                              <th>Marks in English</th>
-                              <th>Marks in Science</th>
-                              <th>Marks in SST</th>
-                              <th>Marks in Hindi</th>
+                              <th>Maths</th>
+                              <th>English</th>
+                              <th>Science</th>
+                              <th>SST</th>
+                              <th>Hindi</th>
                             </tr>
                         </thead>
                         <tbody>
                         {marks.map(mark => (
-                          <tr key={mark._id}>
+                          <tr key={mark._id} className='marks'>
                             <td>{mark.classValue}</td>
                             <td>{mark.rollNumber}</td>
                             <td>{mark.studentName}</td>

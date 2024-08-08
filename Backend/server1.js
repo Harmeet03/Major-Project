@@ -4,32 +4,16 @@ const bodyParser = require('body-parser');
 const cors = require('cors');
 
 const app = express();
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 4040;
 
-mongoose.connect('mongodb+srv://Harmeet:Dhanjal2003@cluster0.mob0vls.mongodb.net/schoolDB', {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-}).then(() => console.log('MongoDB Connected'))
-  .catch(err => console.log(err));
 
-const marksSchema = new mongoose.Schema({
-  classValue: String,
-  rollNumber: String,
-  studentName: String,
-  mathsMarks: Number,
-  englishMarks: Number,
-  scienceMarks: Number,
-  sstMarks: Number,
-  hindiMarks: Number
-});
-
-const Marks = mongoose.model('Marks', marksSchema);
+const Marks = require('./marks');
 
 app.use(bodyParser.json());
 app.use(cors());
 
 // Route to store record
-app.post('/api/marks', async (req, res) => {
+app.post('/marks', async (req, res) => {
   try {
     const { classValue, rollNumber, studentName, mathsMarks, englishMarks, scienceMarks, sstMarks, hindiMarks } = req.body;
     const newMarks = new Marks({ classValue, rollNumber, studentName, mathsMarks, englishMarks, scienceMarks, sstMarks, hindiMarks });
@@ -42,7 +26,7 @@ app.post('/api/marks', async (req, res) => {
 });
 
 // Route to fetch record
-app.get('/api/marks', async (req, res) => {
+app.get('/marks', async (req, res) => {
   try {
     const marks = await Marks.find();
     res.json(marks);
@@ -53,7 +37,7 @@ app.get('/api/marks', async (req, res) => {
 });
 
 // Route to delete marks
-app.delete('/api/marks', async (req, res) => {
+app.delete('/marks', async (req, res) => {
   try {
     const { rollNumber, studentName } = req.body;
     const deletedMark = await Marks.deleteOne({ rollNumber, studentName });

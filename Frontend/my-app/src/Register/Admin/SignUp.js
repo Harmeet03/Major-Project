@@ -15,7 +15,7 @@ const SignUp = () => {
             });
             
             try {
-                const response = await fetch('http://localhost:4040/userinfo', {
+                const response = await fetch('https://school-erp-system.onrender.com/userinfo', {
                     method: 'POST',
                     mode: "cors",
                     headers: {

@@ -15,7 +15,7 @@ const Home = () => {
 
     const fetchNoticeData = async () => {
         try {
-            const response = await fetch('http://localhost:4040/tnotice');
+            const response = await fetch('https://school-erp-system.onrender.com/tnotice');
             if (response.ok) {
                 const data = await response.json();
                 setnotices(data);
@@ -36,7 +36,7 @@ const Home = () => {
 
     const countAssignmentData = async () => {
         try {
-            const response = await fetch('http://localhost:4040/assignment');
+            const response = await fetch('https://school-erp-system.onrender.com/assignment');
             if (response.ok) {
                 const data = await response.json();
                 setassignments(data.count);
@@ -57,7 +57,7 @@ const Home = () => {
 
     const countNotesData = async () => {
         try {
-            const response = await fetch('http://localhost:4040/notes');
+            const response = await fetch('https://school-erp-system.onrender.com/notes');
             if (response.ok) {
                 const data = await response.json();
                 setnotes(data.count);
@@ -78,7 +78,7 @@ const Home = () => {
 
     const countTestsData = async () => {
         try {
-            const response = await fetch('http://localhost:4040/test');
+            const response = await fetch('https://school-erp-system.onrender.com/test');
             if (response.ok) {
                 const data = await response.json();
                 settests(data.count);

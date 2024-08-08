@@ -26,7 +26,7 @@ const Marks = () => {
         return;
       }
       try {
-        await axios.post('http://localhost:4040/marks', {
+        await axios.post('https://school-erp-system.onrender.com/marks', {
           classValue: sendClassValue,
           rollNumber: sendRollNumber,
           studentName: sendStudentName,
@@ -61,7 +61,7 @@ const Marks = () => {
         return;
       }
       try {
-        await axios.delete('http://localhost:4040/marks', {
+        await axios.delete('https://school-erp-system.onrender.com/marks', {
           data: {
             rollNumber: deleteRollNumber,
             studentName: deleteStudentName

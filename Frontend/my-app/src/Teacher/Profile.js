@@ -34,7 +34,7 @@ const Profile = () => {
     
     const fetchTeacherData = async (username) => {
         try {
-            const response = await fetch(`http://localhost:4040/teacherinfo/${username}`);
+            const response = await fetch(`https://school-erp-system.onrender.com/teacherinfo/${username}`);
             if (response.ok) {
                 const data = await response.json();
                 setTeacher(data);

@@ -14,7 +14,7 @@ const List = () => {
 
     const fetchStudentData = async () => {
         try {
-            const response = await fetch('http://localhost:4040/studentinfo');
+            const response = await fetch('https://school-erp-system.onrender.com/studentinfo');
             if (response.ok) {
                 const data = await response.json();
                 setStudents(data);

@@ -34,7 +34,7 @@ const Profile = () => {
     
     const fetchStudentData = async (username) => {
         try {
-            const response = await fetch(`http://localhost:4040/studentinfo/${username}`);
+            const response = await fetch(`https://school-erp-system.onrender.com/studentinfo/${username}`);
             if (response.ok) {
                 const data = await response.json();
                 setStudent(data);

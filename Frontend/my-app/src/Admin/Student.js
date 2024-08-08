@@ -34,7 +34,7 @@ const Student = () => {
         });
         
         try {
-            const response = await fetch('http://localhost:4040/studentinfo', {
+            const response = await fetch('https://school-erp-system.onrender.com/studentinfo', {
                 method: 'POST',
                 mode: "cors",
                 headers: {

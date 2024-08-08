@@ -14,7 +14,7 @@ const Assignment = () => {
 
     const fetchAssignmentData = async () => {
         try {
-            const response = await fetch('http://localhost:4040/assignment');
+            const response = await fetch('https://school-erp-system.onrender.com/assignment');
             if (response.ok) {
                 const data = await response.json();
                 setAssignments(data.assignments);

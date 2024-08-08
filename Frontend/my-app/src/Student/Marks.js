@@ -11,7 +11,7 @@ const Marks = () => {
     useEffect(() => {
       const fetchMarks = async () => {
         try {
-          const response = await axios.get('http://localhost:4040/marks');
+          const response = await axios.get('https://school-erp-system.onrender.com/marks');
           setMarks(response.data);
         } catch (error) {
           console.error('Error fetching marks:', error);

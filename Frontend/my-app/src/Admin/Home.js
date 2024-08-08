@@ -16,7 +16,7 @@ const Home = () => {
         });
         
         try {
-            const response = await fetch('http://localhost:4040/anotice', {
+            const response = await fetch('https://school-erp-system.onrender.com/anotice', {
                 method: 'POST',
                 mode: "cors",
                 headers: {

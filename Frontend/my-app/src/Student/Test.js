@@ -14,7 +14,7 @@ const Test = () => {
 
     const fetchTestData = async () => {
         try {
-            const response = await fetch('http://localhost:4040/test');
+            const response = await fetch('https://school-erp-system.onrender.com/test');
             if (response.ok) {
                 const data = await response.json();
                 setTests(data.tests);

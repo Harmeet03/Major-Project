@@ -11,7 +11,7 @@ const SignIn = () => {
     const handleLogin = async (event) => {
         event.preventDefault();
         try {
-          const response = await fetch('http://localhost:4040/tlogin', {
+          const response = await fetch('https://school-erp-system.onrender.com/tlogin', {
             method: 'POST',
             headers: {
               'Content-Type': 'application/json',

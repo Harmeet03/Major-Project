@@ -13,7 +13,7 @@ const Timetable = () => {
 
     const fetchTimeTableData = async () => {
         try {
-            const response = await fetch('http://localhost:4040/timetable');
+            const response = await fetch('https://school-erp-system.onrender.com/timetable');
             if (response.ok) {
                 const data = await response.json();
                 setTimeTables(data);
@@ -35,7 +35,7 @@ const Timetable = () => {
         });
         
         try {
-            const response = await fetch('http://localhost:4040/timetable', {
+            const response = await fetch('https://school-erp-system.onrender.com/timetable', {
                 method: 'POST',
                 mode: "cors",
                 headers: {
@@ -72,7 +72,7 @@ const Timetable = () => {
 
     const fetchTimeTable2Data = async () => {
         try {
-            const response = await fetch('http://localhost:4040/timetable2');
+            const response = await fetch('https://school-erp-system.onrender.com/timetable2');
             if (response.ok) {
                 const data = await response.json();
                 setTimeTables2(data);
@@ -94,7 +94,7 @@ const Timetable = () => {
         });
         
         try {
-            const response = await fetch('http://localhost:4040/timetable2', {
+            const response = await fetch('https://school-erp-system.onrender.com/timetable2', {
                 method: 'POST',
                 mode: "cors",
                 headers: {

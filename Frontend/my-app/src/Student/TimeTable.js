@@ -14,7 +14,7 @@ const TimeTable = () => {
 
     const fetchTimeTableData = async () => {
         try {
-            const response = await fetch('http://localhost:4040/timetable');
+            const response = await fetch('https://school-erp-system.onrender.com/timetable');
             if (response.ok) {
                 const data = await response.json();
                 setTimeTables(data);
@@ -35,7 +35,7 @@ const TimeTable = () => {
 
     const fetchTimeTable2Data = async () => {
         try {
-            const response = await fetch('http://localhost:4040/timetable2');
+            const response = await fetch('https://school-erp-system.onrender.com/timetable2');
             if (response.ok) {
                 const data = await response.json();
                 setTimeTables2(data);

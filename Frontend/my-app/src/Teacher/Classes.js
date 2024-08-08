@@ -15,8 +15,8 @@ const Classes = () => {
 
     const fetchStudentData = async () => {
         try {
-            const response = await fetch('http://localhost:4040/studentinfo');
-            const response2 = await fetch('http://localhost:4040/teacherinfo');
+            const response = await fetch('https://school-erp-system.onrender.com/studentinfo');
+            const response2 = await fetch('https://school-erp-system.onrender.com/teacherinfo');
             if (response.ok && response2.ok) {
                 const data = await response.json();
                 const data2 = await response2.json();

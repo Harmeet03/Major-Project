@@ -12,7 +12,7 @@ const Teachers = () => {
 
     const fetchTeacherData = async () => {
         try {
-            const response = await fetch('http://localhost:4040/teacherinfo');
+            const response = await fetch('https://school-erp-system.onrender.com/teacherinfo');
             if (response.ok) {
                 const data = await response.json();
                 setTeachers(data);
@@ -34,7 +34,7 @@ const Teachers = () => {
         });
         
         try {
-            const response = await fetch('http://localhost:4040/teacherinfo', {
+            const response = await fetch('https://school-erp-system.onrender.com/teacherinfo', {
                 method: 'POST',
                 mode: "cors",
                 headers: {

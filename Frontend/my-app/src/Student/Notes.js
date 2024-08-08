@@ -14,7 +14,7 @@ const Notes = () => {
 
     const fetchNotestData = async () => {
         try {
-            const response = await fetch('http://localhost:4040/notes');
+            const response = await fetch('https://school-erp-system.onrender.com/notes');
             if (response.ok) {
                 const data = await response.json();
                 setNotes(data.notes);

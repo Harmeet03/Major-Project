@@ -7,7 +7,7 @@ mongoDB();
 
 const cors = require("cors");
 const connection = {
-    origin: 'http://localhost:3000',
+    origin: 'https://schoolerpsystem.netlify.app',
     credentials: true
 };
 
@@ -17,14 +17,14 @@ app.use(cors(connection));
 const handleSubmit = async (e) => {
     e.preventDefault();
     try{
-        const request = await fetch('http://localhost:4040/', {
+        const request = await fetch('https://school-erp-system.onrender.com/', {
             method: "POST",
             mode: "cors",
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
                 // 'Access-Control-Allow-Origin': 'http://127.0.0.1:5501'
-                'Access-Control-Allow-Origin': 'http://localhost:3000'
+                'Access-Control-Allow-Origin': 'https://schoolerpsystem.netlify.app'
             }
         });
         if(request.ok){

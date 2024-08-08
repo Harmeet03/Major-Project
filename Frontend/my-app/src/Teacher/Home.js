@@ -14,7 +14,7 @@ const Home = () => {
 
     const fetchNoticeData = async () => {
         try {
-            const response = await fetch('http://localhost:4040/anotice');
+            const response = await fetch('https://school-erp-system.onrender.com/anotice');
             if (response.ok) {
                 const data = await response.json();
                 setnotices(data);
@@ -36,7 +36,7 @@ const Home = () => {
         });
         
         try {
-            const response = await fetch('http://localhost:4040/tnotice', {
+            const response = await fetch('https://school-erp-system.onrender.com/tnotice', {
                 method: 'POST',
                 mode: "cors",
                 headers: {

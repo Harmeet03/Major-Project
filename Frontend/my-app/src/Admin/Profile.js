@@ -14,7 +14,7 @@ const Profile = () => {
 
     const fetchAdminData = async () => {
         try {
-            const response = await fetch('http://localhost:4040/login');
+            const response = await fetch('https://school-erp-system.onrender.com/login');
             if (response.ok) {
                 const data = await response.json();
                 setAdmins(data);
